@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.guild-logo {
+  /* background-image: url('https://cdnassets.raider.io/images/profile/masthead_backdrops/v2/hordebanner15.jpg'); */
+  /* background-position: top; */
+  /* background-size: cover; */
+  height: 200px;
+}
+
+.font-roboto-con {
+  font-family: 'Roboto Condensed', sans-serif;
+}
