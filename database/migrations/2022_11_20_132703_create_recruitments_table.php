@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('recruitments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->integer('race_id')->nullable();
+            $table->integer('playable_class_id')->nullable();
+            $table->text('comment')->nullable();
+            $table->boolean('is_active')->default(0);
             $table->timestamps();
         });
     }
