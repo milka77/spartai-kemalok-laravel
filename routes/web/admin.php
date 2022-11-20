@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 // Admin Routes
 Route::middleware('auth')->group(function() {
  
-  Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+  Route::get('/', [AdminController::class, 'index'])->name('admin.index');
 
   // *******************************************
   // Role Routes
@@ -137,4 +137,30 @@ Route::middleware('auth')->group(function() {
     });
   });
   // End of Raid Tax Admin Routes --------------------------------------------
+
+  // *******************************************
+  // Recruitment Admin Routes
+  // *******************************************
+  Route::prefix('recruitment')->group(function() {
+    // *******************************************
+    // Recruitment routes
+    // *******************************************
+
+
+
+    // *******************************************
+    // Recruitment Class routes
+    // *******************************************
+    Route::prefix('class')->group(function() {
+      Route::get('/', [PlayableClassController::class, 'index'])->name('class.index');
+
+      Route::get('/create', [PlayableClassController::class, 'create'])->name('class.create');
+      Route::post('/store', [PlayableClassController::class, 'store'])->name('class.store');
+
+      Route::get('/{playableClass}/edit', [PlayableClassController::class, 'edit'])->name('class.edit');
+      Route::patch('/{playableClass}/update', [PlayableClassController::class, 'update'])->name('class.update');
+      
+      Route::delete('/{playableClass}/destroy', [PlayableClassController::class, 'destroy'])->name('class.destroy');
+    });
+  });
 });

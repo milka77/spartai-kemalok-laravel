@@ -38,7 +38,7 @@ class RaidTax extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Relationshio with Raid Tax Category Model
+    // Relationship with Raid Tax Category Model
     public function raidTaxCategory()
     {
         return $this->belongsTo(RaidTaxCategory::class);

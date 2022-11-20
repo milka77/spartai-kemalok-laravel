@@ -67,6 +67,35 @@
   </li>
   {{-- End Of Raid Tax links --}}
 
+
+  {{-- Recruitment links --}}
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRecruitment" aria-expanded="true" aria-controls="collapseRecruitment">
+      <i class="fas fa-user-plus"></i>
+      <span>Recruitment Settings</span>
+    </a>
+    <div id="collapseRecruitment" class="collapse" aria-labelledby="headingRecruitment" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+      
+        <h6 class="collapse-header">Recruitment</h6>
+        <a class="collapse-item" href="{{ route('raidtax.adminindex') }}"><i class="fas fa-folder-open"></i> Show All Raid Tactics</a>
+        <a class="collapse-item" href="{{ route('raidtax.create') }}"><i class="fas fa-folder-plus"></i> Add Raid Tactic</a>
+        <hr>
+        <h6 class="collapse-header">Recruitment Classes</h6>
+        <a class="collapse-item" href="{{ route('class.index') }}"><i class="fas fa-folder-open"></i> Show All Classes</a>
+        <a class="collapse-item" href="{{ route('class.create') }}"><i class="fas fa-folder-plus"></i> Add New Class</a>
+        <hr>
+        <h6 class="collapse-header">Recruitment Specs</h6>
+        <a class="collapse-item" href="{{ route('raidtaxdiff.index') }}"><i class="fas fa-folder-open"></i> Show All Difficulties</a>
+        <a class="collapse-item" href="{{ route('raidtaxdiff.create') }}"><i class="fas fa-folder-plus"></i> Add New Difficulty</a>
+      
+      </div>
+    </div>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+  </li>
+  {{-- End Of Recruitment links --}}
+
   {{-- User Admin links --}}
   <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
