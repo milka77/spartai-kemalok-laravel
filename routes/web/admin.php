@@ -162,5 +162,21 @@ Route::middleware('auth')->group(function() {
       
       Route::delete('/{playableClass}/destroy', [PlayableClassController::class, 'destroy'])->name('class.destroy');
     });
+
+    // *******************************************
+    // Recruitment Spec routes
+    // *******************************************
+    Route::prefix('spec')->group(function() {
+      Route::get('/', [SpecController::class, 'index'])->name('spec.index');
+
+      Route::get('/create', [SpecController::class, 'create'])->name('spec.create');
+      Route::post('/store', [SpecController::class, 'store'])->name('spec.store');
+
+      Route::get('/{playableClass}/edit', [SpecController::class, 'edit'])->name('spec.edit');
+      Route::patch('/{playableClass}/update', [SpecController::class, 'update'])->name('spec.update');
+      
+      Route::delete('/{playableClass}/destroy', [SpecController::class, 'destroy'])->name('spec.destroy');
+    });
   });
+  // End of Recruitment Admin Routes --------------------------------------------
 });

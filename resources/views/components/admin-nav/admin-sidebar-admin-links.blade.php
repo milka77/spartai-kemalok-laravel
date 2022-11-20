@@ -86,8 +86,8 @@
         <a class="collapse-item" href="{{ route('class.create') }}"><i class="fas fa-folder-plus"></i> Add New Class</a>
         <hr>
         <h6 class="collapse-header">Recruitment Specs</h6>
-        <a class="collapse-item" href="{{ route('raidtaxdiff.index') }}"><i class="fas fa-folder-open"></i> Show All Difficulties</a>
-        <a class="collapse-item" href="{{ route('raidtaxdiff.create') }}"><i class="fas fa-folder-plus"></i> Add New Difficulty</a>
+        <a class="collapse-item" href="{{ route('spec.index') }}"><i class="fas fa-folder-open"></i> Show All Specs</a>
+        <a class="collapse-item" href="{{ route('spec.create') }}"><i class="fas fa-folder-plus"></i> Add New Spec</a>
       
       </div>
     </div>

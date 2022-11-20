@@ -46,12 +46,11 @@
 
             {{-- News Body --}}
             <div class="mb-2">
-              <label class="form-label" for="body">News body: (ProTip!, Ha új bekezdést szeretnél a hírben akkor tegyél egy "pontosvesszőt ; " az új bekezdés elé, vagyis a két bekezdés közé, 
-                lehet írni folyamatosan is. Pl Bekezdés 1. ; Bekezdés 2.)
+              <label class="form-label" for="body">News body: (ProTip! Sajnos nem minden funcioja mukodik az editornak de az alap funkciok mennek. (pl: Bold Italic stb.))
                 <i class="fa-light fa-asterisk text-danger"></i>
               </label>
               
-              <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="12" name='body'>{{ $news->body }}</textarea>
+              <textarea id="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="12" name='body'>{{ $news->body }}</textarea>
               
               {{-- Displaying the error of exists --}}
               <div>
@@ -94,5 +93,11 @@
         </div>
       </div>
     </div>
+  @endsection
+
+  @section('extra-script')  
+  <script>
+          CKEDITOR.replace( 'body' );
+  </script>
   @endsection
 </x-admin-master>

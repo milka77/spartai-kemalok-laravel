@@ -51,7 +51,7 @@
                 <i class="fa-light fa-asterisk text-danger"></i>
               </label>
               
-              <textarea class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="8" name='body'></textarea>
+              <textarea id="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="10" name='body'></textarea>
               
               {{-- Displaying the error of exists --}}
               <div>
@@ -94,5 +94,18 @@
         </div>
       </div>
     </div>
+  @endsection
+  
+  @section('extra-script')
+  <script>
+    ClassicEditor
+            .create( document.querySelector( '#body' ) )
+            .then( editor => {
+                    console.log( editor );
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
+  </script>
   @endsection
 </x-admin-master>

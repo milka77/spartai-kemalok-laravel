@@ -12,10 +12,16 @@ class Spec extends Model
     protected $fillable = [
         'name',
         'slug',
+        'playable_class_id',
     ];
 
     public function recruitment()
     {
         $this->belongsToMany(Recruitment::class);
+    }
+
+    public function class()
+    {
+        $this->belongsTo(PlayableClass::class);
     }
 }

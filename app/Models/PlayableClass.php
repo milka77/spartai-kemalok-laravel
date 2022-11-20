@@ -18,4 +18,9 @@ class PlayableClass extends Model
     {
         $this->belongsToMany(Recruitment::class);
     }
+
+    public function spec()
+    {
+        $this->belongsToMany(Spec::class);
+    }
 }
