@@ -11,22 +11,16 @@ class Recruitment extends Model
 
     protected $fillable = [
         'user_id',
-        'race_id',
         'playable_class_id',
         'comment',
         'is_active',
+        'priority',
     ];
 
     // Relationship With User Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    // Relationship With Spec Model
-    public function spec()
-    {
-        return $this->belongsTo(Spec::class);
     }
 
     // Relationship With PlayableClass Model
