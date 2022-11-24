@@ -36,7 +36,7 @@ class RecruitmentController extends Controller
         ]);
 
         $is_active = 0;
-
+    
         // Checking the 'is_active' checkbox
         if(request('is_active'))
         {
@@ -49,6 +49,7 @@ class RecruitmentController extends Controller
         $rec->playable_class_id = request('playable_class_id');
         $rec->comment = request('comment');
         $rec->is_active = $is_active;
+        $rec->priority = request('priority');
         $rec->save();
 
         Toastr::success('Recruitment added successfuly!', 'System message');
@@ -90,6 +91,7 @@ class RecruitmentController extends Controller
         $recruitment->playable_class_id = request('playable_class_id');
         $recruitment->comment = request('comment');
         $recruitment->is_active = $is_active;
+        $recruitment->priority = request('priority');
         $recruitment->save();
 
         Toastr::success('Recruitment updated successfuly!', 'System message');
