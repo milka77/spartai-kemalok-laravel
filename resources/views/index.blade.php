@@ -11,16 +11,27 @@
             
         <article class="p-3 py-5 bg-zinc-700 rounded-lg mb-4">
           <div class="flex flex-col  border-b border-zinc-500">
-            <div class="text-center border-t border-b border-zinc-500">
+            <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
               
               <p class="text-xl p-2 pl-4 ">{{ $news->title  }}</p>
               {{-- <p class="capitalize text-lg p-2">{{ $news->category->name }}</p> --}}
             </div>
-            <div class="py-4">
-              @foreach (explode(';', $news->body) as $body)
-                  <p class="p-2 first-of-type:pt-5 last-of-type:pb-5">{!! $body !!}</p>
-              @endforeach
+            {{-- News Body --}}
+            @if($news->category->id == 1)
+            <div class="p-4 flex justify-between">
+              <div>{!! $news->body !!}</div>
+
+              <div>
+                <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" alt="">
+              </div>
             </div>
+            @else
+            <div class="p-4">
+              {!! $news->body !!}
+            </div>
+            @endif
+            
+            {{-- End Of News Body --}}
             <div class=" border-b border-zinc-500 flex justify-center p-2 py-4">
               @if ( $news->category->id === 2)
                 {{-- <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
@@ -29,7 +40,6 @@
                 src="http://wow-screenshots.com/upl/img/full_1460234631.6807454240.jpg" alt="">
 
               @else
-                <img class="md:shrink-0 object-scale-down max-h-xs max-w-xs" src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" alt="">
                 
               @endif
               
@@ -49,7 +59,7 @@
       {{-- End Of Left side News feed --}}
 
       {{-- Right side --}}
-      <div class="w-3/12 min-w-fit pt-12 p-2">
+      <div class="w-auto min-w-fit pt-12 p-2">
         {{-- Recruitment --}}
         <div class="bg-zinc-700 text-white rounded-lg mb-4">
           <h2 class="text-center font-semibold text-xl p-2">Tagfelvétel</h2>

@@ -67,7 +67,7 @@
             {{-- File path for image --}}
             <div class="mb-2">
               <label class="form-label" for="file_path">Image: <span >(optional but recommended for Guild Progress 'kill shot' )</span></label>
-              <input class="form-control {{ $errors->has('file_path') ? 'is-invalid' : '' }}" type="file" name="file_path" value="{{ old('file_path')}}">
+              <input class="form-control-file {{ $errors->has('file_path') ? 'is-invalid' : '' }}" type="file" name="file_path" value="{{ old('file_path')}}">
 
               {{-- Displaying the error of exists --}}
               <div>
@@ -98,14 +98,7 @@
   
   @section('extra-script')
   <script>
-    ClassicEditor
-            .create( document.querySelector( '#body' ) )
-            .then( editor => {
-                    console.log( editor );
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
+    CKEDITOR.replace( 'body' );
   </script>
   @endsection
 </x-admin-master>
