@@ -31,11 +31,11 @@
                   <th scope="col" class="py-2 px-6">
                     @if($rec->is_active)
                         @if($rec->priority)
-                        <span class="text-orange-600">
+                        <span class="text-green-500">
                           <small><i class="fas fa-angle-double-up"></i></small> High <small><i class="fas fa-angle-double-up"></i></small>
                         </span>
                         @else
-                        <span class="text-green-500">Normal</span>
+                        <span class="text-orange-500">Normal</span>
                         @endif
                       @else
                         -
@@ -44,7 +44,13 @@
                   <th scope="col" class="py-2 px-6">
                     <span class="{{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                       @if($rec->is_active)
-                        Open
+                        @if($rec->priority)
+                        <span class="text-green-500">
+                          <small><i class="fas fa-angle-double-up"></i></small> Open <small><i class="fas fa-angle-double-up"></i></small>
+                        </span>
+                        @else
+                        <span class="text-orange-500">Open</span>
+                        @endif
                       @else
                         Closed
                       @endif

@@ -38,7 +38,6 @@
                 src="{{ $news->file_path }}" alt="{{ $news->title }}"> --}}
                 <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
                 src="http://wow-screenshots.com/upl/img/full_1460234631.6807454240.jpg" alt="">
-
               @else
                 
               @endif
@@ -70,9 +69,9 @@
                 <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                   @if($rec->is_active)
                     @if($rec->priority)
-                      <a href="{{ route('guild.recruitment') }}"> <small><i class="fas fa-angle-double-up text-orange-600"></i></small> Open</a>
+                      <a href="{{ route('guild.recruitment') }}"> <small><i class="fas fa-angle-double-up"></i></small> Open</a>
                     @else
-                      <a href="{{ route('guild.recruitment') }}"> Open</a>
+                      <a href="{{ route('guild.recruitment') }}" class="text-orange-500"> Open</a>
                     @endif
                   @else
                     Closed
