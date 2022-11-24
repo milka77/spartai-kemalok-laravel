@@ -45,6 +45,25 @@
         </div>
         {{-- End Of Comments Field --}}
 
+        {{-- Priority field --}}
+        <div class="mb-2 form-group">
+          <label class="form-label" for="priority">Priority status</label>
+          <select class="form-control {{ $errors->has('priority') ? 'is-invalid' : '' }}" name="priority">
+            <option value="">Select Priority</option>
+            <option value="0" {{ $recruitment->priority == 0 ? 'selected' : '' }}>Low</option>
+            <option value="1" {{ $recruitment->priority == 1 ? 'selected' : '' }}>High</option>
+          </select>
+                    
+          {{-- Displaying the error is exists --}}
+          <div>
+            @error('priority')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+          </div>
+          {{-- End Of Displaying the error is exists --}}
+        </div>
+        {{-- End Of Priority field --}}
+
         {{-- Is_actice field --}}
         <div class="mb-2 form-group form-check">
           <input class="form-check-input {{ $errors->has('is_active') ? 'is-invalid' : '' }}" 
