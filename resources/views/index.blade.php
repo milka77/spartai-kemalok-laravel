@@ -1,7 +1,7 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class="container  p-3 rounded-lg flex gap-2 bg-zinc-800">
+    <div class="container p-3 rounded-lg flex gap-2 bg-zinc-800 md:container-fluid">
       
       {{-- Left side News feed --}}
       <div class="w-9/12 text-white rounded-lg p-2">
@@ -51,14 +51,30 @@
       {{-- Right side --}}
       <div class="w-3/12 pt-12 p-2">
         {{-- Recruitment --}}
-        <x-guild.recruitment/>
+        <div class="bg-zinc-700 text-white rounded-lg mb-4">
+          <h2 class="text-center font-semibold text-xl p-2">Tagfelvétel</h2>
+          <div class="px-4 py-2 border-t border-zinc-500">
+            @foreach ($recruits as $rec)
+              <div class="flex justify-between border-b border-zinc-500">
+                <span>{{ $rec->playable_class->name }}: </span>
+                <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
+                  @if($rec->is_active)
+                    <a href="{{ route('guild.recruitment') }}">Open</a>
+                  @else
+                    Closed
+                  @endif
+                </span>
+              </div>
+            @endforeach
+          </div>
+        </div>
         {{-- End Of Recruitment --}}
 
         {{-- Progress --}}
         <div class="bg-zinc-700 rounded-lg text-white">
           <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
           
-          <div class=" border-t border-gray-300 flex  p-2 px-4">
+          <div class=" border-t border-zinc-500 flex  p-2 px-4">
             <table class="w-full">
               <thead>
                 <th></th>

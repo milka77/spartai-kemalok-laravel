@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Wowapi;
 use App\Models\News;
+use App\Models\Recruitment;
 use App\Models\User;
 
 use App\Services\Raiderio;
@@ -102,7 +103,9 @@ class GuildController extends Controller
 
     public function recruitment()
     {
-        return view('guild.recruitment');
+        $recruits = Recruitment::all();
+
+        return view('guild.recruitment', ['recruits' => $recruits]);
     }
 
     // Receiving the Weekly highest run from Raider.io API
@@ -125,9 +128,14 @@ class GuildController extends Controller
 
         $all_news = News::all()->sortByDesc('id');
         $raid_progress = $raiderio->getGuildRaidProgress();
+        $recruits = Recruitment::all();
 
-        
+        $context = [
+            'news_index' => $all_news,
+            'raid_progress' => $raid_progress,
+            'recruits' => $recruits
+        ];
 
-        return view('index', ['news_index' => $all_news, 'raid_progress' => $raid_progress]);
+        return view('index', $context);
     }
 }
