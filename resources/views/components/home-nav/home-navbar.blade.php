@@ -7,7 +7,7 @@
   </div>
 </div>
 {{-- End Of Top Logo and Links --}}
-<nav class="sticky top-0 w-full py-2 px-16 z-10 border-t border-b border-pink-200 bg-gradient-to-b from-violet-800 via-violet-900 to-zinc-800 text-white flex justify-between mb-4 ">
+<nav class="sticky top-0 w-full py-2 px-16 z-10 border-t border-b border-pink-200 bg-gradient-to-b from-red-900 via-red-800 to-red-900 text-white flex justify-between mb-4 ">
   <ul class="flex items-center">
     <li class="p-3">
       <a href="{{ route('home') }}">{{ config('app.name') }}</a>
