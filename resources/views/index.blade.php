@@ -13,7 +13,7 @@
           <div class="flex flex-col  border-b border-zinc-500">
             <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
               
-              <p class="text-xl p-2 pl-4 ">{{ $news->title  }}</p>
+              <p class="text-xl p-2">{{ $news->title  }}</p>
               {{-- <p class="capitalize text-lg p-2">{{ $news->category->name }}</p> --}}
             </div>
             {{-- News Body --}}
@@ -60,8 +60,12 @@
       {{-- Right side --}}
       <div class="w-auto min-w-fit pt-12 p-2">
         {{-- Recruitment --}}
-        <div class="bg-zinc-700 text-white rounded-lg mb-4">
-          <h2 class="text-center font-semibold text-xl p-2">Tagfelvétel</h2>
+        <div class="bg-zinc-700 text-white rounded-lg mb-4 pt-5">
+
+          <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
+            <h2 class="text-center font-semibold text-xl p-2">Tagfelvétel</h2>
+          </div>
+
           <div class="px-4 py-2 border-t border-zinc-500">
             @foreach ($recruits as $rec)
               <div class="flex justify-between border-b border-zinc-500">
@@ -85,8 +89,11 @@
         {{-- End Of Recruitment --}}
 
         {{-- Progress --}}
-        <div class="bg-zinc-700 rounded-lg text-white">
-          <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
+        <div class="bg-zinc-700 rounded-lg text-white pt-5">
+
+          <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
+            <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
+          </div>
           
           <div class=" border-t border-zinc-500 flex  p-2 px-4">
             <table class="w-full">
