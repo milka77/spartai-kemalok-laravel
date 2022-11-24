@@ -1,10 +1,10 @@
 <x-home-master>
   @section('content')
-  <div class="flex justify-center">
-    <div class="container p-3 rounded-lg flex gap-2 bg-zinc-800 md:container-fluid">
+  <div class="flex justify-center ">
+    <div class="container p-3 rounded-lg flex flex-col gap-2 bg-zinc-800 lg:container-fluid lg:flex-row">
       
       {{-- Left side News feed --}}
-      <div class="w-9/12 text-white rounded-lg p-2">
+      <div class="w-auto text-white rounded-lg p-2">
         <h1 class="text-2xl font-semibold text-center mb-2">Hírek</h1>
       
         @foreach ($news_index as $news)
@@ -49,7 +49,7 @@
       {{-- End Of Left side News feed --}}
 
       {{-- Right side --}}
-      <div class="w-3/12 pt-12 p-2">
+      <div class="w-3/12 min-w-fit pt-12 p-2">
         {{-- Recruitment --}}
         <div class="bg-zinc-700 text-white rounded-lg mb-4">
           <h2 class="text-center font-semibold text-xl p-2">Tagfelvétel</h2>
@@ -59,13 +59,18 @@
                 <span>{{ $rec->playable_class->name }}: </span>
                 <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                   @if($rec->is_active)
-                    <a href="{{ route('guild.recruitment') }}">Open</a>
+                    @if($rec->priority)
+                      <a href="{{ route('guild.recruitment') }}"> <small><i class="fas fa-angle-double-up text-orange-600"></i></small> Open</a>
+                    @else
+                      <a href="{{ route('guild.recruitment') }}"> Open</a>
+                    @endif
                   @else
                     Closed
                   @endif
                 </span>
               </div>
             @endforeach
+            <p class="py-2 text-sm">Tobb infoert kattints barmelyik nyitott class-ra.</p>
           </div>
         </div>
         {{-- End Of Recruitment --}}

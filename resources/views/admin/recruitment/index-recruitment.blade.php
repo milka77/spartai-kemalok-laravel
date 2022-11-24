@@ -11,6 +11,7 @@
                 <th>ID</th>
                 <th>Class</th>
                 <th>Details</th>
+                <th>Priority</th>
                 <th>Status</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -23,10 +24,17 @@
                 <td>{{ $rec->playable_class->name }}</td>
                 <td>{{ $rec->comment }}</td>
                 <td>
-                  @if($rec->is_active == 1)
-                    Active
+                  @if($rec->priority == 1)
+                    High
                   @else
-                    Not Active
+                    Low
+                  @endif
+                </td>
+                <td>
+                  @if($rec->is_active == 1)
+                    <span><small><i class="fas fa-circle text-success"></i></small> </span>
+                  @else
+                    <span><small><i class="fas fa-circle text-danger"></i></small> </span>
                   @endif
                 </td>
                 <td><a href="{{ route('recruit.edit', $rec->id) }}" class="btn btn-sm btn-primary">Update <i class="fa-solid fa-pen-to-square"></i></a></td>
@@ -45,6 +53,7 @@
                 <th>ID</th>
                 <th>Class</th>
                 <th>Details</th>
+                <th>Priority</th>
                 <th>Status</th>
                 <th>Update</th>
                 <th>Delete</th>

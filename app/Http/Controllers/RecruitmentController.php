@@ -99,5 +99,11 @@ class RecruitmentController extends Controller
         return redirect(route('recruit.adminindex'));
     }
 
+    // Deleting Recruitment
+    public function destroy(Recruitment $recruitment)
+    {
+        $recruitment->delete();
 
+        return redirect(route('recruit.adminindex'));
+    }
 }

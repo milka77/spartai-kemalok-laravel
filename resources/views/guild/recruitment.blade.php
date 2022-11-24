@@ -19,6 +19,7 @@
               <tr class="border-t border-zinc-500">
                 <th scope="col" class="py-2 px-6">Class</th>
                 <th scope="col" class="py-2 px-6">Spec</th>
+                <th scope="col" class="py-2 px-6">Priority</th>
                 <th scope="col" class="py-2 px-6">Státusz</th>
               </tr>
             </thead>
@@ -27,6 +28,19 @@
                 <tr class="border-b border-t border-zinc-500">
                   <th scope="col" class="py-2 px-6">{{ $rec->playable_class->name }}</th>
                   <th scope="col" class="py-2 px-6">{{ $rec->is_active ? $rec->comment : '-' }}</th>
+                  <th scope="col" class="py-2 px-6">
+                    @if($rec->is_active)
+                        @if($rec->priority)
+                        <span class="text-orange-600">
+                          <small><i class="fas fa-angle-double-up"></i></small> High <small><i class="fas fa-angle-double-up"></i></small>
+                        </span>
+                        @else
+                        <span class="text-green-500">Normal</span>
+                        @endif
+                      @else
+                        -
+                      @endif
+                  </th>
                   <th scope="col" class="py-2 px-6">
                     <span class="{{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                       @if($rec->is_active)
