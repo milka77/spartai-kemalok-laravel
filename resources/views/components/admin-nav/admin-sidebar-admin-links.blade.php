@@ -78,17 +78,13 @@
       <div class="bg-white py-2 collapse-inner rounded">
       
         <h6 class="collapse-header">Recruitment</h6>
-        <a class="collapse-item" href="{{ route('raidtax.adminindex') }}"><i class="fas fa-folder-open"></i> Show All Raid Tactics</a>
-        <a class="collapse-item" href="{{ route('raidtax.create') }}"><i class="fas fa-folder-plus"></i> Add Raid Tactic</a>
+        <a class="collapse-item" href="{{ route('recruit.adminindex') }}"><i class="fas fa-folder-open"></i> Show Recruitments</a>
+        <a class="collapse-item" href="{{ route('recruit.create') }}"><i class="fas fa-folder-plus"></i> Add Recruitment</a>
         <hr>
         <h6 class="collapse-header">Recruitment Classes</h6>
         <a class="collapse-item" href="{{ route('class.index') }}"><i class="fas fa-folder-open"></i> Show All Classes</a>
         <a class="collapse-item" href="{{ route('class.create') }}"><i class="fas fa-folder-plus"></i> Add New Class</a>
-        <hr>
-        <h6 class="collapse-header">Recruitment Specs</h6>
-        <a class="collapse-item" href="{{ route('spec.index') }}"><i class="fas fa-folder-open"></i> Show All Specs</a>
-        <a class="collapse-item" href="{{ route('spec.create') }}"><i class="fas fa-folder-plus"></i> Add New Spec</a>
-      
+        
       </div>
     </div>
     <!-- Divider -->

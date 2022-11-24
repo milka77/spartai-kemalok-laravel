@@ -7,7 +7,6 @@ use App\Models\RaidTaxCategory;
 use App\Models\RaidTaxDifficulty;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 
 class RaidTaxController extends Controller

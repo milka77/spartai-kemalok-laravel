@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RaidTaxDifficulty;
+use App\Models\Recruitment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -145,7 +146,15 @@ Route::middleware('auth')->group(function() {
     // *******************************************
     // Recruitment routes
     // *******************************************
+    Route::get('/', [RecruitmentController::class, 'adminindex'])->name('recruit.adminindex');
 
+    Route::get('/create', [RecruitmentController::class, 'create'])->name('recruit.create');
+    Route::post('/store', [RecruitmentController::class, 'store'])->name('recruit.store');
+
+    Route::get('/{recruitment}/edit', [RecruitmentController::class, 'edit'])->name('recruit.edit');
+    Route::patch('/{recruitment}/update', [RecruitmentController::class, 'update'])->name('recruit.update');
+    
+    Route::delete('/{recruitment}/destroy', [RecruitmentController::class, 'destroy'])->name('recruit.destroy');
 
 
     // *******************************************
