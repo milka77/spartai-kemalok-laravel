@@ -354,4 +354,14 @@
       </div>
     </div>
   @endsection
+
+  @section('extra-script')
+    <script>
+      CKEDITOR.replace( 'body_1' );
+      CKEDITOR.replace( 'body_2' );
+      CKEDITOR.replace( 'body_3' );
+      CKEDITOR.replace( 'body_4' );
+      CKEDITOR.replace( 'body_5' );
+    </script>
+  @endsection
 </x-admin-master>
