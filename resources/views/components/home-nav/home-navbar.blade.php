@@ -29,7 +29,7 @@
   <ul class="flex items-center">
     @auth
       <li class="p-3">
-        <a href="">Welcome @if(auth()->user()->nickname)  {{ auth()->user()->nickname }} @else {{ auth()->user()->name }} @endif</a>
+        Welcome @if(auth()->user()->nickname)  {{ auth()->user()->nickname }} @else {{ auth()->user()->name }} @endif
       </li>
       <li class="p-3">
         <a href="{{ route('admin.index') }}">Admin</a>
