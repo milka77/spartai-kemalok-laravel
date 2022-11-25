@@ -22,7 +22,7 @@
       <a href="{{ route('raidtax.index') }}">Raid Fight Tactics</a>
     </li>
     <li class="p-3">
-      <a href="">Mythic+</a>
+      <a href="{{ route('guild.recruitment') }}">Tagfelvétel</a>
     </li>
   </ul>
 
