@@ -9,7 +9,7 @@
       <div class="row justify-content-center">
           <div class="col-6">
             <h3 class="text-center">Users</h3>
-            <table class="table">
+            <table class="table table-sm">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -27,40 +27,71 @@
                 </tr>
               </tbody>
             </table>
+
+            <h3 class="text-center">News & Raid Tactics</h3>
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="text-right">Nr</tr>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>News</td>
+                  <td class="text-right">{{ count($news) }}</td>
+                </tr>
+                <tr>
+                  <td>Raid Tactics</td>
+                  <td class="text-right">{{ count($raid_tactics) }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         @endif
 
         <!-- Right side -->
         <div class="col-6">
-          <h3 class="text-center">News</h3>
-          {{-- <table class="table">
+          <h3 class="text-center">Admin Modules Versions</h3>
+          <table class="table table-sm">
             <thead>
               <tr>
                 <th>Name</th>
-                <th class="text-right">Data</tr>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>All recipies</td>
-                  <td class="text-right"><?= /*  count($recipies); ?></td>
-                </tr>
-                <tr>
-                  <td>Latest recipe</td>
-                  <td class="text-right">
-                    @if(count($recipies) === 0) 
-                      No records found in the database
-                    @else
-                      <a href="{{ route('recipe.show', $recipies->last()->id )}}">{{ $recipies->last()->name }}</a>
-                    @endif
-                  </td>
-                </tr>
-              </tbody>
-            </table> --}}
-          </div>
+                <th class="text-right">Ver</tr>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Admin Dashboard</td>
+                <td class="text-right">v0.2b</td>
+              </tr>
+              <tr>
+                <td>News</td>
+                <td class="text-right">v0.3</td>
+              </tr>
+              <tr>
+                <td>Raid Tactics</td>
+                <td class="text-right">v0.3</td>
+              </tr>
+              <tr>
+                <td>Recruitments</td>
+                <td class="text-right">v0.3</td>
+              </tr>
+              <tr>
+                <td>Users</td>
+                <td class="text-right">v0.3</td>
+              </tr>
+              <tr>
+                <td>Roles</td>
+                <td class="text-right">v0.3</td>
+              </tr>
+            </tbody>
+          </table>
+          
         </div>
         <!-- ./Right side -->
     </div>
-  @endsection
+  </div>
+    @endsection
 
 </x-admin-master>
