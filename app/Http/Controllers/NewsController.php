@@ -6,13 +6,14 @@ use App\Models\News;
 use App\Models\Category;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\File;
 
 class NewsController extends Controller
 {
     // Admin index view
     public function index()
     {
-        $all_news = News::paginate(10);
+        $all_news = News::orderBy('id', 'desc')->paginate(10);
         
         return view('admin.news.index-news', ['all_news' => $all_news]);
     }
@@ -33,6 +34,7 @@ class NewsController extends Controller
             'title' => 'required',
             'body' => 'required',
             'category' => 'required',
+            'file_path' => 'image',
         ]);
 
         $data = [
@@ -69,24 +71,29 @@ class NewsController extends Controller
     }
 
     // Updating the News
-    public function update(News $news, Request $request)
+    public function update(News $news)
     {
         // Data validation
         request()->validate([
             'title' => 'required',
             'body' => 'required',
             'category' => 'required',
+            'file_path' => 'image',
         ]);
 
+        dd(request()->hasFile('file_path'));
         // Checking if news image exist and update with new data
         if(request('file_path')){
+           
             $news->file_path = request('file_path')->store('images', 's3');
+           
         }
 
+
         // Assign data
-        $news->title = $request['title'];
-        $news->category_id = $request['category'];
-        $news->body = $request['body'];
+        $news->title = request('title');
+        $news->category_id = request('category');
+        $news->body = request('body');
 
         $news->save();
 

@@ -6,7 +6,7 @@
           <h1 class="text-center">Hír szerkesztése</h1>
           <hr>
 
-          <form action="{{ route('news.update', $news->id ) }}" method="POST">
+          <form action="{{ route('news.update', $news->id ) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             {{-- News Title --}}
@@ -66,7 +66,7 @@
             {{-- File path for image --}}
             <div class="mb-2">
               <label class="form-label" for="file_path">Image: <span >(optional but recommended for Guild Progress 'kill shot' )</span></label>
-              <input class="form-control {{ $errors->has('file_path') ? 'is-invalid' : '' }}" type="file" name="file_path" value="{{ old('file_path')}}">
+              <input class="form-control-file {{ $errors->has('file_path') ? 'is-invalid' : '' }}" type="file" name="file_path" value="">
 
               {{-- Displaying the error of exists --}}
               <div>
@@ -78,6 +78,19 @@
 
             </div>
             {{-- End Of File path for image --}}
+
+            {{-- Current Image --}}
+            @if (!empty($news->file_path))
+            <div class="row">
+              <div class="col-9 p-2">
+                <span>Currnet Image:</span>
+                <a href="{{ $news->file_path }}" target="_blank">
+                  <img  class="img-fluid" src="{{ $news->file_path }}" alt="{{ $news->title }}">
+                </a>
+              </div>
+            </div>
+          @endif
+          {{-- End Of Current Image --}}
 
             {{-- Submit Button --}}
             <div class="mb-2">
