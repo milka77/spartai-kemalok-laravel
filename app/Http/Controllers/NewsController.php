@@ -30,10 +30,9 @@ class NewsController extends Controller
     {
         // Data Validation
         request()->validate([
-            'title' => 'required|min:10',
+            'title' => 'required',
             'body' => 'required',
             'category' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = [
@@ -74,10 +73,9 @@ class NewsController extends Controller
     {
         // Data validation
         request()->validate([
-            'title' => 'required|min:10',
+            'title' => 'required',
             'body' => 'required',
             'category' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Checking if news image exist and update with new data
