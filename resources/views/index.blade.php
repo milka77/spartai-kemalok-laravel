@@ -8,7 +8,7 @@
         <h1 class="text-2xl font-semibold text-center mb-2">Hírek</h1>
       
         @foreach ($news_index as $news)
-            
+        
         <article class="p-3 py-5 bg-zinc-700 rounded-lg mb-4">
           <div class="flex flex-col  border-b border-zinc-500">
             <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
@@ -24,6 +24,10 @@
               <div>
                 <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" alt="">
               </div>
+            </div>
+            <div class="w-2/3 flex mx-auto">
+              <img class="md:shrink-0 rounded-2xl px-32" 
+                src="{{ $news->file_path }}" alt="">
             </div>
             @else
             <div class="p-4">
@@ -89,7 +93,7 @@
         {{-- End Of Recruitment --}}
 
         {{-- Progress --}}
-        <div class="bg-zinc-700 rounded-lg text-white pt-5">
+        <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5">
 
           <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
             <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
@@ -137,7 +141,7 @@
         
         {{-- Discord Widget--}}
         <div class="w-auto mt-2">
-          <iframe src="https://discord.com/widget?id=874016016483627038&theme=dark" width="100%" height="500px" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+          <iframe src="https://discord.com/widget?id=478499711263703070&theme=dark" width="100%" height="500px" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
         </div>
         {{-- End Of Discord Widget--}}
