@@ -36,7 +36,7 @@
               @if ( $news->category->id === 2)
                 {{-- <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
                 src="{{ $news->file_path }}" alt="{{ $news->title }}"> --}}
-                <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
+                <img class="md:shrink-0 rounded-2xl px-32" 
                 src="{{ $news->file_path }}" alt="">
               @else
                 
