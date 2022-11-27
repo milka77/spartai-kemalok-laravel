@@ -26,19 +26,21 @@
             <tbody>
               @foreach ($recruits as $rec)
                 <tr class="border-b border-t border-zinc-500">
-                  <th scope="col" class="py-2 px-6">{{ $rec->playable_class->name }}</th>
-                  <th scope="col" class="py-2 px-6">{{ $rec->is_active ? $rec->comment : '-' }}</th>
+                  <th scope="col" class="py-2 px-6 {{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}</th>
+                  <th scope="col" class="py-2 px-6">{{ $rec->is_active ? $rec->comment : '' }}</th>
                   <th scope="col" class="py-2 px-6">
                     @if($rec->is_active)
                         @if($rec->priority)
                         <span class="text-green-500">
-                          <small><i class="fas fa-angle-double-up"></i></small> High <small><i class="fas fa-angle-double-up"></i></small>
+                          High <small><i class="fas fa-angle-double-up"></i></small>
                         </span>
                         @else
-                        <span class="text-orange-500">Normal</span>
+                        <span class="text-orange-500">
+                          Normal <small><i class="fas fa-angle-up"></i></small> 
+                        </span>
                         @endif
                       @else
-                        -
+                        <small><i class="fas fa-times text-red-600"></i></small>
                       @endif
                   </th>
                   <th scope="col" class="py-2 px-6">
@@ -46,13 +48,15 @@
                       @if($rec->is_active)
                         @if($rec->priority)
                         <span class="text-green-500">
-                          <small><i class="fas fa-angle-double-up"></i></small> Open <small><i class="fas fa-angle-double-up"></i></small>
+                          Open <small><i class="fas fa-angle-double-up"></i></small> 
                         </span>
                         @else
-                        <span class="text-orange-500">Open</span>
+                        <span class="text-orange-500">
+                          Open <small><i class="fas fa-angle-up"></i></small> 
+                        </span>
                         @endif
                       @else
-                        Closed
+                        Closed <small><i class="fas fa-times"></i></small> 
                       @endif
                     </span>
                   </th>

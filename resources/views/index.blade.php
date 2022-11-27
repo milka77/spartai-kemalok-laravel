@@ -69,16 +69,16 @@
           <div class="px-4 py-2 border-t border-zinc-500">
             @foreach ($recruits as $rec)
               <div class="flex justify-between border-b border-zinc-500">
-                <span>{{ $rec->playable_class->name }}: </span>
+                <span class="{{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}: </span>
                 <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                   @if($rec->is_active)
                     @if($rec->priority)
-                      <a href="{{ route('guild.recruitment') }}"> <small><i class="fas fa-angle-double-up"></i></small> Open</a>
+                      <a href="{{ route('guild.recruitment') }}">Open <small><i class="fas fa-angle-double-up"></i></small></a>
                     @else
-                      <a href="{{ route('guild.recruitment') }}" class="text-orange-500"> Open</a>
+                      <a href="{{ route('guild.recruitment') }}" class="text-orange-500">Open <small><i class="fas fa-angle-up"></i></small> </a>
                     @endif
                   @else
-                    Closed
+                    Closed <small><i class="fas fa-times"></i></small> 
                   @endif
                 </span>
               </div>

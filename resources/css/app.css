@@ -12,3 +12,56 @@
 .font-roboto-con {
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+/* Custom WOW Class Colors classes */
+.death {
+  color: #C41E3A;
+}
+
+.demon.hunter {
+  color: #A330C9;
+}
+
+.druid {
+  color: #FF7C0A;
+}
+
+.evoker {
+  color: #33937F;
+}
+
+.hunter {
+  color: #AAD372;
+}
+
+.mage {
+  color: #3FC7EB;
+}
+
+.monk {
+  color: #00FF98;
+}
+
+.paladin {
+  color: #F48CBA;
+}
+
+.priest {
+  color: #FFFFFF;
+}
+
+.rouge {
+  color: #FFF468;
+}
+
+.shaman {
+  color: #0070DD;
+}
+
+.warlock {
+  color: #8788EE;
+}
+
+.warrior {
+  color: #C69B6D;
+}
