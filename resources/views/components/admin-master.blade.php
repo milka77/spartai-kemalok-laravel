@@ -20,7 +20,6 @@
   <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
   {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
   <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
-  <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 </head>
 
 <body id="page-top">

@@ -81,7 +81,6 @@ class NewsController extends Controller
             'file_path' => 'image',
         ]);
 
-        dd(request()->hasFile('file_path'));
         // Checking if news image exist and update with new data
         if(request('file_path')){
            
