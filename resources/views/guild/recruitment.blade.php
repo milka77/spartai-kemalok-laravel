@@ -27,7 +27,13 @@
               @foreach ($recruits as $rec)
                 <tr class="border-b border-t border-zinc-500">
                   <th scope="col" class="py-2 px-6 {{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}</th>
-                  <th scope="col" class="py-2 px-6">{{ $rec->is_active ? $rec->comment : '' }}</th>
+                  <th scope="col" class="py-2 px-6">
+                    @if ($rec->is_active)
+                      {{ $rec->comment }}  
+                    @else
+                      <small><i class="fas fa-times text-red-600"></i></small>
+                    @endif
+                  </th>
                   <th scope="col" class="py-2 px-6">
                     @if($rec->is_active)
                         @if($rec->priority)
