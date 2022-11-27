@@ -46,8 +46,7 @@
 
             {{-- News Body --}}
             <div class="mb-2">
-              <label class="form-label" for="body">News body: (ProTip!, Ha új bekezdést szeretnél a hírben akkor tegyél egy "pontosvesszőt ; " az új bekezdés elé, vagyis a két bekezdés közé, 
-                lehet írni folyamatosan is. Pl Bekezdés 1. ; Bekezdés 2.)
+              <label class="form-label" for="body">News body:
                 <i class="fa-light fa-asterisk text-danger"></i>
               </label>
               

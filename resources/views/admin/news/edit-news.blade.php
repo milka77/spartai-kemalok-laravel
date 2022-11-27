@@ -46,7 +46,7 @@
 
             {{-- News Body --}}
             <div class="mb-2">
-              <label class="form-label" for="body">News body: (ProTip! Sajnos nem minden funcioja mukodik az editornak de az alap funkciok mennek. (pl: Bold Italic stb.))
+              <label class="form-label" for="body">News body:
                 <i class="fa-light fa-asterisk text-danger"></i>
               </label>
               
