@@ -16,7 +16,7 @@
         <div id="recruitment" class="overflow-x-auto relative flex justify-center mb-4">
           <table class="w-1/2 text-center">
             <thead class="uppercase bg-zinc-700">
-              <tr class="border-t border-zinc-500">
+              <tr class="border-t border-zinc-500 text-zinc-200">
                 <th scope="col" class="py-2 px-6">Class</th>
                 <th scope="col" class="py-2 px-6">Spec</th>
                 <th scope="col" class="py-2 px-6">Priority</th>
@@ -25,16 +25,16 @@
             </thead>
             <tbody>
               @foreach ($recruits as $rec)
-                <tr class="border-b border-t border-zinc-500">
-                  <th scope="col" class="py-2 px-6 {{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}</th>
-                  <th scope="col" class="py-2 px-6">
+                <tr class="py-1 px-6 border-b border-t border-zinc-500">
+                  <th scope="col" class="{{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}</th>
+                  <th scope="col" >
                     @if ($rec->is_active)
-                      {{ $rec->comment }}  
+                      <span class="text-zinc-200">{{ $rec->comment }}</span>
                     @else
                       <small><i class="fas fa-times text-red-600"></i></small>
                     @endif
                   </th>
-                  <th scope="col" class="py-2 px-6">
+                  <th scope="col">
                     @if($rec->is_active)
                         @if($rec->priority)
                         <span class="text-green-500">
@@ -49,7 +49,7 @@
                         <small><i class="fas fa-times text-red-600"></i></small>
                       @endif
                   </th>
-                  <th scope="col" class="py-2 px-6">
+                  <th scope="col">
                     <span class="{{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
                       @if($rec->is_active)
                         @if($rec->priority)
