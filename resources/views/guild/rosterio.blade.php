@@ -28,9 +28,9 @@
                   </thead>
                   <tbody>
                     @foreach ($members['members'] as $member)
-                      <tr class="border-b border-zinc-500">
+                      <tr class="border-b border-zinc-500 {{ strtolower($member->character->class) }}">
                         <td  class="py-1">
-                          <a class="hover:text-violet-400" href="{{ route('guild.raiderio',  $member->character->name ) }}">
+                          <a class="{{ strtolower($member->character->class) }} hover:text-violet-400" href="{{ route('guild.raiderio',  $member->character->name ) }}">
                             {{ $member->character->name }}
                           </a>
                         </td>
@@ -52,7 +52,7 @@
                         <td>{{ $member->character->class }}</td>
                         <td>{{ $member->character->active_spec_name }}</td>
 
-                        <td><a class="hover:text-violet-400" href="{{ $member->character->profile_url }}" target="_blank" rel="noopener noreferrer">Raider IO profil</a></td>
+                        <td><a class="text-white hover:text-violet-400" href="{{ $member->character->profile_url }}" target="_blank" rel="noopener noreferrer">Raider IO profil</a></td>
                         <td class="text-center">
                           @foreach ($whd as $personal_previous_highest_key)
                             @if($member->character->name === $personal_previous_highest_key->name)
@@ -70,7 +70,7 @@
                           @endforeach
                         </td>
 
-                        <td>/</td>
+                        <td class="text-white">/</td>
 
                         <td class="text-center">
                           @foreach ($whd as $personal_highest_key)
