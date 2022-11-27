@@ -92,7 +92,7 @@
               {{-- Phase 1 body input field --}}
               <div class="mb-2">
                 <label for="body_1">Raid Tactics body <i class="fa-light fa-asterisk text-danger"></i></label>
-                <textarea class="form-control" name="body_1" rows="10">{{ $raid_tax->body_1 }}</textarea>
+                <textarea class="form-control" name="body_1" rows="10" id="body_1">{{ $raid_tax->body_1 }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -159,7 +159,7 @@
               {{-- Phase 1 body input field --}}
               <div class="mb-2">
                 <label for="body_2">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_2" rows="10">{{ $raid_tax->body_2 }}</textarea>
+                <textarea class="form-control" name="body_2" rows="10" id="body_2">{{ $raid_tax->body_2 }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -226,7 +226,7 @@
               {{-- Phase 3 body input field --}}
               <div class="mb-2">
                 <label for="body_3">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_3" rows="10">{{ $raid_tax->body_3 }}</textarea>
+                <textarea class="form-control" name="body_3" rows="10" id="body_3">{{ $raid_tax->body_3 }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -293,7 +293,7 @@
               {{-- Phase 4 body input field --}}
               <div class="mb-2">
                 <label for="body_4">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_4" rows="10">{{ $raid_tax->body_4 }}</textarea>
+                <textarea class="form-control" name="body_4" rows="10" id="body_4">{{ $raid_tax->body_4 }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -360,7 +360,7 @@
               {{-- Phase 5 body input field --}}
               <div class="mb-2">
                 <label for="body_5">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_5" rows="10">{{ $raid_tax->body_5 }}</textarea>
+                <textarea class="form-control" name="body_5" rows="10" id="body_5">{{ $raid_tax->body_5 }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -419,13 +419,134 @@
     </div>
   @endsection
 
-  @section('extra-script')
-    <script>
-      CKEDITOR.replace( 'body_1' );
-      CKEDITOR.replace( 'body_2' );
-      CKEDITOR.replace( 'body_3' );
-      CKEDITOR.replace( 'body_4' );
-      CKEDITOR.replace( 'body_5' );
-    </script>
+  @section('extra-script')  
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/super-build/ckeditor.js"></script>
+
+  <script>
+    let elementsList = document.querySelectorAll("#body_1, #body_2, #body_3, #body_4, #body_5");
+    let elementsArray = [...elementsList];
+
+    elementsArray.forEach(element => {
+
+      // This sample still does not showcase all CKEditor 5 features (!)
+      // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
+      CKEDITOR.ClassicEditor.create(element, {
+          // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
+          toolbar: {
+              items: [
+                'findAndReplace', 'selectAll', '|',
+                'bold', 'italic', 'strikethrough', 'underline', 'code', 'removeFormat', '|',
+                'outdent', 'indent', '|',
+                'undo', 'redo',
+                '-',
+                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                'alignment', '|',
+                'link', 'insertTable', '|',
+                'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                'sourceEditing'
+              ],
+              shouldNotGroupWhenFull: true
+          },
+          // Changing the language of the interface requires loading the language file using the <script> tag.
+          // language: 'es',
+          list: {
+              properties: {
+                  styles: true,
+                  startIndex: true,
+                  reversed: true
+              }
+          },
+          // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
+          heading: {
+              options: [
+                  { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+              ]
+          },
+          // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
+          placeholder: 'Welcome to CKEditor 5!',
+          // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
+          fontFamily: {
+              options: [
+                  'default',
+                  'Arial, Helvetica, sans-serif',
+                  'Courier New, Courier, monospace',
+                  'Georgia, serif',
+                  'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                  'Tahoma, Geneva, sans-serif',
+                  'Times New Roman, Times, serif',
+                  'Trebuchet MS, Helvetica, sans-serif',
+                  'Verdana, Geneva, sans-serif'
+              ],
+              supportAllValues: true
+          },
+          // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
+          fontSize: {
+              options: [ 10, 12, 14, 'default', 18, 20, 22 ],
+              supportAllValues: true
+          },
+          // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
+          // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
+          htmlSupport: {
+              allow: [
+                  {
+                      name: /.*/,
+                      attributes: true,
+                      classes: true,
+                      styles: true
+                  }
+              ]
+          },
+          // Be careful with enabling previews
+          // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
+          htmlEmbed: {
+              showPreviews: true
+          },
+          // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
+          link: {
+              decorators: {
+                  addTargetToExternalLinks: true,
+                  defaultProtocol: 'https://',
+                  toggleDownloadable: {
+                      mode: 'manual',
+                      label: 'Downloadable',
+                      attributes: {
+                          download: 'file'
+                      }
+                  }
+              }
+          },
+          // The "super-build" contains more premium features that require additional configuration, disable them below.
+          // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
+          removePlugins: [
+              // These two are commercial, but you can try them out without registering to a trial.
+              // 'ExportPdf',
+              // 'ExportWord',
+              'CKBox',
+              'CKFinder',
+              'EasyImage',
+              // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
+              // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
+              // Storing images as Base64 is usually a very bad idea.
+              // Replace it on production website with other solutions:
+              // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
+              // 'Base64UploadAdapter',
+              'RealTimeCollaborativeComments',
+              'RealTimeCollaborativeTrackChanges',
+              'RealTimeCollaborativeRevisionHistory',
+              'PresenceList',
+              'Comments',
+              'TrackChanges',
+              'TrackChangesData',
+              'RevisionHistory',
+              'Pagination',
+              'WProofreader',
+              // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
+              // from a local file system (file://) - load this site via HTTP server if you enable MathType
+              'MathType'
+          ]
+      });
+    });
+  </script>
+
   @endsection
   </x-admin-master>
