@@ -5,9 +5,9 @@
       <h1 class="text-2xl text-center mb-4">Kemál Kisokos</h1>
 
       {{-- Content Body --}}
-      <div class="border-t border-b border-zinc-600 flex gap-4">
+      <div class="border-t border-b border-zinc-600 flex flex-col lg:flex-row gap-4">
       {{-- Left side --}}
-      <div class="w-1/2">
+      <div class="w-full lg:w-1/2">
         <h2 class="text-xl text-center py-2">Beugró - Raid előtt</h2>
 
       {{-- Section Jatekon kivul --}}
@@ -106,7 +106,7 @@
       {{-- End Of Left side --}}
       
       {{-- Right Side --}}
-      <div class="w-1/2">
+      <div class="w-full lg:w-1/2">
         <h2 class="text-xl text-center py-2">Beugró - Raid alatt</h2>
         
         {{-- Raid alatt --}}
