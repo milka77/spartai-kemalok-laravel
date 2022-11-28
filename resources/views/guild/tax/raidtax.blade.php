@@ -2,7 +2,7 @@
   @section('content')
   <div class="flex justify-center">
     <div class=" w-4/6 p-3 rounded-lg bg-zinc-800 text-white mb-4">
-      <h1 class="text-2xl text-center mb-4">Raid Taktikak</h1>
+      <h1 class="text-2xl text-center mb-4">Raid Taktikák</h1>
   
 
       <div class="border-t border-zinc-600 mt-2 ">

@@ -37,7 +37,7 @@
         <a class="md:p-4 py-2 block" href="{{ route('guild.kisokos') }}">Kemál Kisokos</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block" href="{{ route('raidtax.index') }}">Raid Fight Tactics</a>
+        <a class="md:p-4 py-2 block" href="{{ route('raidtax.index') }}">Raid Taktikák</a>
       </li>
       <li>
         <a class="md:p-4 py-2 block" href="{{ route('guild.recruitment') }}">Tagfelvétel</a>
