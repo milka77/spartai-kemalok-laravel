@@ -93,7 +93,7 @@
         {{-- End Of Recruitment --}}
 
         {{-- Progress --}}
-        <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5">
+        <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5 mb-4">
 
           <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
             <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>

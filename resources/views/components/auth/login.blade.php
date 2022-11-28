@@ -1,7 +1,7 @@
 <x-home-master>
   @section('content')
-  <div class="flex justify-center">
-    <div class="w-4/12 bg-zinc-800 text-white p-6 rounded-xl">
+  <div class="container mx-auto">
+    <div class="w-full lg:w-1/2 mx-auto bg-zinc-800 text-white p-6 rounded-xl">
       <h1 class="text-center text-2xl mb-6">Login</h1>
       
       @if (session('status'))
