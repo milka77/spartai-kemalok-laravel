@@ -77,8 +77,8 @@
       @endguest
 
       
-      <div class="hidden dropdown md:inline-block relative md:p-4 py-2">
-        <button class=" inline-flex items-center">
+      <div class="hidden dropdown relative md:inline-block  md:p-4">
+        <button class="inline-flex items-center">
           <span class="mr-1">
             @guest
               Tagok

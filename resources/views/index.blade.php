@@ -21,12 +21,12 @@
             <div class="p-4 flex justify-between">
               <div>{!! $news->body !!}</div>
 
-              <div>
+              <div class="hidden md:inline-flex">
                 <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" alt="">
               </div>
             </div>
             <div class="w-2/3 flex mx-auto">
-              <img class="md:shrink-0 rounded-2xl px-32" 
+              <img class="md:shrink-0 rounded-2xl px-2 md:px-32" 
                 src="{{ $news->file_path }}" alt="">
             </div>
             @else
@@ -40,7 +40,7 @@
               @if ( $news->category->id === 2)
                 {{-- <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
                 src="{{ $news->file_path }}" alt="{{ $news->title }}"> --}}
-                <img class="md:shrink-0 rounded-2xl px-32" 
+                <img class="md:shrink-0 rounded-2xl px-2 md:px-32" 
                 src="{{ $news->file_path }}" alt="">
               @else
                 
