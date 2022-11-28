@@ -1,11 +1,11 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class="container p-3 rounded-lg bg-zinc-800 text-white">
+    <div class="container p-3 mb-4 rounded-lg bg-zinc-800 text-white">
       <h1 class="text-2xl text-center mb-4 py-2">Guild Tagfelvétel</h1>
 
       <div class="border-t border-zinc-600 pt-2">
-        <div class="w-1/2 text-center mx-auto mb-3 pt-3">
+        <div class="w-full lg:w-1/2 text-center mx-auto mb-3 pt-3">
           <p class="p-2 py-4 bg-zinc-700 rounded-lg mb-3">
             Ha szeretnél egy jó hangulatú guild tagja lenni, de a progress is érdekel és ismered a class-od vedd fel a kapcsolatot valamelyik officerrel a játékban vagy discordon. 
           </p>
@@ -14,7 +14,7 @@
         </div>
 
         <div id="recruitment" class="overflow-x-auto relative flex justify-center mb-4">
-          <table class="w-1/2 text-center">
+          <table class="w-full lg:w-1/2 text-center mb-4">
             <thead class="uppercase bg-zinc-700">
               <tr class="border-t border-zinc-500 text-zinc-200">
                 <th scope="col" class="py-2 px-6">Class</th>
