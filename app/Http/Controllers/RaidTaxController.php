@@ -190,4 +190,10 @@ class RaidTaxController extends Controller
         return view('guild.tax.raidtax', $context);
     }
 
+    public function destroy(RaidTax $raidTax)
+    {
+        $raidTax->delete();
+
+        return redirect(route('raidtax.adminindex'));
+    }
 }
