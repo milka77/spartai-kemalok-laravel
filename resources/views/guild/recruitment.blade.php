@@ -1,7 +1,7 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class="container p-3 mb-4 rounded-lg bg-zinc-800 text-white">
+    <div class="container p-3 rounded-lg bg-zinc-800 text-white">
       <h1 class="text-2xl text-center mb-4 py-2">Guild Tagfelvétel</h1>
 
       <div class="border-t border-zinc-600 pt-2">
@@ -13,8 +13,8 @@
           <p class="p-2 mb-3 text-lg">Az alábbi class-okból keresünk embereket.</p>
         </div>
 
-        <div id="recruitment" class="overflow-x-auto relative flex justify-center mb-4">
-          <table class="w-full lg:w-1/2 text-center mb-4">
+        <div id="recruitment" class=" relative flex justify-center mb-4">
+          <table class="w-full lg:w-1/2 text-center">
             <thead class="uppercase bg-zinc-700">
               <tr class="border-t border-zinc-500 text-zinc-200">
                 <th scope="col" class="py-2 px-6">Class</th>
