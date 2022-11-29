@@ -107,29 +107,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="capitalize">Castle Nathia:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['castle-nathria']['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize">Fated castle nathria:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['fated-castle-nathria']['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize">Sanctum of domination:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['sanctum-of-domination']['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize">fated sanctum of domination:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['fated-sanctum-of-domination']['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize">sepulcher of the first ones:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['sepulcher-of-the-first-ones']['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize">fated sepulcher of the first ones:</td>
-                  <td class="text-right">{{ $raid_progress['raid_progression']['fated-sepulcher-of-the-first-ones']['summary'] }}</td>
-
+                  <td class="capitalize">Vault of the Incarnates:</td>
+                  <td class="text-right">{{ $raid_progress['raid_progression']['vault-of-the-incarnates']['summary'] }}</td>
                 </tr>
               </tbody>
             </table>
