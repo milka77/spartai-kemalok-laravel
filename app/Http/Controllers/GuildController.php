@@ -6,6 +6,7 @@ use App\Models\Wowapi;
 use App\Models\News;
 use App\Models\Recruitment;
 use App\Models\User;
+use Illuminate\Support\Arr;
 
 use App\Services\Raiderio;
 use Illuminate\Http\Request;
@@ -72,7 +73,11 @@ class GuildController extends Controller
         // Get all memberinfo from RaiderIO API
         $members = $raiderio->getGuildMembers();
         
-
+        $members_only = $members['members'];
+        $members_sorted = array_values(Arr::sort($members_only, function ($value) {
+            return $value;
+        }));
+    
         // Get all raiding members names for Weeklyhighest dungeon checks
         $members_name_list = [];
         foreach($members['members'] as $member)
@@ -90,6 +95,7 @@ class GuildController extends Controller
         // Passing Data to view
         $context = [
             'members' => $members,
+            'members_sorted' => $members_sorted,
             'whd' => $weeklyHighest,
         ];
 
