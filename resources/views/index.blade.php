@@ -19,10 +19,12 @@
             {{-- News Body --}}
             @if($news->category->id == 1)
             <div class="p-4 flex justify-between">
-              <div>{!! $news->body !!}</div>
+              <div class="w-full">{!! $news->body !!}</div>
 
               <div class="hidden md:inline-flex">
-                <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" alt="">
+                <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" 
+                    src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" 
+                    alt="Horda Logo">
               </div>
             </div>
             <div class="w-2/3 flex mx-auto">
