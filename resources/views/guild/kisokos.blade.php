@@ -18,7 +18,7 @@
           <p class="text-lg">Discord</p>
           <ul class="list-disc ml-5 mb-4">
             <li>
-              <a class="hover:text-yellow-600" class="list-disc" href="https://discord.gg/cbthD2FYjz" target="_blank">Discord Szerverunk</a>
+              <a class="hover:text-slate-400" class="list-disc" href="https://discord.gg/cbthD2FYjz" target="_blank">Discord Szerverunk</a>
             </li>
           </ul>
 
@@ -28,20 +28,20 @@
               DBM, 
               BigWigs
               )</li>
-            <li><a class="hover:text-yellow-600" href="https://www.curseforge.com/wow/addons/method-raid-tools" target="_blank">Method Raid Tools</a></li>
+            <li><a class="hover:text-slate-400" href="https://www.curseforge.com/wow/addons/method-raid-tools" target="_blank">Method Raid Tools</a></li>
             <li>WeakAuras
               <ul class="list-decimal ml-5">
-                <li><a class="hover:text-yellow-600" href="https://wago.io/slraid3" target="_blank" rel="noopener noreferrer">Sepulcher of the First Ones</a></li>
-                <li><a class="hover:text-yellow-600" href="https://wago.io/dW5U0N3HP" target="_blank" rel="noopener noreferrer">Aeon Remnants - Among Us Helper</a></li>
-                <li><a class="hover:text-yellow-600" href="https://wago.io/ERT_Note_Timers" target="_blank" rel="noopener noreferrer">ERT Timers </a></li>
-                <li><a class="hover:text-yellow-600" href="https://www.curseforge.com/wow/addons/sharedmedia_causese" target="_blank" rel="noopener noreferrer">SharedMedia</a></li>
+                <li><a class="hover:text-slate-400" href="https://wago.io/slraid3" target="_blank" rel="noopener noreferrer">Sepulcher of the First Ones</a></li>
+                <li><a class="hover:text-slate-400" href="https://wago.io/dW5U0N3HP" target="_blank" rel="noopener noreferrer">Aeon Remnants - Among Us Helper</a></li>
+                <li><a class="hover:text-slate-400" href="https://wago.io/ERT_Note_Timers" target="_blank" rel="noopener noreferrer">ERT Timers </a></li>
+                <li><a class="hover:text-slate-400" href="https://www.curseforge.com/wow/addons/sharedmedia_causese" target="_blank" rel="noopener noreferrer">SharedMedia</a></li>
               </ul>
             </li>
           </ul>
 
           <p>
             Abban az esetben ha nem tudsz raidre jönni, semmi gond, csak <strong class="text-red-400">légyszíves jelezd előre 
-            <a class="hover:text-yellow-600" href="https://discord.com/channels/478499711263703070/966305714912002058" target="_blank" rel="noopener noreferrer">
+            <a class="hover:text-slate-400" href="https://discord.com/channels/478499711263703070/966305714912002058" target="_blank" rel="noopener noreferrer">
                Discordon az #ellenőrző</a> csatiban.</strong> Köszike!
           </p>
 
@@ -67,14 +67,14 @@
           {{-- Itemek lista --}}
           <ul class="list-disc ml-5 mb-4">
             <li>
-              <a class="hover:text-yellow-600" class="list-disc" href="https://www.wowhead.com/item=171276/spectral-flask-of-power" target="_blank">Spectral Flask of Power</a>
+              <a class="hover:text-slate-400" class="list-disc" href="https://www.wowhead.com/item=171276/spectral-flask-of-power" target="_blank">Spectral Flask of Power</a>
             </li>
             <li>Battle poti (class függvényében)</li>
             <li>
-              <a class="hover:text-yellow-600" class="list-disc" href="https://www.wowhead.com/item=172347/heavy-desolate-armor-kit" target="_blank">Heavy Desolate Armor Kit</a>
+              <a class="hover:text-slate-400" class="list-disc" href="https://www.wowhead.com/item=172347/heavy-desolate-armor-kit" target="_blank">Heavy Desolate Armor Kit</a>
             </li>
             <li>
-              <a class="hover:text-yellow-600" class="list-disc" href="https://www.wowhead.com/ptr/item=187802/cosmic-healing-potion" target="_blank"></i>HP poti</a>
+              <a class="hover:text-slate-400" class="list-disc" href="https://www.wowhead.com/ptr/item=187802/cosmic-healing-potion" target="_blank"></i>HP poti</a>
             </li>
             <li>Ideiglenes fegyver enchant (zsír, smithing stone, etc)</li>
             <li>Vantus rúna (legalább 1)</li>

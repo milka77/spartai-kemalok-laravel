@@ -30,7 +30,7 @@
                     @foreach ($members_sorted as $member)
                       <tr class="border-b border-zinc-500 {{ strtolower($member->character->class) }}">
                         <td  class="py-1">
-                          <a class="{{ strtolower($member->character->class) }} hover:text-violet-400" href="{{ route('guild.raiderio',  $member->character->name ) }}">
+                          <a class="{{ strtolower($member->character->class) }} hover:text-slate-400" href="{{ route('guild.raiderio',  $member->character->name ) }}">
                             {{ $member->character->name }}
                           </a>
                         </td>

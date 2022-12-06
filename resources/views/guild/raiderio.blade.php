@@ -52,7 +52,7 @@
       {{-- End Of Raider.Io Weekly highest dungeon runs table --}}
 
       <div class="flex justify-center">
-        <a class="p-3 rounded-lg bg-violet-900 hover:bg-violet-700" href="{{ route('guild.roster') }}">Vissza a taglistahoz</a>
+        <a class="p-3 rounded-lg bg-red-900 hover:bg-red-900/75 hover:text-slate-400" href="{{ route('guild.roster') }}">Vissza a taglistahoz</a>
       </div>
     </div>
   </div>

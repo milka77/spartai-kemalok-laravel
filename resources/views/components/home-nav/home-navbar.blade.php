@@ -8,7 +8,7 @@
 </div>
 {{-- End Of Top Logo and Links --}}
 
-<nav class="sticky top-0 flex flex-wrap items-center justify-between md:justify-center w-full py-4 md:py-0 px-4 z-10 border-t border-b border-pink-200 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700 text-white">
+<nav class="sticky top-0 flex flex-wrap items-center justify-between md:justify-center w-full py-4 md:py-0 px-4 z-10 border-t border-b border-pink-100 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700 text-white">
   <div><a class="md:hidden" href="{{ route('home') }}">{{ config('app.name') }}</a></div>
   <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -28,19 +28,19 @@
   <div class="hidden w-full md:flex md:items-center md:w-auto" id="navbar">
     <ul class="pt-4 text-base md:flex md:justify-center md:pt-0">
       <li class="hidden md:inline-flex">
-        <a class="md:p-4 py-2 block" href="{{ route('home') }}">{{ config('app.name') }}</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('home') }}">{{ config('app.name') }}</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block" href="{{ route('guild.roster') }}">Taglista</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.roster') }}">Taglista</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block" href="{{ route('guild.kisokos') }}">Kemál Kisokos</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.kisokos') }}">Kemál Kisokos</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block" href="{{ route('raidtax.index') }}">Raid Taktikák</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('raidtax.index') }}">Raid Taktikák</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block" href="{{ route('guild.recruitment') }}">Tagfelvétel</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.recruitment') }}">Tagfelvétel</a>
       </li>
       <li class=" border-b border-zinc-500 md:hidden">
         <p class="md:p-4 py-2 block">
@@ -79,7 +79,7 @@
       
       <div class="hidden dropdown relative md:inline-block  md:p-4">
         <button class="inline-flex items-center">
-          <span class="mr-1">
+          <span class="mr-1 hover:text-slate-400">
             @guest
               Tagok
             @endguest
