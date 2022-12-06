@@ -1,7 +1,7 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class="w-1/2 p-3 rounded-lg bg-zinc-800 text-white mb-5">
+    <div class="w-1/2 p-3 rounded-lg bg-zinc-800 text-gray-200 mb-5">
       <h1 class="text-2xl text-center mb-4">Heti legnagyobb kulcs runok</h1>
 
       <div class="border-t border-b border-zinc-600 p-2 flex gap-5">
@@ -14,13 +14,29 @@
         {{-- Character Info --}}
         <div>
           <ul>
-            <li>Character: {{ $data->name }} </li>
-            <li>Race: {{ $data->race }} </li>
-            <li>Class: {{ $data->class }} </li>
-            <li>Active Spec: {{ $data->active_spec_name }} </li>
+            <li>Character: <span class="{{ strtolower($data->class) }}"> {{ $data->name }} </span></li>
+            <li>Race: <span class="{{ strtolower($data->class) }}"> {{ $data->race }} </span></li>
+            <li>Class:  <span class="{{ strtolower($data->class) }}"> {{ $data->class }} </span></li>
+            <li>Achievement Points:  <span class="{{ strtolower($data->class) }}"> {{ $data->achievement_points }} </span></li>
           </ul>
         </div>
         {{-- End Of Character Info --}}
+
+        {{-- Gear / Tanlent info --}}
+        <div>
+          <ul>
+            <li>ilvl: <span class="{{ strtolower($data->class) }}">{{ $data->gear->item_level_equipped }} </span> </li>
+            <li>
+              Talent string: <input type=text hidden id="talent_string" value="{{ $data->talentLoadout->loadout_text }}">
+              <span class="{{ strtolower($data->class) }}"> Import 
+                <i class="fas fa-clipboard hover:text-slate-400 cursor-pointer" onclick="copyTalent()"></i>
+              </span>
+            </li>
+            <li>Active Spec: <span class="{{ strtolower($data->class) }}"> {{ $data->active_spec_name }}  </span></li>
+            <li>Season M+ Score: <span class="{{ strtolower($data->class) }}"> comming soon </span></li>
+          </ul>
+        </div>
+        {{-- End Of Gear / Tanlent info --}}
       </div>
 
       {{-- Raider.Io Weekly highest dungeon runs table --}}
@@ -56,5 +72,24 @@
       </div>
     </div>
   </div>
+  @endsection
+
+  @section('extra-js')
+  <script>
+    function copyTalent() {
+      // Get the talent string
+      let talent = document.getElementById('talent_string');
+
+      // Select the text field
+      talent.select();
+      talent.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text from the field
+      navigator.clipboard.writeText(talent.value);
+
+      // Alert the copied text
+      alert("Talent import string copied: " + talent.value);
+    }
+  </script>
   @endsection
 </x-home-master>

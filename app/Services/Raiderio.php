@@ -11,7 +11,7 @@ class Raiderio
   {
     $httpClient = new \GuzzleHttp\Client();
     
-    $raiderioUri = 'https://raider.io/api/v1/characters/profile?region=eu&realm=ragnaros&name='.$name.'&fields=mythic_plus_previous_weekly_highest_level_runs%2Cmythic_plus_weekly_highest_level_runs';
+    $raiderioUri = 'https://raider.io/api/v1/characters/profile?region=eu&realm=ragnaros&name='.$name.'&fields=gear%2Ctalents%2Cmythic_plus_scores_by_season%2Cmythic_plus_weekly_highest_level_runs%2Cmythic_plus_previous_weekly_highest_level_runs';
     $request =  $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents());
 
