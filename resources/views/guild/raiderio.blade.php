@@ -42,6 +42,7 @@
       {{-- Raider.Io Weekly highest dungeon runs table --}}
       <div class="flex flex-col bg-zinc-900 mb-4">
         <div class="py-2 inline-block min-w-full">
+          @if(!empty($data->mythic_plus_weekly_highest_level_runs))
           <div class="overflow-hidden">
             <table class="w-full justify-center">
               <thead>
@@ -57,12 +58,16 @@
                   <td>{{ $run->mythic_level }}</td>
                   <td>{{ $run->dungeon }}</td>
                   <td><a class="hover:text-violet-900" href="{{ $run->url }}" target="_blank">Raider.io</a></td>
-                
                 </tr>
                 @endforeach
               </tbody>
             </table>
           </div>
+          @else 
+          <div class="text-center">
+            <span class="{{ strtolower($data->class) }}">{{ $data->name }}</span>  még nem ment Mythic+ instát a héten.
+          </div>
+          @endif
         </div>
       </div>
       {{-- End Of Raider.Io Weekly highest dungeon runs table --}}
