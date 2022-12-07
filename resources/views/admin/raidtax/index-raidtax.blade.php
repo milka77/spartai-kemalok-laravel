@@ -11,7 +11,6 @@
               <thead class="thead-dark">
                 <th>id</th>
                 <th>Raid Category</th>
-                <th>Raid Difficulty</th>
                 <th>Boss</th>
                 <th>Author</th>
                 <th>Created at</th>
@@ -23,7 +22,6 @@
                   <tr>
                     <td>{{ $raid_tax->id }}</td>
                     <td>{{ $raid_tax->raidTaxCategory->name }}</td>
-                    <td>{{ $raid_tax->raidTaxDifficulty->name }}</td>
                     <td>{{ $raid_tax->boss_name }}</td>
                     <td>{{ $raid_tax->user->nickname }}</td>
                     <td>{{ $raid_tax->created_at }}</td>
@@ -42,7 +40,6 @@
               <tfoot class="thead-dark">
                 <th>id</th>
                 <th>Raid Category</th>
-                <th>Raid Difficulty</th>
                 <th>Boss</th>
                 <th>Author</th>
                 <th>Created at</th>

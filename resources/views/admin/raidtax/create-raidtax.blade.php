@@ -31,25 +31,6 @@
               </div>
               {{-- End Of Category Selection Input --}}
 
-              {{-- Difficulty Selection Input --}}
-              <div class="col-6 mb-4">
-                <label class="form-label" for="raid_tax_difficulty">Select a Raid Difficulty: <i class="fa-light fa-asterisk text-danger"></i></label>
-                <select class="form-control {{$errors->has('raid_tax_difficulty') ? 'is-invalid' : ''}}" name="raid_tax_difficulty">
-                  <option disabled selected>Please select a Raid Difficulty</option>
-                  @foreach ($difficulties as $difficulty)
-                      <option value="{{ $difficulty->id }}">{{ $difficulty->name }}</option>
-                  @endforeach
-                </select>
-
-                {{-- Displaying the error if exists   --}}
-                <div>
-                  @error('raid_tax_difficulty')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End of Displaying the error if exists   --}}
-              </div>
-              {{-- End Of Difficulty Selection Input --}}
             </div>
 
 
