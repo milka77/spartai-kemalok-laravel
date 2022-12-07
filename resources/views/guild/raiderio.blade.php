@@ -28,7 +28,8 @@
             <li>ilvl: <span class="{{ strtolower($data->class) }}">{{ $data->gear->item_level_equipped }} </span> </li>
             <li>
               Talent string: <input type=text hidden id="talent_string" value="{{ $data->talentLoadout->loadout_text }}">
-              <span class="{{ strtolower($data->class) }}"> Import 
+              <span class="{{ strtolower($data->class) }}">
+                <a href="https://www.wowhead.com/talent-calc/blizzard/{{ $data->talentLoadout->loadout_text }}" target="_blank" rel="noopener noreferrer"> Talent Calculator  </a>
                 <i class="fas fa-clipboard hover:text-slate-400 cursor-pointer" onclick="copyTalent()"></i>
               </span>
             </li>
