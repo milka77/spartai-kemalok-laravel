@@ -8,7 +8,7 @@
       <div class="border-t border-zinc-600 my-3">
         <article class="mb-4">
           <span class="p-2 flex mb-3">
-            <a class="hover:text-zinc-400" href="{{ route('raidtax.cat.show', $tax->raidTaxCategory->id) }}"><i class="fas fa-arrow-left"></i> back</a>
+            <a class="hover:text-zinc-400" href="{{ route('raidtax.cat.show', $tax->raidTaxCategory->id) }}"><i class="fas fa-arrow-left"></i> Vissza</a>
           </span>
           <h1 class="text-2xl text-center mb-4">{{ Str::title($tax->boss_name) }}</h1>
 
@@ -93,7 +93,9 @@
       </div>
 
       <div class="mb-3 flex justify-center">
-        <a class="btn px-4 py-3 rounded-md bg-red-900 hover:text-zinc-400" href="{{ route('raidtax.cat.show', $tax->raidTaxCategory->id) }}"><i class="fas fa-arrow-left"></i> back</a>
+        <a class="btn px-4 py-3 rounded-md bg-red-900 hover:text-zinc-400" href="{{ route('raidtax.cat.show', $tax->raidTaxCategory->id) }}">
+          <i class="fas fa-arrow-left"></i> Vissza
+        </a>
       </div>
 
       
