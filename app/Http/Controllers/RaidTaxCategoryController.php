@@ -32,11 +32,20 @@ class RaidTaxCategoryController extends Controller
             'name' => 'required|min:6',
         ]);
 
+        // Get the Raid Tax Category initials
+        $words = explode(" ", request('name'));
+        $initials = "";
+        foreach ($words as $w)
+        {
+            $initials .= mb_substr($w, 0, 1);
+        }
+
         // Assign the values
         $category = new RaidTaxCategory;
         $category->name = Str::lower($request['name']);
         $category->slug = Str::slug($request['name'], '-');
         $category->name = Str::title($category->name);
+        $category->initials = Str::lower($initials);
         $category->save();
 
         // Displaying success message
@@ -59,10 +68,19 @@ class RaidTaxCategoryController extends Controller
             'name' => 'required|min:6',
         ]);
 
+        // Get the Raid Tax Category initials
+        $words = explode(" ", request('name'));
+        $initials = "";
+        foreach ($words as $w)
+        {
+            $initials .= mb_substr($w, 0, 1);
+        }
+
         // Assign the values
         $raidTaxCategory->name = Str::lower(request('name'));
         $raidTaxCategory->slug = Str::slug(request('name'));
         $raidTaxCategory->name = Str::title($raidTaxCategory->name);
+        $raidTaxCategory->initials = Str::lower($initials);
         $raidTaxCategory->save();
 
         // Displaying success message

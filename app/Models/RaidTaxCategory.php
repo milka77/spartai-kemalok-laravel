@@ -12,6 +12,7 @@ class RaidTaxCategory extends Model
     protected $fillable = [
         'name',
         'slug',
+        'initials',
     ];
 
     // Relationship with RaidTax Model

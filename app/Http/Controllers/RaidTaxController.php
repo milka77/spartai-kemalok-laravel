@@ -7,6 +7,7 @@ use App\Models\RaidTaxCategory;
 use App\Models\RaidTaxDifficulty;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
 class RaidTaxController extends Controller
@@ -42,25 +43,24 @@ class RaidTaxController extends Controller
             'title_1' => 'required|min:5',
             'body_1' => 'required',
             'raid_tax_category' => 'required',
-            'raid_tax_difficulty' => 'required',
         ]);
 
         // Assigning the values
         $data = [
             'user_id' => Auth()->user()->id,
-            'raid_tax_category_id' => $request['raid_tax_category'],
-            'raid_tax_difficulty_id' => $request['raid_tax_difficulty'],
-            'boss_name' => $request['boss_name'],
-            'title_1' => $request['title_1'],
-            'body_1' => $request['body_1'],
-            'title_2' => $request['title_2'],
-            'body_2' => $request['body_2'],
-            'title_3' => $request['title_3'],
-            'body_3' => $request['body_3'],
-            'title_4' => $request['title_4'],
-            'body_4' => $request['body_4'],
-            'title_5' => $request['title_5'],
-            'body_5' => $request['body_5'],
+            'raid_tax_category_id' => request('raid_tax_category'),
+            'boss_name' => request('boss_name'),
+            'slug' => Str::slug(request('boss_name'), '-'),
+            'title_1' => request('title_1'),
+            'body_1' => request('body_1'),
+            'title_2' => request('title_2'),
+            'body_2' => request('body_2'),
+            'title_3' => request('title_3'),
+            'body_3' => request('body_3'),
+            'title_4' => request('title_4'),
+            'body_4' => request('body_4'),
+            'title_5' => request('title_5'),
+            'body_5' => request('body_5'),
         ];
 
         // Checking images
@@ -97,12 +97,10 @@ class RaidTaxController extends Controller
     // Displaying the edit RaidTax Form
     public function edit(RaidTax $raidTax)
     {
-        $categories = RaidTaxCategory::all();
-        $difficulties = RaidTaxDifficulty::all();
+        $categories = RaidTaxCategory::all();       
 
         $context = [
             'categories' => $categories,
-            'difficulties' => $difficulties,
             'raid_tax' => $raidTax,
         ];
         
@@ -118,12 +116,11 @@ class RaidTaxController extends Controller
             'title_1' => 'required|min:5',
             'body_1' => 'required',
             'raid_tax_category' => 'required',
-            'raid_tax_difficulty' => 'required',
         ]);
 
         $raidTax->raid_tax_category_id = request('raid_tax_category');
-        $raidTax->raid_tax_difficulty_id = request('raid_tax_difficulty');
         $raidTax->boss_name = request('boss_name');
+        $raidTax->slug = Str::slug(request('boss_name'), '-');
         $raidTax->title_1 = request('title_1');
         $raidTax->body_1 = request('body_1');
         $raidTax->title_2 = request('title_2');
@@ -167,24 +164,14 @@ class RaidTaxController extends Controller
     // Raid Tactics index 
     public function index()
     {
-        // $tactics = RaidTax::all()->groupBy('raid_tax_category_id');
         $tactics = RaidTax::selectRaw('*')
             ->orderBy('raid_tax_category_id')
             ->get();
         $categories = RaidTaxCategory::all();
-        $difficulties = RaidTaxDifficulty::all();
-
-        // $taxgroupped = RaidTax::select("*", DB::raw("count(*) as raidtax_count"))
-        //                         ->groupBy('raid_tax_category_id')
-        //                         ->get();
-
-        // dd($tactics);
 
         $context = [
-            // 'taxes' => $taxgroupped,
             'tactics' => $tactics,
             'categories' => $categories,
-            'difficulties' => $difficulties,
         ];
 
         return view('guild.tax.raidtax', $context);
@@ -195,5 +182,22 @@ class RaidTaxController extends Controller
         $raidTax->delete();
 
         return redirect(route('raidtax.adminindex'));
+    }
+
+    public function categoryShow(RaidTaxCategory $raidTaxCategory)
+    {   
+        $tactics = RaidTax::where('raid_tax_category_id', $raidTaxCategory->id)->get();
+
+        $context = [
+            'raidTaxCategory' => $raidTaxCategory,
+            'tactics' => $tactics,
+        ];
+
+        return view('guild.tax.raidtax-category', $context);
+    }
+
+    public function show(RaidTaxCategory $raidTaxCategory, RaidTax $raidTax)
+    {
+        return view('guild.tax.raidtax-show', ['tax' => $raidTax]);
     }
 }

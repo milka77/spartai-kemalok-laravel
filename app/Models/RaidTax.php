@@ -15,6 +15,7 @@ class RaidTax extends Model
         'raid_tax_category_id',
         'raid_tax_difficulty_id',
         'boss_name',
+        'slug',
         'title_1',
         'body_1',
         'file_path_1',
