@@ -15,12 +15,11 @@
               <div class="col-6 mb-4">
                 <label class="form-label" for="raid_tax_category">Select a Raid Instance: <i class="fa-light fa-asterisk text-danger"></i></label>
                 <select class="form-control {{$errors->has('raid_tax_category') ? 'is-invalid' : ''}}" name="raid_tax_category">
-                  <option disabled selected>Please select a Raid Instance</option>
+                  <option>Please select a Raid Instance</option>
                   @foreach ($categories as $category)
-                      <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <option value="{{ $category->id }}" {{ intval(old('raid_tax_category')) === $category->id  ? 'selected' : '' }}>{{ $category->name }}</option>
                   @endforeach
                 </select>
-
                 {{-- Displaying the error if exists   --}}
                 <div>
                   @error('raid_tax_category')
@@ -72,9 +71,9 @@
               <!-- ./Phase 1 Title input field -->
 
               {{-- Phase 1 body input field --}}
-              <div class="mb-2">
+              <div class="mb-2 ">
                 <label for="body_1">Raid Tactics body <i class="fa-light fa-asterisk text-danger"></i></label>
-                <textarea class="form-control" name="body_1" rows="10" id="body_1"></textarea>
+                <textarea class="form-control " name="body_1" rows="10" id="body_1">{{ old('body_1') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -113,7 +112,7 @@
               <!-- Phase 1 Title input field  -->
               <div class="mb-2">
                 <label class="form-label" for="title_2">Title (optional)</label>
-                <input class="form-control {{$errors->has('title_2') ? 'is-invalid' : ''}}" type="text" name="title_2" value="{{ old('title_2')}}">
+                <input class="form-control {{ $errors->has('title_2') ? 'is-invalid' : ''}}" type="text" name="title_2" value="{{ old('title_2')}}">
                 
                 <!-- Displaying the error if exists -->  
                 <div>
@@ -128,7 +127,7 @@
               {{-- Phase 1 body input field --}}
               <div class="mb-2">
                 <label for="body_2">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_2" rows="10" id="body_2"></textarea>
+                <textarea class="form-control {{ $errors->has('body_2') ? 'is-invalid' : '' }}" name="body_2" rows="10" id="body_2">{!! old('body_2') !!}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
