@@ -1,7 +1,7 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class="w-1/2 p-3 rounded-lg bg-zinc-800 text-gray-200 mb-5">
+    <div class="w-1/2 min-h-full p-3 rounded-lg bg-zinc-800 text-gray-200 mb-5">
       <h1 class="text-2xl text-center mb-4">Heti legnagyobb kulcs runok</h1>
 
       <div class="border-t border-b border-zinc-600 p-2 flex gap-5">

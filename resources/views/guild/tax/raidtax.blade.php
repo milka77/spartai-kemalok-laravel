@@ -18,9 +18,6 @@
           @endforeach
         </div>
         
-        <div class="border-t border-zinc-600 mt-2 p-2">
-          
-        </div>
       </div>
 
       
