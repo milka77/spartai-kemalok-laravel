@@ -122,20 +122,6 @@ Route::middleware('auth')->group(function() {
     });
 
 
-    // *******************************************
-    // Raid Tax Difficulty routes
-    // *******************************************
-    Route::prefix('difficulty')->group(function() {
-      Route::get('/', [RaidTaxDifficultyController::class, 'index'])->name('raidtaxdiff.index');
-
-      Route::get('/create', [RaidTaxDifficultyController::class, 'create'])->name('raidtaxdiff.create');
-      Route::post('/store', [RaidTaxDifficultyController::class, 'store'])->name('raidtaxdiff.store');
-
-      Route::get('/{raidTaxDifficulty}/edit', [RaidTaxDifficultyController::class, 'edit'])->name('raidtaxdiff.edit');
-      Route::patch('/{raidTaxDifficulty}/update', [RaidTaxDifficultyController::class, 'update'])->name('raidtaxdiff.update');
-      
-      Route::delete('/{raidTaxDifficulty}/destroy', [RaidTaxDifficultyController::class, 'destroy'])->name('raidtaxdiff.destroy');
-    });
   });
   // End of Raid Tax Admin Routes --------------------------------------------
 

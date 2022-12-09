@@ -57,10 +57,6 @@
         <h6 class="collapse-header">Raid Tactics Categories</h6>
         <a class="collapse-item" href="{{ route('raidtaxcat.index') }}"><i class="fas fa-folder-open"></i> Show All Categories</a>
         <a class="collapse-item" href="{{ route('raidtaxcat.create') }}"><i class="fas fa-folder-plus"></i> Add New Category</a>
-        <hr>
-        <h6 class="collapse-header">Raid Tactics Difficulties</h6>
-        <a class="collapse-item" href="{{ route('raidtaxdiff.index') }}"><i class="fas fa-folder-open"></i> Show All Difficulties</a>
-        <a class="collapse-item" href="{{ route('raidtaxdiff.create') }}"><i class="fas fa-folder-plus"></i> Add New Difficulty</a>
       
       </div>
     </div>
