@@ -71,10 +71,18 @@
               Minden karakter mögött egy ember ül. Legyünk mindig tisztelettudóak egymással, akár voiceon, akár PMben, akár mythicben, akár raidben.
             </p>
 
-            <p class="p-2 font-bold text-lg">
+            <p class="p-2 font-bold text-lg mb-3">
               De ha úgy döntöttél, hogy részt veszel a raiden, akkor amikor a pull timer elindul akkor a nem bossal kapcsolatos beszélgetést felfüggesztjük és a 
               maximumot próbáljuk beletenni a tryba!
             </p>
+
+            <p class="py-1 text-lg bg-zinc-700 pl-5 rounded-lg">Hivatalos Raid Napok:</p>
+            <ul class="list-inside list-disc p-2">
+              <li>Szerda 20:00 - 23:00</li>
+              <li>Vasárnap 20:00 - 23:00</li>
+            </ul>
+            <p class="px-2">További raidnapok megbeszélés tárgyát képzik.</p>
+
             {{-- End Of Raid alatt --}}
 
 
