@@ -181,7 +181,7 @@
               {{-- Phase 3 body input field --}}
               <div class="mb-2">
                 <label for="body_3">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_3" rows="10" id="body_3"></textarea>
+                <textarea class="form-control" name="body_3" rows="10" id="body_3">{{ old('body_3') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -235,7 +235,7 @@
               {{-- Phase 4 body input field --}}
               <div class="mb-2">
                 <label for="body_4">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_4" rows="10" id="body_4"></textarea>
+                <textarea class="form-control" name="body_4" rows="10" id="body_4">{{ old('body_4') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -289,7 +289,7 @@
               {{-- Phase 5 body input field --}}
               <div class="mb-2">
                 <label for="body_5">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_5" rows="10" id="body_5"></textarea>
+                <textarea class="form-control" name="body_5" rows="10" id="body_5">{{ old('body_5') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
