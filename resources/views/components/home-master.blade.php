@@ -4,6 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        {{-- Social meta links --}}
+        <meta property="og:title" content="Spártai Kemálok" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://kemalok.hu" />
+        <meta property="og:image" content="https://kemalok.hu/images/meta-kemalok.png" />
+        <meta property="og:description" content="Spártai Kemálok WoW Guild, EU-Ragnaros" />
+        <meta name="theme-color" content="#FF0000">
+
+        <!-- Include this to make the og:image larger -->
+        <meta name="twitter:card" content="summary_large_image">
+        {{-- End Of Social meta links --}}
+
 
         <title>{{ config('app.name', 'Laravel') }}</title>
         
