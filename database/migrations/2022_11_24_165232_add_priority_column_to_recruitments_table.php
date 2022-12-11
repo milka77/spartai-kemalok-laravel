@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('recruitments', function (Blueprint $table) {
             //
-            $table->boolean('priority')->default(0);
+            $table->boolean('priority')->default(0)->nullable();
         });
     }
 
