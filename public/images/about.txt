@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Grenze
+- Font Author: Copyright 2018 The Grenze Project Authors (https://github.com/Omnibus-Type/Grenze), with Reserved Font Name "Grenze".
+- Font Source: http://fonts.gstatic.com/s/grenze/v14/O4ZTFGb7hR12Bxq3_2gnmgwKlg.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
