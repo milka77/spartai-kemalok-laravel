@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Arr;
 
 use App\Services\Raiderio;
+use App\Services\Warcraftlogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -102,16 +103,24 @@ class GuildController extends Controller
         return view('guild.rosterio', $context);
     }
 
-    public function kisokos()
+    public function kisokos(Warcraftlogs $warcraftlogs)
     {
+        $token = $warcraftlogs->attendance();
+        dd($token);
         return view('guild.kisokos');
     }
 
     public function recruitment()
     {
         $recruits = Recruitment::all();
+        $recruits_is_active = $this->checkRecruitment();
 
-        return view('guild.recruitment', ['recruits' => $recruits]);
+        $context = [
+            'recruits' => $recruits,
+            'recruits_is_active' => $recruits_is_active,
+        ];
+
+        return view('guild.recruitment', $context);
     }
 
     // Receiving the Weekly highest run from Raider.io API
@@ -135,13 +144,27 @@ class GuildController extends Controller
         $all_news = News::all()->sortByDesc('id');
         $raid_progress = $raiderio->getGuildRaidProgress();
         $recruits = Recruitment::all();
+        $recruits_is_active = $this->checkRecruitment();
 
         $context = [
             'news_index' => $all_news,
             'raid_progress' => $raid_progress,
-            'recruits' => $recruits
+            'recruits' => $recruits,
+            'recruits_is_active' => $recruits_is_active,
         ];
 
         return view('index', $context);
+    }
+
+    // Cheking Recrutment status
+    public function checkRecruitment()
+    {
+        $recruit_status = Recruitment::where('is_active', 1)->first();
+        $is_active = false;
+        if(!empty($recruit_status)) {
+            $is_active = true;
+        }
+       
+        return $is_active;
     }
 }

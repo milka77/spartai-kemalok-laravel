@@ -64,7 +64,7 @@
       {{-- End Of Left side News feed --}}
 
       {{-- Right side --}}
-      <div class="w-auto min-w-fit pt-12 p-2">
+      <div class="w-auto min-w-[25%] lg:min-w-[21%] pt-12 p-2">
         {{-- Recruitment --}}
         <div class="bg-zinc-700 text-white rounded-lg mb-4 pt-5">
 
@@ -73,23 +73,34 @@
           </div>
 
           <div class="px-4 py-2 border-t border-zinc-500">
-            @foreach ($recruits as $rec)
-              <div class="flex justify-between border-b border-zinc-500">
-                <span class="{{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}: </span>
-                <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
-                  @if($rec->is_active)
-                    @if($rec->priority)
-                      <a href="{{ route('guild.recruitment') }}">Open <small><i class="fas fa-angle-double-up"></i></small></a>
+            @if($recruits_is_active)
+              @foreach ($recruits as $rec)
+                <div class="flex justify-between border-b border-zinc-500">
+                  <span class="{{ strtolower($rec->playable_class->name) }}">{{ $rec->playable_class->name }}: </span>
+                  <span class="font-semibold {{ $rec->is_active ? 'text-green-500' : 'text-red-600' }}">
+                    @if($rec->is_active)
+                      @if($rec->priority)
+                        <a href="{{ route('guild.recruitment') }}">Open <small><i class="fas fa-angle-double-up"></i></small></a>
+                      @else
+                        <a href="{{ route('guild.recruitment') }}" class="text-orange-500">Open <small><i class="fas fa-angle-up"></i></small> </a>
+                      @endif
                     @else
-                      <a href="{{ route('guild.recruitment') }}" class="text-orange-500">Open <small><i class="fas fa-angle-up"></i></small> </a>
+                      Closed <small><i class="fas fa-times"></i></small> 
                     @endif
-                  @else
-                    Closed <small><i class="fas fa-times"></i></small> 
-                  @endif
-                </span>
+                  </span>
+                </div>
+              @endforeach
+              <p class="py-2 text-sm">Tobb infoert kattints barmelyik nyitott class-ra.</p>
+            @else
+              <div class=" border-b border-zinc-500">
+                <p class="p-2 text-center">
+                  Jelenleg kiemelten egyetlen classt sem keresünk, viszont kiemelkedő teljesítményű raiderek és mythic+ orientált játékosok jelentkezését továbbra is szívesen fogadjuk.
+                </p>
+                <p class="p-2 text-center">
+                  Vedd fel a kapcsolatot valamelyik officerrel a játékban vagy discordon.
+                </p>
               </div>
-            @endforeach
-            <p class="py-2 text-sm">Tobb infoert kattints barmelyik nyitott class-ra.</p>
+            @endif
           </div>
         </div>
         {{-- End Of Recruitment --}}
