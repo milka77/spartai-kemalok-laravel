@@ -4,7 +4,7 @@
     <div class="container p-3 rounded-lg flex flex-col gap-2 bg-zinc-800 lg:container-fluid lg:flex-row">
       
       {{-- Left side News feed --}}
-      <div class="w-auto text-white rounded-lg p-2">
+      <div class="w-full lg:w-8/12 xl:w-9/12 text-white rounded-lg p-2">
         <h1 class="text-2xl font-semibold text-center mb-2">Hírek</h1>
       
         @foreach ($news_index as $news)
@@ -64,7 +64,7 @@
       {{-- End Of Left side News feed --}}
 
       {{-- Right side --}}
-      <div class="w-auto min-w-[25%] lg:min-w-[21%] pt-12 p-2">
+      <div class="w-full lg:w-4/12 xl:w-3/12 pt-12 p-2">
         {{-- Recruitment --}}
         <div class="bg-zinc-700 text-white rounded-lg mb-4 pt-5">
 
