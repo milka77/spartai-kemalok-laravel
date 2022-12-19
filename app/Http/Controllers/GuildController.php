@@ -103,10 +103,8 @@ class GuildController extends Controller
         return view('guild.rosterio', $context);
     }
 
-    public function kisokos(Warcraftlogs $warcraftlogs)
+    public function kisokos()
     {
-        $token = $warcraftlogs->attendance();
-        dd($token);
         return view('guild.kisokos');
     }
 

@@ -179,21 +179,20 @@
         <div class="mb-2">
           <p class="py-1 mb-2 text-lg bg-zinc-700 pl-5 rounded-lg">Consumable és karakter:</p>
           <p class="p-2">
-            A karakternek Raid ready állapotban kell lennie, enchantok, gemek és a biztosított consumable-k használata kötelező, illetve azon felül mindenki tartson magánál
-            szükség esetére. (dps poti, food buff, phial , fegyver rúna, hp poti, mana poti, augment rúna).Törekedni fogunk rá, hogy guild bankból tudjuk fedezni a raidre
-              szükséges összes fogyó eszközt viszont lesznek esetek amikor sajátot kell használni.
+            A karakternek Raid ready állapotban kell lennie, enchantok, gemek és consumable-k használata kötelező, illetve mindenki tartson magánál tartalékot 
+            szükség esetére. (dps poti, food buff, phial, fegyver rúna, hp poti, mana poti, augment rúna).
           </p>
         </div>
         {{-- End Of Consumable and Character --}}
 
         {{-- BoE Loots --}}
-        <div class="mb-2">
+        {{-- <div class="mb-2">
           <p class="py-1 mb-2 text-lg bg-zinc-700 pl-5 rounded-lg">BoE lootok:</p>
           <p class="p-2">
             Raidből eső BoE lootok a guild tulajdonát képzik, ezek eladásáról A Kemál gondoskodik. Ezzel a guildbankunk fedezete meglesz arra, hogy mindenkinek biztosítani 
             tudjuk a raidekre az összes szükséges consumable-t. Akinek feltétlenül szüksége van egy boe tárgyra az A Kemál felé jelezheti igényét egyedi elbírálásra
           </p>
-        </div>
+        </div> --}}
         {{-- End Of BoE Loots --}}
         
       </div>
