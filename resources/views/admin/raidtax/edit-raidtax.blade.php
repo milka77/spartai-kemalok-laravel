@@ -85,6 +85,21 @@
               </div>
               {{-- End Of Phase 1 body input field --}}
 
+              {{-- Phase 1 mythic input field --}}
+              <div class="mb-2">
+                <label for="mithic_1">Raid Tactics mythic options:</label>
+                <textarea class="form-control" name="mythic_1" rows="5" id="mythic_1">{{ $raid_tax->mythic_1 }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mythic_1')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 1 mythic input field --}}
+
               {{-- File path for image --}}
               <div class="mb-2">
                 
@@ -151,6 +166,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 1 body input field --}}
+
+              {{-- Phase 2 mythic input field --}}
+              <div class="mb-2">
+                <label for="mithic_2">Raid Tactics mythic options:</label>
+                <textarea class="form-control" name="mythic_2" rows="5" id="mythic_2">{{ $raid_tax->mythic_2 }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mythic_2')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 2 mythic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -219,6 +249,21 @@
               </div>
               {{-- End Of Phase 3 body input field --}}
 
+              {{-- Phase 3 mythic input field --}}
+              <div class="mb-2">
+                <label for="mithic_3">Raid Tactics mythic options:</label>
+                <textarea class="form-control" name="mythic_3" rows="5" id="mythic_3">{{ $raid_tax->mythic_3 }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mythic_3')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 3 mythic input field --}}
+
               {{-- File path for image --}}
               <div class="mb-2">
                 <label class="form-label" for="file_path_3">Image: <span >(optional)</span></label>
@@ -286,6 +331,21 @@
               </div>
               {{-- End Of Phase 4 body input field --}}
 
+              {{-- Phase 4 mythic input field --}}
+              <div class="mb-2">
+                <label for="mithic_4">Raid Tactics mythic options:</label>
+                <textarea class="form-control" name="mythic_4" rows="5" id="mythic_4">{{ $raid_tax->mythic_4 }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mythic_4')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 4 mythic input field --}}
+
               {{-- File path for image --}}
               <div class="mb-2">
                 <label class="form-label" for="file_path_4">Image: <span >(optional)</span></label>
@@ -352,6 +412,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 5 body input field --}}
+
+              {{-- Phase 5 mythic input field --}}
+              <div class="mb-2">
+                <label for="mithic_5">Raid Tactics mythic options:</label>
+                <textarea class="form-control" name="mythic_5" rows="5" id="mythic_5">{{ $raid_tax->mythic_5 }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mythic_5')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 5 mythic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
