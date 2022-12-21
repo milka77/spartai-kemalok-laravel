@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\RaidTax;
 use App\Models\RaidTaxCategory;
-use App\Models\RaidTaxDifficulty;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -24,11 +23,9 @@ class RaidTaxController extends Controller
     public function create()
     {
         $categories = RaidTaxCategory::all();
-        $difficulties = RaidTaxDifficulty::all();
 
         $context = [
             'categories' => $categories,
-            'difficulties' => $difficulties,
         ];
 
         return view('admin.raidtax.create-raidtax', $context);
