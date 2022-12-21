@@ -9,10 +9,12 @@
         <article class="mb-4">
           <span class="p-2 flex justify-between mb-3">
             <a class="hover:text-zinc-400" href="{{ route('raidtax.cat.show', $tax->raidTaxCategory->id) }}"><i class="fas fa-arrow-left"></i> Vissza</a>
+            @if(!empty($tax->mythic_1))
             <select class="bg-inherit px-2 py-1 rounded-lg border-2 border-zinc-600 focus:border-zinc-500" name="difficulty" id="difficulty">
               <option class="bg-inherit text-black" value="N">Normal/Heroic</option>
               <option class="bg-inherit text-black" value="M">Mythic</option>
             </select>
+            @endif
           </span>
           <h1 class="text-2xl text-center mb-4">{{ Str::title($tax->boss_name) }}</h1>
 
