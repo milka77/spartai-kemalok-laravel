@@ -95,7 +95,6 @@ class RaidTaxController extends Controller
         return redirect(route('raidtax.adminindex'));
     }
 
-
     // Displaying the edit RaidTax Form
     public function edit(RaidTax $raidTax)
     {
