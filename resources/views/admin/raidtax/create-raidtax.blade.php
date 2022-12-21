@@ -73,7 +73,7 @@
               {{-- Phase 1 body input field --}}
               <div class="mb-2 ">
                 <label for="body_1">Raid Tactics body <i class="fa-light fa-asterisk text-danger"></i></label>
-                <textarea class="form-control " name="body_1" rows="10" id="body_1">{{ old('body_1') }}</textarea>
+                <textarea class="form-control " name="body_1" rows="5" id="body_1">{{ old('body_1') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -84,6 +84,22 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 1 body input field --}}
+
+              {{-- Phase 1 mytic input field --}}
+              <div class="mb-2 ">
+                <label for="mytic_1">Raid Tactics Mythic options: </label>
+                <textarea class="form-control " name="mytic_1" rows="5" id="mytic_1">{{ old('mytic_1') }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mytic_1')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 1 mytic input field --}}
+
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -127,7 +143,7 @@
               {{-- Phase 1 body input field --}}
               <div class="mb-2">
                 <label for="body_2">Raid Tactics body (optional)</label>
-                <textarea class="form-control {{ $errors->has('body_2') ? 'is-invalid' : '' }}" name="body_2" rows="10" id="body_2">{!! old('body_2') !!}</textarea>
+                <textarea class="form-control {{ $errors->has('body_2') ? 'is-invalid' : '' }}" name="body_2" rows="5" id="body_2">{!! old('body_2') !!}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -138,6 +154,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 1 body input field --}}
+
+              {{-- Phase 2 mytic input field --}}
+              <div class="mb-2 ">
+                <label for="mytic_2">Raid Tactics Mythic options: </label>
+                <textarea class="form-control " name="mytic_2" rows="5" id="mytic_2">{{ old('mytic_2') }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mytic_2')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 2 mytic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -181,7 +212,7 @@
               {{-- Phase 3 body input field --}}
               <div class="mb-2">
                 <label for="body_3">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_3" rows="10" id="body_3">{{ old('body_3') }}</textarea>
+                <textarea class="form-control" name="body_3" rows="5" id="body_3">{{ old('body_3') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -192,6 +223,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 3 body input field --}}
+
+              {{-- Phase 3 mytic input field --}}
+              <div class="mb-2 ">
+                <label for="mytic_3">Raid Tactics Mythic options: </label>
+                <textarea class="form-control " name="mytic_3" rows="5" id="mytic_3">{{ old('mytic_3') }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mytic_3')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 3 mytic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -235,7 +281,7 @@
               {{-- Phase 4 body input field --}}
               <div class="mb-2">
                 <label for="body_4">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_4" rows="10" id="body_4">{{ old('body_4') }}</textarea>
+                <textarea class="form-control" name="body_4" rows="5" id="body_4">{{ old('body_4') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -246,6 +292,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 4 body input field --}}
+
+              {{-- Phase 4 mytic input field --}}
+              <div class="mb-2 ">
+                <label for="mytic_4">Raid Tactics Mythic options: </label>
+                <textarea class="form-control " name="mytic_4" rows="5" id="mytic_4">{{ old('mytic_4') }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mytic_4')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 4 mytic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -289,7 +350,7 @@
               {{-- Phase 5 body input field --}}
               <div class="mb-2">
                 <label for="body_5">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_5" rows="10" id="body_5">{{ old('body_5') }}</textarea>
+                <textarea class="form-control" name="body_5" rows="5" id="body_5">{{ old('body_5') }}</textarea>
 
                 {{-- Displaying the error if exists --}}
                 <div>
@@ -300,6 +361,21 @@
                 {{-- End Of Displaying the error if exists --}}
               </div>
               {{-- End Of Phase 5 body input field --}}
+
+              {{-- Phase 5 mytic input field --}}
+              <div class="mb-2 ">
+                <label for="mytic_5">Raid Tactics Mythic options: </label>
+                <textarea class="form-control " name="mytic_5" rows="5" id="mytic_5">{{ old('mytic_5') }}</textarea>
+
+                {{-- Displaying the error if exists --}}
+                <div>
+                  @error('mytic_5')
+                  <span class="text-danger">{{$message}}</span>
+                  @enderror
+                </div>
+                {{-- End Of Displaying the error if exists --}}
+              </div>
+              {{-- End Of Phase 5 mytic input field --}}
 
               {{-- File path for image --}}
               <div class="mb-2">
@@ -338,7 +414,7 @@
   @section('extra-script')  
   <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/super-build/ckeditor.js"></script>
 
-  <script>
+  {{-- <script>
     let elementsList = document.querySelectorAll("#body_1, #body_2, #body_3, #body_4, #body_5");
     let elementsArray = [...elementsList];
 
@@ -462,7 +538,7 @@
           ]
       });
     });
-  </script>
+  </script> --}}
 
   @endsection
 </x-admin-master>
