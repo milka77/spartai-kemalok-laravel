@@ -14,7 +14,7 @@ class RaidTaxController extends Controller
     // Admin Raid Tactics index page
     public function adminIndex()
     {
-        $raid_taxes = RaidTax::paginate(10);
+        $raid_taxes = RaidTax::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.raidtax.index-raidtax', ['raid_taxes' => $raid_taxes]);
     }
