@@ -50,14 +50,19 @@ class RaidTaxController extends Controller
             'slug' => Str::slug(request('boss_name'), '-'),
             'title_1' => request('title_1'),
             'body_1' => request('body_1'),
+            'mythic_1' => request('mythic_1'),
             'title_2' => request('title_2'),
             'body_2' => request('body_2'),
+            'mythic_2' => request('mythic_2'),
             'title_3' => request('title_3'),
             'body_3' => request('body_3'),
+            'mythic_3' => request('mythic_3'),
             'title_4' => request('title_4'),
             'body_4' => request('body_4'),
+            'mythic_4' => request('mythic_4'),
             'title_5' => request('title_5'),
             'body_5' => request('body_5'),
+            'mythic_5' => request('mythic_5'),
         ];
 
         // Checking images
@@ -120,14 +125,19 @@ class RaidTaxController extends Controller
         $raidTax->slug = Str::slug(request('boss_name'), '-');
         $raidTax->title_1 = request('title_1');
         $raidTax->body_1 = request('body_1');
+        $raidTax->mythic_1 = request('mythic_1');
         $raidTax->title_2 = request('title_2');
         $raidTax->body_2 = request('body_2');
+        $raidTax->mythic_2 = request('mythic_2');
         $raidTax->title_3 = request('title_3');
         $raidTax->body_3 = request('body_3');
+        $raidTax->mythic_3 = request('mythic_3');
         $raidTax->title_4 = request('title_4');
         $raidTax->body_4 = request('body_4');
+        $raidTax->mythic_4 = request('mythic_4');
         $raidTax->title_5 = request('title_5');
         $raidTax->body_5 = request('body_5');
+        $raidTax->mythic_5 = request('mythic_5');
 
         // Checking images
         if(request('file_path_1')){
