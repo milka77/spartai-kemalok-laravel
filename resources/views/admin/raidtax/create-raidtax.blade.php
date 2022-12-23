@@ -188,210 +188,40 @@
             </div>
             {{-- End Of Phase 2 fields --}}
 
+            {{-- Button for add phase 3 --}}
+            <div id='btn-p3-wrap'>
+              <span onclick="addPhase_3()" role="button" class="btn btn-primary" id='btn-p3'>Add Phase 3</span>
+            </div>
+            {{-- Button for add phase 3 --}}
+
             {{-- Phase 3 fields --}}
             <div id="phase-3" class="mb-4">
-              <hr>
-              <h4>Phase 3</h4>
-              <hr>
               
-              <!-- Phase 3 Title input field  -->
-              <div class="mb-2">
-                <label class="form-label" for="title_3">Title (optional)</label>
-                <input class="form-control {{$errors->has('title_3') ? 'is-invalid' : ''}}" type="text" name="title_3" value="{{ old('title_3')}}">
-                
-                <!-- Displaying the error if exists -->  
-                <div>
-                  @error('title_3')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                <!-- ./Displaying the error if exists -->  
-              </div>
-              <!-- ./Phase 3 Title input field -->
-
-              {{-- Phase 3 body input field --}}
-              <div class="mb-2">
-                <label for="body_3">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_3" rows="5" id="body_3">{{ old('body_3') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('body_3')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 3 body input field --}}
-
-              {{-- Phase 3 mythic input field --}}
-              <div class="mb-2 ">
-                <label for="mythic_3">Raid Tactics Mythic options: </label>
-                <textarea class="form-control " name="mythic_3" rows="5" id="mythic_3">{{ old('mythic_3') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('mythic_3')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 3 mythic input field --}}
-
-              {{-- File path for image --}}
-              <div class="mb-2">
-                <label class="form-label" for="file_path_3">Image: <span >(optional)</span></label>
-                <input class="form-control-file {{ $errors->has('file_path_3') ? 'is-invalid' : '' }}" type="file" name="file_path_3" value="{{ old('file_path_3')}}">
-
-                {{-- Displaying the error of exists --}}
-                <div>
-                  @error('file_path_3')
-                  <span class="text-danger">{{ $message }}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error of exists --}}
-
-              </div>
-              {{-- End Of File path for image --}}
             </div>
             {{-- End Of Phase 3 fields --}}
 
+            {{-- Button for add phase 3 --}}
+            <div id='btn-p4-wrap'>
+              <span onclick="addPhase_4()" role="button" class="btn btn-primary" id='btn-p4'>Add Phase 4</span>
+            </div>
+            {{-- Button for add phase 3 --}}
+
             {{-- Phase 4 fields --}}
             <div id="phase-4" class="mb-4">
-              <hr>
-              <h4>Phase 4</h4>
-              <hr>
               
-              <!-- Phase 4 Title input field  -->
-              <div class="mb-2">
-                <label class="form-label" for="title_4">Title (optional)</label>
-                <input class="form-control {{$errors->has('title_4') ? 'is-invalid' : ''}}" type="text" name="title_4" value="{{ old('title_4')}}">
-                
-                <!-- Displaying the error if exists -->  
-                <div>
-                  @error('title_4')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                <!-- ./Displaying the error if exists -->  
-              </div>
-              <!-- ./Phase 4 Title input field -->
-
-              {{-- Phase 4 body input field --}}
-              <div class="mb-2">
-                <label for="body_4">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_4" rows="5" id="body_4">{{ old('body_4') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('body_4')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 4 body input field --}}
-
-              {{-- Phase 4 mythic input field --}}
-              <div class="mb-2 ">
-                <label for="mythic_4">Raid Tactics Mythic options: </label>
-                <textarea class="form-control " name="mythic_4" rows="5" id="mythic_4">{{ old('mythic_4') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('mythic_4')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 4 mythic input field --}}
-
-              {{-- File path for image --}}
-              <div class="mb-2">
-                <label class="form-label" for="file_path_4">Image: <span >(optional)</span></label>
-                <input class="form-control-file {{ $errors->has('file_path_4') ? 'is-invalid' : '' }}" type="file" name="file_path_4" value="{{ old('file_path_4')}}">
-
-                {{-- Displaying the error of exists --}}
-                <div>
-                  @error('file_path_4')
-                  <span class="text-danger">{{ $message }}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error of exists --}}
-
-              </div>
-              {{-- End Of File path for image --}}
             </div>
             {{-- End Of Phase 4 fields --}}
 
+
+            {{-- Button for add phase 5 --}}
+            <div id='btn-p5-wrap'>
+              <span onclick="addPhase_5()" role="button" class="btn btn-primary" id='btn-p5'>Add Phase 5</span>
+            </div>
+            {{-- Button for add phase 5 --}}
+
             {{-- Phase 5 fields --}}
             <div id="phase-5" class="mb-4">
-              <hr>
-              <h4>Phase 5</h4>
-              <hr>
               
-              <!-- Phase 5 Title input field  -->
-              <div class="mb-2">
-                <label class="form-label" for="title_5">Title (optional)</label>
-                <input class="form-control {{$errors->has('title_5') ? 'is-invalid' : ''}}" type="text" name="title_5" value="{{ old('title_5')}}">
-                
-                <!-- Displaying the error if exists -->  
-                <div>
-                  @error('title_5')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                <!-- ./Displaying the error if exists -->  
-              </div>
-              <!-- ./Phase 5 Title input field -->
-
-              {{-- Phase 5 body input field --}}
-              <div class="mb-2">
-                <label for="body_5">Raid Tactics body (optional)</label>
-                <textarea class="form-control" name="body_5" rows="5" id="body_5">{{ old('body_5') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('body_5')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 5 body input field --}}
-
-              {{-- Phase 5 mythic input field --}}
-              <div class="mb-2 ">
-                <label for="mythic_5">Raid Tactics Mythic options: </label>
-                <textarea class="form-control " name="mythic_5" rows="5" id="mythic_5">{{ old('mythic_5') }}</textarea>
-
-                {{-- Displaying the error if exists --}}
-                <div>
-                  @error('mythic_5')
-                  <span class="text-danger">{{$message}}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error if exists --}}
-              </div>
-              {{-- End Of Phase 5 mythic input field --}}
-
-              {{-- File path for image --}}
-              <div class="mb-2">
-                <label class="form-label" for="file_path_5">Image: <span >(optional)</span></label>
-                <input class="form-control-file {{ $errors->has('file_path_5') ? 'is-invalid' : '' }}" type="file" name="file_path_5" value="{{ old('file_path_5')}}">
-
-                {{-- Displaying the error of exists --}}
-                <div>
-                  @error('file_path_5')
-                  <span class="text-danger">{{ $message }}</span>
-                  @enderror
-                </div>
-                {{-- End Of Displaying the error of exists --}}
-
-              </div>
-              {{-- End Of File path for image --}}
             </div>
             {{-- End Of Phase 5 fields --}}
 
@@ -412,13 +242,16 @@
   @endsection
 
   @section('extra-script')  
+  
   <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/super-build/ckeditor.js"></script>
 
-  {{-- <script>
-    let elementsList = document.querySelectorAll("#body_1, #body_2, #body_3, #body_4, #body_5");
+  <script>
+    let elementsList = document.querySelectorAll("#body_1, #mythic_1, #body_2, #mythic_2");
     let elementsArray = [...elementsList];
 
-    elementsArray.forEach(element => {
+
+    function addEditor(array) {
+      array.forEach(element => {
 
       // This sample still does not showcase all CKEditor 5 features (!)
       // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
@@ -536,9 +369,238 @@
               // from a local file system (file://) - load this site via HTTP server if you enable MathType
               'MathType'
           ]
+        });
       });
-    });
-  </script> --}}
+    }
 
+    addEditor(elementsArray);
+
+    function addPhase_3() {
+      document.getElementById('phase-3').innerHTML += 
+      `
+      <hr>
+      <h4>Phase 3</h4>
+      <hr>
+      
+      <!-- Phase 3 Title input field  -->
+      <div class="mb-2">
+        <label class="form-label" for="title_3">Title (optional)</label>
+        <input class="form-control {{$errors->has('title_3') ? 'is-invalid' : ''}}" type="text" name="title_3" value="{{ old('title_3')}}">
+        
+        <!-- Displaying the error if exists -->  
+        <div>
+          @error('title_3')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <!-- ./Displaying the error if exists -->  
+      </div>
+      <!-- ./Phase 3 Title input field -->
+
+      {{-- Phase 3 body input field --}}
+      <div class="mb-2">
+        <label for="body_3">Raid Tactics body (optional)</label>
+        <textarea class="form-control" name="body_3" rows="5" id="body_3">{{ old('body_3') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('body_3')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 3 body input field --}}
+
+      {{-- Phase 3 mythic input field --}}
+      <div class="mb-2 ">
+        <label for="mythic_3">Raid Tactics Mythic options: </label>
+        <textarea class="form-control " name="mythic_3" rows="5" id="mythic_3">{{ old('mythic_3') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('mythic_3')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 3 mythic input field --}}
+
+      {{-- File path for image --}}
+      <div class="mb-2">
+        <label class="form-label" for="file_path_3">Image: <span >(optional)</span></label>
+        <input class="form-control-file {{ $errors->has('file_path_3') ? 'is-invalid' : '' }}" type="file" name="file_path_3" value="{{ old('file_path_3')}}">
+
+        {{-- Displaying the error of exists --}}
+        <div>
+          @error('file_path_3')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error of exists --}}
+
+      </div>
+      {{-- End Of File path for image --}}
+      `;
+      
+      document.getElementById('btn-p3-wrap').remove();
+
+      let elementsList = document.querySelectorAll("#body_3, #mythic_3");
+      let elementsArray = [...elementsList];
+      addEditor(elementsArray);
+    }
+
+    function addPhase_4() {
+      document.getElementById('phase-4').innerHTML += 
+      `
+      <hr>
+      <h4>Phase 4</h4>
+      <hr>
+      
+      <!-- Phase 4 Title input field  -->
+      <div class="mb-2">
+        <label class="form-label" for="title_4">Title (optional)</label>
+        <input class="form-control {{$errors->has('title_4') ? 'is-invalid' : ''}}" type="text" name="title_4" value="{{ old('title_4')}}">
+        
+        <!-- Displaying the error if exists -->  
+        <div>
+          @error('title_4')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <!-- ./Displaying the error if exists -->  
+      </div>
+      <!-- ./Phase 4 Title input field -->
+
+      {{-- Phase 4 body input field --}}
+      <div class="mb-2">
+        <label for="body_4">Raid Tactics body (optional)</label>
+        <textarea class="form-control" name="body_4" rows="5" id="body_4">{{ old('body_4') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('body_4')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 4 body input field --}}
+
+      {{-- Phase 4 mythic input field --}}
+      <div class="mb-2 ">
+        <label for="mythic_4">Raid Tactics Mythic options: </label>
+        <textarea class="form-control " name="mythic_4" rows="5" id="mythic_4">{{ old('mythic_4') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('mythic_4')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 4 mythic input field --}}
+
+      {{-- File path for image --}}
+      <div class="mb-2">
+        <label class="form-label" for="file_path_4">Image: <span >(optional)</span></label>
+        <input class="form-control-file {{ $errors->has('file_path_4') ? 'is-invalid' : '' }}" type="file" name="file_path_4" value="{{ old('file_path_4')}}">
+
+        {{-- Displaying the error of exists --}}
+        <div>
+          @error('file_path_4')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error of exists --}}
+
+      </div>
+      {{-- End Of File path for image --}}
+      `
+      document.getElementById('btn-p4-wrap').remove();
+
+      let elementsList = document.querySelectorAll("#body_4, #mythic_4");
+      let elementsArray = [...elementsList];
+      addEditor(elementsArray);
+    }
+
+    function addPhase_5() {
+      document.getElementById('phase-5').innerHTML += 
+      `
+      <hr>
+      <h4>Phase 5</h4>
+      <hr>
+      
+      <!-- Phase 5 Title input field  -->
+      <div class="mb-2">
+        <label class="form-label" for="title_5">Title (optional)</label>
+        <input class="form-control {{$errors->has('title_5') ? 'is-invalid' : ''}}" type="text" name="title_5" value="{{ old('title_5')}}">
+        
+        <!-- Displaying the error if exists -->  
+        <div>
+          @error('title_5')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        <!-- ./Displaying the error if exists -->  
+      </div>
+      <!-- ./Phase 5 Title input field -->
+
+      {{-- Phase 5 body input field --}}
+      <div class="mb-2">
+        <label for="body_5">Raid Tactics body (optional)</label>
+        <textarea class="form-control" name="body_5" rows="5" id="body_5">{{ old('body_5') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('body_5')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 5 body input field --}}
+
+      {{-- Phase 5 mythic input field --}}
+      <div class="mb-2 ">
+        <label for="mythic_5">Raid Tactics Mythic options: </label>
+        <textarea class="form-control " name="mythic_5" rows="5" id="mythic_5">{{ old('mythic_5') }}</textarea>
+
+        {{-- Displaying the error if exists --}}
+        <div>
+          @error('mythic_5')
+          <span class="text-danger">{{$message}}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error if exists --}}
+      </div>
+      {{-- End Of Phase 5 mythic input field --}}
+
+      {{-- File path for image --}}
+      <div class="mb-2">
+        <label class="form-label" for="file_path_5">Image: <span >(optional)</span></label>
+        <input class="form-control-file {{ $errors->has('file_path_5') ? 'is-invalid' : '' }}" type="file" name="file_path_5" value="{{ old('file_path_5')}}">
+
+        {{-- Displaying the error of exists --}}
+        <div>
+          @error('file_path_5')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+        </div>
+        {{-- End Of Displaying the error of exists --}}
+
+      </div>
+      {{-- End Of File path for image --}}
+      `
+      document.getElementById('btn-p5-wrap').remove();
+
+      let elementsList = document.querySelectorAll("#body_5, #mythic_5");
+      let elementsArray = [...elementsList];
+      addEditor(elementsArray);
+    }
+
+  </script>
   @endsection
 </x-admin-master>

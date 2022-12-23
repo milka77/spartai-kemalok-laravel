@@ -479,7 +479,7 @@
   <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/super-build/ckeditor.js"></script>
 
   <script>
-    let elementsList = document.querySelectorAll("#body_1, #body_2, #body_3, #body_4, #body_5");
+    let elementsList = document.querySelectorAll("#body_1, #body_2, #body_3, #body_4, #body_5, #mythic_1, #mythic_2, #mythic_3, #mythic_4, #mythic_5");
     let elementsArray = [...elementsList];
 
     elementsArray.forEach(element => {
