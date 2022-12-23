@@ -64,11 +64,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
-        
 
-      <!-- Right side -->
-      <div class="col-6">
         <h3 class="text-center">Admin Modules Versions</h3>
         <table class="table table-sm">
           <thead>
@@ -88,7 +84,7 @@
             </tr>
             <tr>
               <td>Raid Tactics</td>
-              <td class="text-right">v0.3</td>
+              <td class="text-right">v0.5</td>
             </tr>
             <tr>
               <td>Recruitments</td>
@@ -102,6 +98,31 @@
               <td>Roles</td>
               <td class="text-right">v0.3</td>
             </tr>
+          </tbody>
+        </table>
+      </div>
+        
+
+      <!-- Right side -->
+      <div class="col-6">
+        <h3 class="text-center">Update Logs</h3>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th>Update Description</th>
+              <th class="text-right">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Refactored create raid tactics - By default, 2 phases are shown the rest can be added with a button if required up to 5.</td>
+              <td class="text-right">23.12.2022</td>
+            </tr>
+            <tr>
+              <td>Added mythic options for all phases in the raid tax section</td>
+              <td class="text-right">22.12.2022</td>
+            </tr>
+            
           </tbody>
         </table>
         
