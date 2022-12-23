@@ -136,6 +136,10 @@
                   <td>Újonc</td>
                 </tr>
                 <tr class="border-b">
+                  <td>Tesó</td>
+                  <td>Social</td>
+                </tr>
+                <tr class="border-b">
                   <td>Karácsonygeri</td>
                   <td>Inaktív</td>
                 </tr>
