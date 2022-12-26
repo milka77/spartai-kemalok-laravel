@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Recruitment;
 use App\Models\User;
 use Illuminate\Support\Arr;
+use Exception;
 
 use App\Services\Raiderio;
 use App\Services\Warcraftlogs;
@@ -69,36 +70,46 @@ class GuildController extends Controller
     // Get the Guild roster from RaiderIO API
     public function roster(Raiderio $raiderio)
     {
-       
+        try {      
+            // Get all memberinfo from RaiderIO API
+            $members = $raiderio->getGuildMembers();
+            
+            $members_only = $members['members'];
+            $members_sorted = array_values(Arr::sort($members_only, function ($value) {
+                return $value;
+            }));
         
-        // Get all memberinfo from RaiderIO API
-        $members = $raiderio->getGuildMembers();
-        
-        $members_only = $members['members'];
-        $members_sorted = array_values(Arr::sort($members_only, function ($value) {
-            return $value;
-        }));
-    
-        // Get all raiding members names for Weeklyhighest dungeon checks
-        $members_name_list = [];
-        foreach($members['members'] as $member)
-        {
-            $members_name_list[] = $member->character->name;
+            // Get all raiding members names for Weeklyhighest dungeon checks
+            $members_name_list = [];
+            foreach($members['members'] as $member)
+            {
+                $members_name_list[] = $member->character->name;
+            }
+                    
+            // Get the actual weekly highest dungeon key level
+            $weeklyHighest = [];
+            foreach($members_name_list as $name){
+                $wh = $raiderio->getWeeklyHighestRuns($name);
+                $weeklyHighest[] = $wh;
+            }
+            
+            // Passing Data to view
+            $context = [
+                'members' => $members,
+                'members_sorted' => $members_sorted,
+                'whd' => $weeklyHighest,
+            ];
+        } catch (Exception $e) {
+            $message = $e->getMessage();
+            $code = $e->getCode();         
+            $string = $e->__toString();  
+  
+            $context = [
+                'message' => $message,
+                'code' => $code,
+                'string' => $string
+            ];
         }
-                
-        // Get the actual weekly highest dungeon key level
-        $weeklyHighest = [];
-        foreach($members_name_list as $name){
-            $wh = $raiderio->getWeeklyHighestRuns($name);
-            $weeklyHighest[] = $wh;
-        }
-        
-        // Passing Data to view
-        $context = [
-            'members' => $members,
-            'members_sorted' => $members_sorted,
-            'whd' => $weeklyHighest,
-        ];
 
         return view('guild.rosterio', $context);
     }

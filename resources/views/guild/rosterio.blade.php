@@ -2,6 +2,7 @@
   @section('content')
   <div class="flex justify-center">
     <div class="w-full lg:w-4/6 p-3 rounded-lg bg-zinc-800 text-white mb-4">
+      @if (!empty($members))
       <div class="mb-4">
         <h1 class="text-2xl text-center"><a class="text-red-500" href="{{ $members['guild']['url'] }}" target="_blank" rel="noopener noreferrer">{{'<'.$members['guild']['name'].'>'}}</a></h1>
         <p class="text-center">Taglista</p>
@@ -103,6 +104,17 @@
           
         
       </div>
+      @else 
+      <div class="text-center border border-red-700 rounded-xl py-8">
+        <p class="p-2 text-lg">Hiba: <span class="text-red-600">{{ $code }}</span></p>
+        
+        <p class="p-2">Guildünk tag listája a Raider IO website tag listája alapján kerül publikálásra.</p>  
+        <p class="p-2">Úgy látszik a Raider IO API servere "pihen" egy picit.</p>  
+        <p class="p-2 mb-5">Kerünk nézz vissza kesöbb.</p>  
+        <p class="p-2"><a class="px-4 py-3 rounded-md bg-red-900 hover:text-zinc-400" href="{{ route('home') }}">Vissza</a></p>
+      </div>
+        
+      @endif
     </div>
   </div>
   @endsection
