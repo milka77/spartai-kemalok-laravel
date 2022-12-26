@@ -44,5 +44,8 @@ Route::middleware('auth')->group(function() {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
-
+// 404 Custom view
+Route::fallback(function() {
+    return view('components.errors.404');
+});
 
