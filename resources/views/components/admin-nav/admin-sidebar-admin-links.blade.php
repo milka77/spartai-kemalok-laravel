@@ -74,6 +74,7 @@
       
         <h6 class="collapse-header">Weekly Mythic Limits</h6>
         <a class="collapse-item" href="{{ route('weeklymythic.index') }}"><i class="fas fa-folder-open"></i> Show Weekly Limits</a>
+        <a class="collapse-item" href="{{ route('weeklymythic.create') }}"><i class="fas fa-folder-open"></i> Add Weekly Limits</a>
         
       
       </div>
