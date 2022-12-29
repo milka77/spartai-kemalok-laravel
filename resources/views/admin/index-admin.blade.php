@@ -10,15 +10,16 @@
       <div class="col-12 mb-3">
         <h2 class="text-center">Admin Quick Links Buttons</h2>
       </div>
-      <div class="col-12 d-flex">
-        <div class="mx-auto">
-          <a class="btn btn-primary" href="{{ route('home') }}">Kemalok.hu</a>
-          <a class="btn btn-primary" href="{{ route('news.create') }}">Add News</a>
-          <a class="btn btn-primary" href="{{ route('news.index') }}">Show All News</a>
-          <a class="btn btn-primary" href="{{ route('raidtax.create') }}">Add Raid Tactic</a>
-          <a class="btn btn-primary" href="{{ route('raidtax.adminindex') }}">Show Raid Tactics</a>
-          <a class="btn btn-primary" href="{{ route('recruit.adminindex') }}">Manage Recruitment</a>
-        </div>
+      <div class="col-12 d-flex justify-center flex-wrap">
+        
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('home') }}">Kemalok.hu</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('news.create') }}">Add News</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('news.index') }}">Show All News</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('raidtax.create') }}">Add Raid Tactic</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('raidtax.adminindex') }}">Show Raid Tactics</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('recruit.adminindex') }}">Manage Recruitment</a>
+          <a class="btn btn-primary mr-2 mb-2" href="{{ route('weeklymythic.index') }}">Manage Weekly M+ Limit</a>
+        
       </div>
     </div>
     {{-- End Of Quick Links --}}

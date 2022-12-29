@@ -58,4 +58,4 @@
       </div>
     </div>
   @endsection
-  </x-admin-master>
+</x-admin-master>

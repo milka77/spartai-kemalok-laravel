@@ -59,7 +59,7 @@
                             @if($member->character->name === $personal_previous_highest_key->name)
 
                               @foreach ($personal_previous_highest_key->mythic_plus_previous_weekly_highest_level_runs as $run)
-                                @if($run->mythic_level >= 10)
+                                @if($run->mythic_level >= $prev_limit)
                                   <span class="text-green-500">{{ $run->mythic_level }}</span>
                                   @break
                                 @else
@@ -78,7 +78,7 @@
                             @if($member->character->name === $personal_highest_key->name)
 
                               @foreach ($personal_highest_key->mythic_plus_weekly_highest_level_runs as $run)
-                                @if($run->mythic_level >= 10)
+                                @if($run->mythic_level >= $current_limit)
                                   <span class="text-green-500">{{ $run->mythic_level }}</span>
                                   @break
                                 @else

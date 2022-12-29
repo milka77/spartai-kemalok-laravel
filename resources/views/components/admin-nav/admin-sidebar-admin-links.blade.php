@@ -63,6 +63,24 @@
   </li>
   {{-- End Of Raid Tax links --}}
 
+  {{-- Raid Attendance links --}}
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRaidTax" aria-expanded="true" aria-controls="collapseNews">
+      <i class="far fa-newspaper"></i>
+      <span>Attendance Settings</span>
+    </a>
+    <div id="collapseRaidTax" class="collapse" aria-labelledby="headingNews" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+      
+        <h6 class="collapse-header">Weekly Mythic Limits</h6>
+        <a class="collapse-item" href="{{ route('weeklymythic.index') }}"><i class="fas fa-folder-open"></i> Show Weekly Limits</a>
+        
+      
+      </div>
+    </div>
+  </li>
+  {{-- End Of Raid Attendance links --}}
+
 
   {{-- Recruitment links --}}
   <li class="nav-item">

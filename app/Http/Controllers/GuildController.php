@@ -6,6 +6,7 @@ use App\Models\Wowapi;
 use App\Models\News;
 use App\Models\Recruitment;
 use App\Models\User;
+use App\Models\WeeklyMythic;
 use Illuminate\Support\Arr;
 use Exception;
 
@@ -78,13 +79,18 @@ class GuildController extends Controller
             $members_sorted = array_values(Arr::sort($members_only, function ($value) {
                 return $value;
             }));
-        
+            
             // Get all raiding members names for Weeklyhighest dungeon checks
             $members_name_list = [];
             foreach($members['members'] as $member)
             {
                 $members_name_list[] = $member->character->name;
             }
+
+            // Get the weekly limits
+            $limits = WeeklyMythic::where('id', 1)->first();
+            $prev_limit = $limits->prev_week;
+            $current_limit = $limits->current_week;
                     
             // Get the actual weekly highest dungeon key level
             $weeklyHighest = [];
@@ -98,6 +104,8 @@ class GuildController extends Controller
                 'members' => $members,
                 'members_sorted' => $members_sorted,
                 'whd' => $weeklyHighest,
+                'prev_limit' => $prev_limit,
+                'current_limit' => $current_limit,
             ];
         } catch (Exception $e) {
             $message = $e->getMessage();
@@ -107,7 +115,7 @@ class GuildController extends Controller
             $context = [
                 'message' => $message,
                 'code' => $code,
-                'string' => $string
+                'string' => $string,
             ];
         }
 

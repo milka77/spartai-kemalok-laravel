@@ -126,6 +126,26 @@ Route::middleware('auth')->group(function() {
   // End of Raid Tax Admin Routes --------------------------------------------
 
   // *******************************************
+  // Raid Attendamce Admin Routes
+  // *******************************************
+  Route::prefix('attendance')->group(function() {
+    // *******************************************
+    // Weekly Mythic Limit Routes
+    // *******************************************
+    Route::get('/', [WeeklyMythicController::class, 'index'])->name('weeklymythic.index');
+
+    Route::get('/create', [WeeklyMythicController::class, 'create'])->name('weeklymythic.create');
+    Route::post('/store', [WeeklyMythicController::class, 'store'])->name('weeklymythic.store');
+
+    Route::get('/{weeklyMythic}/edit', [WeeklyMythicController::class, 'edit'])->name('weeklymythic.edit');
+    Route::patch('/{weeklyMythic}/update', [WeeklyMythicController::class, 'update'])->name('weeklymythic.update');
+
+    Route::delete('/{weeklyMythic}/destroy', [WeeklyMythicController::class, 'destroy'])->name('weeklymythic.destroy');
+
+  });
+  // End of Raid Attendamce Admin Routes --------------------------------------------
+
+  // *******************************************
   // Recruitment Admin Routes
   // *******************************************
   Route::prefix('recruitment')->group(function() {
