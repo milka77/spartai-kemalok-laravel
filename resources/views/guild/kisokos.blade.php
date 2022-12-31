@@ -158,6 +158,8 @@
                 <li>Vasárnapi raid 1 pont</li>
                 <li>Megadott szintű mythic+ dungeon teljesítése a resetben 1 pont</li>
                 <li>Előzetes jelzés nélküli késés a raidről -0.5 pont (2 től számít a -pont)</li>
+                <li>Raiden mutatott teljesítmény, legalább a guild átlagot érje el</li>
+                <li>A kiemelkedő teljesítmény felgyorsíthatja a promotálást 300 Testvér rangra</li>
               </ol>
             </div>
             <p class="p-2">
