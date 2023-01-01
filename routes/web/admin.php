@@ -202,6 +202,16 @@ Route::middleware('auth')->group(function() {
   // Craft Admin routes
   // *******************************************
   Route::prefix('craft')->group(function() {
+    Route::get('/', [CraftController::class, 'index'])->name('craft.index');
+
+    Route::get('/create', [CraftController::class, 'create'])->name('craft.create');
+    Route::post('/store', [CraftController::class, 'store'])->name('craft.store');
+
+    Route::get('/{craft}/edit', [CraftController::class, 'edit'])->name('craft.edit');
+    Route::patch('/{craft}/update', [CraftController::class, 'update'])->name('craft.update');
+    
+    Route::delete('/{craft}/destroy', [CraftController::class, 'destroy'])->name('craft.destroy');
+
 
     // *******************************************
     // Profession Admin routes
