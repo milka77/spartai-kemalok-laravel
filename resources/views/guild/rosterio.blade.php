@@ -107,7 +107,14 @@
       @else 
       <div class="text-center border border-red-700 rounded-xl py-8">
         <p class="p-2 text-lg">Hiba: <span class="text-red-600">{{ $code }}</span></p>
-        
+        @if (Auth()->user())
+          @if (auth()->user()->userHasRole('admin'))
+            {{ $message }} blaaalalal
+            
+          @endif
+        @endif
+      
+          
         <p class="p-2">Guildünk tag listája a Raider IO website tag listája alapján kerül publikálásra.</p>  
         <p class="p-2">Úgy látszik a Raider IO API servere "pihen" egy picit.</p>  
         <p class="p-2 mb-5">Kerünk nézz vissza kesöbb.</p>  
