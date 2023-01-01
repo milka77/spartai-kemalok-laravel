@@ -178,6 +178,7 @@ Route::middleware('auth')->group(function() {
       Route::delete('/{playableClass}/destroy', [PlayableClassController::class, 'destroy'])->name('class.destroy');
     });
 
+
     // *******************************************
     // Recruitment Spec routes
     // *******************************************
@@ -191,7 +192,32 @@ Route::middleware('auth')->group(function() {
       Route::patch('/{playableClass}/update', [SpecController::class, 'update'])->name('spec.update');
       
       Route::delete('/{playableClass}/destroy', [SpecController::class, 'destroy'])->name('spec.destroy');
-    });
+    });  
   });
   // End of Recruitment Admin Routes --------------------------------------------
+
+
+
+  // *******************************************
+  // Craft Admin routes
+  // *******************************************
+  Route::prefix('craft')->group(function() {
+
+    // *******************************************
+    // Profession Admin routes
+    // *******************************************
+    Route::prefix('profession')->group(function() {
+      Route::get('/', [ProfessionController::class, 'index'])->name('prof.index');
+
+      Route::get('/create', [ProfessionController::class, 'create'])->name('prof.create');
+      Route::post('/store', [ProfessionController::class, 'store'])->name('prof.store');
+
+      Route::get('/{profession}/edit', [ProfessionController::class, 'edit'])->name('prof.edit');
+      Route::patch('/{profession}/update', [ProfessionController::class, 'update'])->name('prof.update');
+      
+      Route::delete('/{profession}/destroy', [ProfessionController::class, 'destroy'])->name('prof.destroy');
+    });
+    
+  });
+  // End of Craft Admin Routes --------------------------------------------
 });
