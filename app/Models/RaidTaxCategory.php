@@ -18,6 +18,6 @@ class RaidTaxCategory extends Model
     // Relationship with RaidTax Model
     public function raidTax()
     {
-        $this->belongsToMany(RaidTax::class);
+        return $this->belongsToMany(RaidTax::class);
     }
 }

@@ -1,3 +1,25 @@
+@if (Auth()->user() || Auth()->user()->userHasRole('admin'))
+  {{-- Guild Craft Links --}}
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCraft" aria-expanded="true" aria-controls="collapseCraft">
+      <i class="fas fa-cogs"></i>
+      <span>Guild Craft Settings</span>
+    </a>
+    <div id="collapseCraft" class="collapse" aria-labelledby="headingCraft" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        
+        <h6 class="collapse-header">Guild Crafts</h6>
+        <a class="collapse-item" href="{{ route('craft.index') }}"><i class="fas fa-folder-open"></i> Show Crafts</a>
+        <a class="collapse-item" href="{{ route('craft.create') }}"><i class="fas fa-folder-plus"></i> Add New Craft</a>
+
+      </div>
+    </div>
+  </li>
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+  {{-- End Of Guild Craft Links --}}
+@endif
+
 @if (auth()->user()->userHasRole('Admin'))
   {{-- Recipe Admin links --}}
   {{-- <li class="nav-item">

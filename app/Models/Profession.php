@@ -14,8 +14,8 @@ class Profession extends Model
         'slug',
     ];
 
-    public function craft()
+    public function crafts()
     {
-        return $this->belongsToMany(Craft::class);
+        return $this->belongsTo(Craft::class);
     }
 }

@@ -72,4 +72,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(RaidTax::class);
     }
+
+    // Relationship with Craft Model
+    public function crafts()
+    {
+        return $this->hasMany(Craft::class);
+    }
 }

@@ -40,6 +40,9 @@
         <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('raidtax.index') }}">Raid Taktikák</a>
       </li>
       <li>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.craft') }}">Guild Craft</a>
+      </li>
+      <li>
         <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.recruitment') }}">Tagfelvétel</a>
       </li>
       <li class=" border-b border-zinc-500 md:hidden">

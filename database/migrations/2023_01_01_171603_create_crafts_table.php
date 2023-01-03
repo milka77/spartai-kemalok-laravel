@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('crafts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->unsignedBigInteger('user_id');
             $table->integer('profession_id')->unsigned();
             $table->string('name');
             $table->string('wowhead_link');
             $table->integer('quality');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('profession_id')->references('id')->on('professions')->onDelete('cascade');
         });
     }
 

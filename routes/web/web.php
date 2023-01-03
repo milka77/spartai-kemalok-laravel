@@ -35,6 +35,9 @@ Route::get('/raidtax', [RaidTaxController::class, 'index'])->name('raidtax.index
 Route::get('/raidtax/{raidTaxCategory}/show-raid', [RaidTaxController::class, 'categoryShow'])->name('raidtax.cat.show');
 Route::get('/raidtax/{raidTax}/show', [RaidTaxController::class, 'show'])->name('raidtax.show');
 
+Route::get('/craft', [CraftController::class, 'public_index'])->name('guild.craft');
+Route::get('/{profession}/craft', [CraftController::class, 'showCategory'])->name('guild.prof');
+
 // Route::get('raidtax/{category_id}/{difficulty_id}', function ($category_id, $difficulty_id) {
 //     $raidtax = RaidTax::where('raid_tax_category_id',$category_id)->where('raid_tax_difficulty_id', $difficulty_id)->get();
 //     return response()->json($raidtax);
