@@ -1,6 +1,6 @@
 <x-admin-master>
   @section('content')
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col mx-auto">
           <h1 class="text-center">Craft - Admin Panel</h1>
@@ -14,6 +14,7 @@
                 <th>Profession</th>
                 <th>Name</th>
                 <th>Quality</th>
+                <th>Comment</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -27,6 +28,7 @@
                   <td>{{ $craft->profession->name }}</td>
                   <td>{{ $craft->name }}</td>
                   <td>{{ $craft->quality }}</td>
+                  <td>{{ $craft->comment }}</td>
                   <td><a href="{{ route('craft.edit', $craft->id) }}" class="btn btn-sm btn-primary">Update <i class="fa-solid fa-pen-to-square"></i></a></td>
                   <td>
                     <form action="{{ route('craft.destroy', $craft->id) }}" method="POST">
@@ -43,6 +45,7 @@
                   <td>{{ $craft->profession->name }}</td>
                   <td>{{ $craft->name }}</td>
                   <td>{{ $craft->quality }}</td>
+                  <td>{{ $craft->comment }}</td>
                   <td><a href="{{ route('craft.edit', $craft->id) }}" class="btn btn-sm btn-primary">Update <i class="fa-solid fa-pen-to-square"></i></a></td>
                   <td>
                     <form action="{{ route('craft.destroy', $craft->id) }}" method="POST">
@@ -62,6 +65,7 @@
                 <th>Profession</th>
                 <th>Name</th>
                 <th>Quality</th>
+                <th>Comment</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>

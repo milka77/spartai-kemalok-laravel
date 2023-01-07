@@ -1,20 +1,21 @@
 <x-home-master>
   @section('content')
   <div class="flex justify-center">
-    <div class=" w-4/6 p-3 rounded-lg bg-zinc-800 text-white mb-4">
+    <div class="w-full md:w-5/6 p-3 rounded-lg bg-zinc-800 text-white mb-4">
       <h1 class="text-2xl text-center mb-1">Guild Crafts</h1>
       <h1 class="text-xl text-center mb-4">{{ $profession->name }}</h1>
      
       <div class="border-t border-zinc-600">
         @if (!empty($crafts))
-          <table class="table-auto w-full mb-4">
+          <table class="table w-full mb-4">
             <thead>
             <tr class="bg-slate-900">
               <th>Név</th>
               <th>Profession</th>
-              <th>Recept név</th>
+              <th class="hidden md:table-cell">Recept név</th>
               <th>Item</th>
               <th>Quality</th>
+              <th>Comment</th>
             </tr>
             </thead>
             <tbody>
@@ -22,9 +23,10 @@
                 <tr class="text-center border-y border-zinc-600">
                   <td>{{ $craft->user->nickname }}</td>
                   <td>{{ $craft->profession->name }}</td>
-                  <td>{{ Str::title($craft->name) }}</td>
+                  <td class="hidden md:table-cell">{{ Str::title($craft->name) }}</td>
                   <td><a href="{{ $craft->wowhead_link }}"></a></td>
-                  <td class="flex justify-center"><img class="h-10 w-10" src="{{ URL::to('/') }}/images/craft/{{ $craft->quality }}.png" alt="{{ $craft->quality }}"></td>
+                  <td class="md:flex justify-center"><img class="h-10 w-10" src="{{ URL::to('/') }}/images/craft/{{ $craft->quality }}.png" alt="{{ $craft->quality }}"></td>
+                  <td class="whitespace-normal">{{ $craft->comment }}</td>
                 </tr>
               @endforeach
             </tbody>
@@ -32,9 +34,10 @@
               <tr class="bg-slate-900 border-b border-zinc-600">
                <th>Név</th>
                <th>Profession</th>
-               <th>Recept név</th>
+               <th class="hidden md:table-cell">Recept név</th>
                <th>Item</th>
                <th>Quality</th>
+               <th>Comment</th>
               </tr>
              </thead>
           </table> 

@@ -19,6 +19,7 @@ class Craft extends Model
         'name',
         'wowhead_link',
         'quality',
+        'comment'
     ];
 
     public function user()

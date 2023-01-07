@@ -81,6 +81,21 @@
           </div>
           {{-- End of Quality input field --}}
 
+          {{-- Comment input field --}}
+          <div class="mb-3">
+            <label class="form-label" for="comment">Crafter's comment <small>(optional)</small>: </label>
+            <input class="form-control {{$errors->has('comment') ? 'is-invalid' : ''}}" type="text" name="comment" value="{{ old('comment')}}">
+            
+            {{-- Displaying the error if exists --}}
+            <div>
+              @error('comment')
+              <span class="text-danger">{{$message}}</span>
+              @enderror
+            </div>
+            {{-- ./Displaying the error if exists --}}
+          </div>
+          {{-- End of Comment input field --}}
+
           {{-- Form Buttons --}}
           <div class="d-flex">
             <div class="mx-auto">

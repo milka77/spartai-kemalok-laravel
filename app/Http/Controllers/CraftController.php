@@ -61,6 +61,7 @@ class CraftController extends Controller
       $craft->profession_id = request('profession_id');
       $craft->wowhead_link = request('wowhead_link');
       $craft->quality = request('quality');
+      $craft->comment = request('comment');
       $craft->save();
 
       Toastr::success('Recipe added successfuly!', 'System message');
@@ -114,6 +115,7 @@ class CraftController extends Controller
       $craft->profession_id = request('profession_id');
       $craft->wowhead_link = request('wowhead_link');
       $craft->quality = request('quality');
+      $craft->comment = request('comment');
       $craft->save();
 
       Toastr::success('Recipe updated successfuly!', 'System message');
