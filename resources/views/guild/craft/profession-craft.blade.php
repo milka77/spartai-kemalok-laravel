@@ -3,7 +3,13 @@
   <div class="flex justify-center">
     <div class="w-full md:w-5/6 p-3 rounded-lg bg-zinc-800 text-white mb-4">
       <h1 class="text-2xl text-center mb-1">Guild Crafts</h1>
-      <h1 class="text-xl text-center mb-4">{{ $profession->name }}</h1>
+      <h1 class="text-xl text-center {{ !auth()->user() ? 'mb-4' : 'mb-2' }}">{{ $profession->name }}</h1>
+
+      @if(auth()->user())
+      <div class="flex justify-center mb-3">
+        <a class="btn px-4 py-2 rounded-md bg-red-900 hover:text-zinc-400" href="{{ route('craft.create') }}">Új Craft Recept Hozzáadása</a>
+      </div>
+      @endif
      
       <div class="border-t border-zinc-600">
         @if (!empty($crafts))
