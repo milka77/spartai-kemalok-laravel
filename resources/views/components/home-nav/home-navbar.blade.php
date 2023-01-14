@@ -61,6 +61,9 @@
         <a class="md:p-4 py-2 pl-3 block" href="{{ route('admin.index') }}">Adminpanel</a>
       </li>
       <li class="md:hidden">
+        <a class="md:p-4 py-2 pl-3 block" href="{{ route('craft.create') }}">Új Craft Recept</a>
+      </li>
+      <li class="md:hidden">
         <a class="md:p-4 py-2 pl-3 block" href="#">
           <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -99,6 +102,9 @@
             <a class="rounded-t-lg bg-zinc-800 hover:bg-zinc-500 py-2 px-4 block whitespace-no-wrap" href="{{ route('admin.index') }}">
               Adminpanel
             </a>
+          </li>
+          <li class="">
+            <a class="bg-zinc-800 hover:bg-zinc-500 py-2 px-4 block whitespace-no-wrap" href="{{ route('craft.create') }}">Új Craft Recept</a>
           </li>
           <li class="">
             <a class="rounded-b-lg bg-zinc-800 hover:bg-zinc-500 py-2 px-4 block whitespace-no-wrap" href="#">
