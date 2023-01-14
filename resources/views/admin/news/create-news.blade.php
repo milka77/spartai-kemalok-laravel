@@ -1,8 +1,8 @@
 <x-admin-master>
   @section('content')
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-10">
+        <div class="col-sm-12 col-lg-8">
           <h1 class="text-center">Add News</h1>
           <hr>
 
@@ -90,6 +90,23 @@
             </div>
             {{-- End Of Submit Button --}}
           </form>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+          <h1 class="text-center">Options, Hints</h1>
+          <hr>
+          <div>
+            <h4>Video Linkelese:</h4>
+            <ul>
+              <li>Youtube-on a linkelni kivant video alatt katt share</li>
+              <li>Embed opcio kivalasztasa es Copy ami kimasolja a beillesztendo iframe codot</li>
+              <li>Beirod a szoveget a hirhez es mielott a videot belinkelned atvaltod <>Source nezetbe az editort</li>
+              <li>Most belehet illeszteni a video kimasolt iframe code-jat ahova szeretnenk</li>
+              <li>Ahoz, hogy szepen kozepen legyen a video egy rovid class-t bekell illeszteni</li>
+              <li><strong>class="mx-auto"</strong>  << ezt kell beilleszteni az iframe es a width koze lasd: <span class="px-1 bg-secondary text-white rounded">iframe class="mx-auto" width="560"</span></li>
+              <li>Ha meg kell modositani a szovegen kikell kapcsolni a <>Source nezetet</li>
+            </ul>
+          </div>
+          
         </div>
       </div>
     </div>
