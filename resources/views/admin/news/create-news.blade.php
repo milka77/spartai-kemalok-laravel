@@ -91,6 +91,7 @@
             {{-- End Of Submit Button --}}
           </form>
         </div>
+        {{-- Right side --}}
         <div class="col-sm-12 col-lg-4">
           <h1 class="text-center">Options, Hints</h1>
           <hr>
@@ -106,8 +107,9 @@
               <li>Ha meg kell modositani a szovegen kikell kapcsolni a <>Source nezetet</li>
             </ul>
           </div>
-          
         </div>
+        {{-- End of Right side --}}
+        
       </div>
     </div>
   @endsection
