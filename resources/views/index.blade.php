@@ -28,8 +28,9 @@
               </div>
             </div>
             <div class="w-2/3 flex mx-auto">
-              <img class="md:shrink-0 rounded-2xl px-2 md:px-32" 
-                src="{{ $news->file_path }}" alt="">
+              <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
+                <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
+              </a>
             </div>
             @else
             <div class="p-4">
@@ -40,10 +41,9 @@
             {{-- End Of News Body --}}
             <div class=" border-b border-zinc-500 flex justify-center p-2 py-4">
               @if ( $news->category->id === 2)
-                {{-- <img class="md:shrink-0 rounded-2xl grayscale hover:grayscale-0 transition-all ease-in-out duration-300 px-32" 
-                src="{{ $news->file_path }}" alt="{{ $news->title }}"> --}}
-                <img class="md:shrink-0 rounded-2xl px-2 md:px-32" 
-                src="{{ $news->file_path }}" alt="">
+                <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
+                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
+                </a>
               @else
                 
               @endif
@@ -52,7 +52,9 @@
           </div>
           
           <div class="flex justify-between border-b border-zinc-500">
-            <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> <span class="text-sm">{{ $news->category->name }}</span>
+            <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> 
+            {{-- <span class="text-sm">Comments: 0</span> --}}
+            <span class="text-sm">{{ $news->category->name }}</span>
           </div>
         </article>
         @endforeach
