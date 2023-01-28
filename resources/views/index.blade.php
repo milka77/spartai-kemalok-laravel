@@ -27,23 +27,27 @@
                     alt="Horda Logo">
               </div>
             </div>
-            <div class="w-2/3 flex mx-auto">
-              <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
-                <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
-              </a>
-            </div>
+              @if(!empty($news->file_path))
+              <div class="w-2/3 flex mx-auto">
+                <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
+                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
+                </a>
+              </div>
+              @endif
             @else
             <div class="p-4">
               {!! $news->body !!}
             </div>
             @endif
-            
             {{-- End Of News Body --}}
+
             <div class=" border-b border-zinc-500 flex justify-center p-2 py-4">
               @if ( $news->category->id === 2)
+                @if(!empty($news->file_path))
                 <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
                   <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
                 </a>
+                @endif
               @else
                 
               @endif
