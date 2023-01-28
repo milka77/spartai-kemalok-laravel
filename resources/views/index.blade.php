@@ -1,11 +1,12 @@
 <x-home-master>
   @section('content')
-  <div class="flex justify-center ">
+  <div class="flex justify-center">
     <div class="container p-3 rounded-lg flex flex-col gap-2 bg-zinc-800 lg:container-fluid lg:flex-row">
       
       {{-- Left side News feed --}}
       <div class="w-full lg:w-8/12 xl:w-9/12 text-white rounded-lg p-2">
         <h1 class="text-2xl font-semibold text-center mb-2">Hírek</h1>
+        
       
         @foreach ($news_index as $news)
         
@@ -14,7 +15,7 @@
             <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
               
               <p class="text-xl p-2">{{ $news->title  }}</p>
-              {{-- <p class="capitalize text-lg p-2">{{ $news->category->name }}</p> --}}
+
             </div>
             {{-- News Body --}}
             @if($news->category->id == 1)
@@ -29,9 +30,9 @@
             </div>
               @if(!empty($news->file_path))
               <div class="w-2/3 flex mx-auto">
-                <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
-                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
-                </a>
+                <button id="news-img-{{ $news->id }}"  class="modal-btn">
+                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}" data-modal-id="{{ $news->id }}">
+                </button>
               </div>
               @endif
             @else
@@ -44,9 +45,9 @@
             <div class=" border-b border-zinc-500 flex justify-center p-2 py-4">
               @if ( $news->category->id === 2)
                 @if(!empty($news->file_path))
-                <a href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">
-                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}">
-                </a>
+                <button id="news-img-{{ $news->id }}" class="modal-btn">
+                  <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}"  data-modal-id="{{ $news->id }}">
+                </button>
                 @endif
               @else
                 
@@ -60,6 +61,20 @@
             {{-- <span class="text-sm">Comments: 0</span> --}}
             <span class="text-sm">{{ $news->category->name }}</span>
           </div>
+
+          {{-- Image Modal --}}
+         
+          <div id="overlay-{{ $news->id }}" class="bg-black bg-opacity-90 fixed inset-0 z-20 hidden flex-col justify-center items-center">
+            <div class="text-right w-4/5 py-1 pr-1"><i id="modal-close-{{ $news->id }}" data-modal-id="{{ $news->id }}" class=" modal-close-btn cursor-pointer fa-solid fa-xmark hover:text-stone-500"></i></div>
+            <div class="w-4/5">
+              <img class="rounded-xl" src="{{ $news->file_path }}" >
+            </div>
+            <div class="text-left w-4/5 p-1">
+              <a class="hover:text-stone-500" href="{{ $news->file_path }}" target="_blank" rel="noopener noreferrer">Eredeti kep mutatasa</a>
+            </div>
+          </div>
+         
+          {{-- End of Image Modal --}}
         </article>
         @endforeach
         
@@ -163,5 +178,31 @@
       {{-- End Of Right side --}}
     </div>
   </div>
+  @endsection
+
+  @section('extra-js')
+  <script>
+      const newsImages = document.querySelectorAll('.modal-btn');
+      const modalCloseBtn = document.querySelectorAll('.modal-close-btn')
+
+      const toggleClasses = (overlayId) => {
+        const overlay = document.querySelector('#overlay-' + overlayId);
+
+        overlay.classList.toggle('hidden')
+        overlay.classList.toggle('flex')
+      }
+
+      newsImages.forEach(el => el.addEventListener('click', event => {
+        const overlayId = event.target.dataset.modalId
+        toggleClasses(overlayId)
+      }))
+
+      modalCloseBtn.forEach(el => el.addEventListener('click', event => {
+        const overlayId = event.target.dataset.modalId
+        toggleClasses(overlayId)
+        
+      }))
+
+  </script>
   @endsection
 </x-home-master>
