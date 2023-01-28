@@ -64,9 +64,9 @@
 
           {{-- Image Modal --}}
          
-          <div id="overlay-{{ $news->id }}" class="bg-black bg-opacity-90 fixed inset-0 z-20 hidden flex-col justify-center items-center">
+          <div id="overlay-{{ $news->id }}" class="bg-black bg-opacity-90 fixed inset-0 z-20 hidden flex-col justify-center items-center p-30">
             <div class="text-right w-4/5 py-1 pr-1"><i id="modal-close-{{ $news->id }}" data-modal-id="{{ $news->id }}" class=" modal-close-btn cursor-pointer fa-solid fa-xmark hover:text-stone-500"></i></div>
-            <div class="w-4/5">
+            <div class="w-4/5 h-[90%] flex justify-center">
               <img class="rounded-xl" src="{{ $news->file_path }}" >
             </div>
             <div class="text-left w-4/5 p-1">
