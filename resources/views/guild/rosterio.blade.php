@@ -41,9 +41,11 @@
                             A Kemál
                           @elseif ($member->rank === 1)
                             Császárbáttya
-                          @elseif ($member->rank === 3)
+                          @elseif ($member->rank === 2)
+                            Gigachad
+                          @elseif ($member->rank === 4)
                             300 Testvér
-                          @elseif ($member->rank === 5)
+                          @elseif ($member->rank === 6)
                             Dzsanázó
                           @else
                             {{ $member->rank }}

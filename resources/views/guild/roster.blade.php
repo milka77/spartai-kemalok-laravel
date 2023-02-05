@@ -37,7 +37,7 @@
                     <?php $nr = 0; ?>
                     @for ($i=0; $i<count($guild_members['members']) ; $i++)
                     <?php $rank = $guild_members['members'][$i]['rank']; ?>
-                    @if ($rank == 0 || $rank == 2 || $rank == 3 || $rank == 5)
+                    @if ($rank == 0 || $rank == 1 || $rank == 2 || $rank ==4 ||$rank == 6)
                     <?php $nr++; ?>
                     <tr class="border-b border-zinc-600">
                         <td class="px-6 py-3 whitespace-nowrap text-sm font-medium"><?= $nr ?></td>
@@ -55,11 +55,13 @@
                         <td class="text-sm font-light px-6 py-3 whitespace-nowrap">
                           @if ($rank === 0)
                             <?= 'A Kemál' ?>
-                          @elseif ($rank === 2)
+                          @elseif ($rank === 1)
                             <?= 'Császárbáttya' ?>
-                          @elseif ($rank === 3)
+                          @elseif ($rank === 2)
+                            <?= 'Gigachad - Veteran' ?>
+                          @elseif ($rank === 4)
                             <?= '300 Testvér' ?>
-                          @elseif ($rank === 5)
+                          @elseif ($rank === 6)
                             <?= 'Dzsanázó' ?>
                           @else
                             <?php echo $rank ?>

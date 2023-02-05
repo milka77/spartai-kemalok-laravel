@@ -37,9 +37,13 @@ class Raiderio
       ],
     ];
     
+    // ************************************************
+    // Filtering the member list with active rank numbers
+    // Rank 0, 1, 2, 4, 6 needed
+    // ************************************************
     foreach($response->members as $member)
     {
-      if($member->rank === 0 || $member->rank === 1 || $member->rank === 3 || $member->rank === 5){
+      if($member->rank === 0 || $member->rank === 1 || $member->rank === 2 || $member->rank === 4 || $member->rank === 6){
         $members_filtered['members'][] = $member;
       }
     }

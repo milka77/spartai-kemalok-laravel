@@ -119,6 +119,10 @@
                   <td>Császárbáttya</td>
                   <td>Officer</td>
                 </tr>
+                <tr class="border-b text-purple-500">
+                  <td>Gigachad</td>
+                  <td>Veterán</td>
+                </tr>
                 <tr class="border-b">
                   <td>Császárhúgalt</td>
                   <td>Officer Alt</td>
