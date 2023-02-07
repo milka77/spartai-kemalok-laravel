@@ -34,7 +34,7 @@
         <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.roster') }}">Taglista</a>
       </li>
       <li>
-        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.kisokos') }}">Kemál Kisokos</a>
+        <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('guild.kisokos') }}">{{ config('app.name') }} Kisokos</a>
       </li>
       <li>
         <a class="md:p-4 py-2 block hover:text-slate-400" href="{{ route('raidtax.index') }}">Raid Taktikák</a>

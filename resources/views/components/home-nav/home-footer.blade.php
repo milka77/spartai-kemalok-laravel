@@ -10,9 +10,9 @@
     </ul>
     <ul class="text-center border-b border-zinc-500 md:border-0 pb-2">
       <li class="text-zinc-400 font-bold italic mb-2">Social Links</li>
-      <li><a class="hover:text-slate-400" href="https://raider.io/guilds/eu/ragnaros/Sp%C3%A1rtai%20Kem%C3%A1lok" target="_blank">Raider.IO</a></li>
-      <li><a class="hover:text-slate-400" href="https://worldofwarcraft.com/en-gb/guild/eu/ragnaros/sp%C3%A1rtai-kem%C3%A1lok" target="_blank">WoW Armory</a></li>
-      <li><a class="hover:text-slate-400" href="https://www.wowprogress.com/guild/eu/ragnaros/Sp%C3%A1rtai+Kem%C3%A1lok" target="_blank">Wowprogress</a></li>
+      <li><a class="hover:text-slate-400" href="https://raider.io/guilds/eu/ragnaros/{{ config('app.name') }}" target="_blank">Raider.IO</a></li>
+      <li><a class="hover:text-slate-400" href="https://worldofwarcraft.com/en-gb/guild/eu/ragnaros/{{ config('app.name') }}" target="_blank">WoW Armory</a></li>
+      <li><a class="hover:text-slate-400" href="https://www.wowprogress.com/guild/eu/ragnaros/{{ config('app.name') }}" target="_blank">Wowprogress</a></li>
     </ul>
     <ul class="text-center border-b border-zinc-500 md:border-0 pb-2">
       <li class="text-zinc-400 font-bold italic mb-2">Member Links</li>

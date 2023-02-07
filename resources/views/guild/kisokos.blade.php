@@ -2,7 +2,7 @@
   @section('content')
   <div class="flex justify-center">
     <div class="container p-3 rounded-lg bg-zinc-800 text-white">
-      <h1 class="text-2xl text-center mb-4">Kemál Kisokos</h1>
+      <h1 class="text-2xl text-center mb-4">{{ config('app.name') }} Kisokos</h1>
 
       {{-- Content Body --}}
       <div class="border-t border-b border-zinc-600 flex flex-col lg:flex-row gap-4">

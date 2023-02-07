@@ -23,7 +23,7 @@ class Raiderio
   {
     $httpClient = new \GuzzleHttp\Client();
 
-    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name=Sp%C3%A1rtai%20Kem%C3%A1lok&fields=members';
+    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=members';
     $request =  $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents());
 
