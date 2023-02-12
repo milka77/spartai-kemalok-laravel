@@ -58,106 +58,109 @@
           
           <div class="flex justify-between border-b border-zinc-500 mb-2 px-1">
             <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> 
-            <span class="text-sm show-comment">Kommentek: {{ count($news->comments) }}</span>
+            <span class="text-sm show-comment cursor-pointer" data-news-id="{{ $news->id }}">Kommentek: {{ count($news->comments) }}</span>
             <span class="text-sm">{{ $news->category->name }}</span>
           </div>
 
           {{-- Comment Section  --}}
-          {{-- Displaying Comments if there is any available --}}
-          @if($news->comments)
-          @foreach($news->comments as $comment)
-          <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg shadow-md ">
-            <p class="pl-1 flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
-            <p class="text-sm p-1 pl-2">{{ $comment->body }}</p>
-            @auth
-              @if($comment->user->id === auth()->user()->id)
-              <div class="flex justify-end gap-2">
-                <span class="flex justify-end text-sm hover:text-slate-300 cursor-pointer edit-comment-btn" data-comment-id="{{ $comment->id }}">Szerkeszt</span>
-                <span class="flex justify-end items-center text-sm text-red-500 hover:text-slate-300 cursor-pointer edit-delete-btn" data-comment-id="{{ $comment->id }}">
-                  {{-- Destroy Comment Form  --}}
-                  <div id="destroy-form-{{ $comment->id }}">
-                    <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
-                    </form>
+          <div id='comments-{{ $news->id }}' class="hidden">
+            {{-- Displaying Comments if there is any available --}}
+            @if($news->comments)
+            @foreach($news->comments as $comment)
+            <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg shadow-md ">
+              <p class="pl-1 flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
+              <p class="text-sm p-1 pl-2">{{ $comment->body }}</p>
+              @auth
+                @if($comment->user->id === auth()->user()->id)
+                <div class="flex justify-end gap-2">
+                  <span class="flex justify-end text-sm hover:text-slate-300 cursor-pointer edit-comment-btn" data-comment-id="{{ $comment->id }}">Szerkeszt</span>
+                  <span class="flex justify-end items-center text-sm text-red-500 hover:text-slate-300 cursor-pointer edit-delete-btn" data-comment-id="{{ $comment->id }}">
+                    {{-- Destroy Comment Form  --}}
+                    <div id="destroy-form-{{ $comment->id }}">
+                      <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                      </form>
+                    </div>
+                    {{-- End of Destroy Comment Form  --}}
+                  </span>
+                </div>
+                @endif
+              @endauth
+            </div>
+
+            {{-- Edit Comment form modal --}}
+            <div id="update-form-{{ $comment->id }}" class="hidden bg-black bg-opacity-80 fixed inset-0 z-20">              
+              <div class="h-full w-full flex ">
+                <form action="{{ route('comment.update', $comment->id) }}" method="POST" class="w-full md:w-[40%] mx-auto mt-2 flex flex-col justify-center">
+                  @csrf
+                  @method('PATCH')
+
+                  <div class="mb-2">
+                    <label for="body" class="px-2">Komment:</label>
+                    <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2">{{ $comment->body }}</textarea>
+                    
+                    @error('body')
+                    <div class="text-red-500 mt-2 text-sm">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
-                  {{-- End of Destroy Comment Form  --}}
-                </span>
+                  
+                  {{-- Submit Button --}}
+                  <div class="mb-4 flex justify-end gap-2 pr-2">
+                    <span class="btn px-4 py-2 cursor-pointer edit-comment-close-btn" data-comment-id="{{ $comment->id }}">Vissza</span>
+                    <button type="submit" class="btn px-4 py-2">Komment frissitése</button>
+                  </div>
+                  {{-- End of Submit Button --}}
+                </form>
               </div>
-              @endif
+            </div>
+            {{-- End of Edit Comment form modal --}}
+            @endforeach
+            @endif
+            
+            @auth
+            <div>
+              <div class="w-full flex justify-center pt-1">
+                <button id="comment-btn-{{ $news->id }}"
+                  data-comment-id="{{ $news->id }}" 
+                  class="btn px-4 py-2 add-comment-btn">
+                  Kommentelek
+                </button>
+              </div>
+              
+              {{-- New Comment Form  --}}
+              <div id="comment-form-{{ $news->id }}" class="hidden mt-2">
+                <form action="{{ route('comment.store', $news->id) }}" method="POST">
+                  @csrf
+                  <input type="hidden" name="news_id" value="{{ $news->id }}">
+
+                  <div class="mb-2">
+                    <label for="body" class="px-2">Komment:</label>
+                    <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2"></textarea>
+                    
+                    @error('body')
+                    <div class="text-red-500 mt-2 text-sm">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  
+                  {{-- Submit Button --}}
+                  <div class="mb-4 flex justify-end gap-2 pr-2">
+                    <span class="btn px-4 py-2 cursor-pointer comment-close-btn" data-comment-id="{{ $news->id }}">Mégse</span>
+                    <button type="submit" class="btn px-4 py-2">Komment elküldése</button>
+                  </div>
+                  {{-- End of Submit Button --}}
+                </form>
+              </div>
+              {{-- End of New Comment Form  --}}
+
+            </div>
             @endauth
           </div>
-
-          {{-- Edit Comment form modal --}}
-          <div id="update-form-{{ $comment->id }}" class="hidden bg-black bg-opacity-80 fixed inset-0 z-20">              
-            <div class="h-full w-full flex ">
-              <form action="{{ route('comment.update', $comment->id) }}" method="POST" class="w-full md:w-[40%] mx-auto mt-2 flex flex-col justify-center">
-                @csrf
-                @method('PATCH')
-
-                <div class="mb-2">
-                  <label for="body" class="px-2">Komment:</label>
-                  <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2">{{ $comment->body }}</textarea>
-                  
-                  @error('body')
-                  <div class="text-red-500 mt-2 text-sm">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-                
-                {{-- Submit Button --}}
-                <div class="mb-4 flex justify-end gap-2 pr-2">
-                  <span class="btn px-4 py-2 cursor-pointer edit-comment-close-btn" data-comment-id="{{ $comment->id }}">Vissza</span>
-                  <button type="submit" class="btn px-4 py-2">Komment frissitése</button>
-                </div>
-                {{-- End of Submit Button --}}
-              </form>
-            </div>
-          </div>
-          {{-- End of Edit Comment form modal --}}
-          @endforeach
-          @endif
-          
-          @auth
-          <div id='comments'>
-            <div class="w-full flex justify-center pt-1">
-              <button id="add-comment-{{ $news->id }}"
-                data-comment-id="{{ $news->id }}" 
-                class="btn px-4 py-2 add-comment-btn">
-                Kommentelek
-              </button>
-            </div>
-            
-            {{-- New Comment Form  --}}
-            <div id="comment-form-{{ $news->id }}" class="hidden mt-2">
-              <form action="{{ route('comment.store', $news->id) }}" method="POST">
-                @csrf
-                <input type="hidden" name="news_id" value="{{ $news->id }}">
-
-                <div class="mb-2">
-                  <label for="body" class="px-2">Komment:</label>
-                  <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2"></textarea>
-                  
-                  @error('body')
-                  <div class="text-red-500 mt-2 text-sm">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-                
-                {{-- Submit Button --}}
-                <div class="mb-4 flex justify-end pr-2">
-                  <button type="submit" class="btn px-4 py-2">Komment elküldése</button>
-                </div>
-                {{-- End of Submit Button --}}
-              </form>
-            </div>
-            {{-- End of New Comment Form  --}}
-
-          </div>
-          @endauth
           {{-- End of Comment Section  --}}
           
           {{-- Image Modal --}}
@@ -293,11 +296,13 @@
         overlay.classList.toggle('flex')
       }
 
+      // Adding Eventlistener to all elements and calling toggle function
       newsImages.forEach(el => el.addEventListener('click', event => {
         const overlayId = event.target.dataset.modalId
         toggleImageClasses(overlayId)
       }))
 
+      // Adding Eventlistener to all elements and calling toggle function
       modalCloseBtn.forEach(el => el.addEventListener('click', event => {
         const overlayId = event.target.dataset.modalId
         toggleImageClasses(overlayId)
@@ -308,17 +313,26 @@
 
   <script>
     const newsCommentBtn = document.querySelectorAll('.add-comment-btn')
+    const newsCommentCloseBtn = document.querySelectorAll('.comment-close-btn')
 
-    const toggleComment = (id) => {
+    const toggleAddComment = (id) => {
       const commentForm = document.querySelector('#comment-form-' + id)
 
-      commentForm.classList.remove('hidden')
+      commentForm.classList.toggle('hidden')
     }
 
+    // Adding Eventlistener to all elements and calling toggle function
     newsCommentBtn.forEach(el => el.addEventListener('click', event => {
       const id = event.target.dataset.commentId
-      toggleComment(id)
+      toggleAddComment(id)
       event.target.classList.add('hidden')
+    }))
+
+    // Adding Eventlistener to all elements and calling toggle function
+    newsCommentCloseBtn.forEach(el => el.addEventListener('click', event => {
+      const id = event.target.dataset.commentId
+      toggleAddComment(id)
+      document.querySelector('#comment-btn-' + id).classList.remove('hidden')
     }))
   </script>
 
@@ -331,17 +345,34 @@
       commentEditForm.classList.toggle('hidden')
     }
 
+    // Adding Eventlistener to all elements and calling toggle function
     editCommentBtn.forEach(el => el.addEventListener('click', event => {
       const commentId = event.target.dataset.commentId
       toggleEditComment(commentId)
     }))
 
+    // Adding Eventlistener to all elements and calling toggle function
     editCommentColseBtn.forEach(el => el.addEventListener('click', event => {
       const commentId = event.target.dataset.commentId
       toggleEditComment(commentId)
     }))
-
-
   </script>
+
+  {{-- Toggle Comment section --}}
+  <script>
+    const showComment = document.querySelectorAll('.show-comment')
+
+    const toggleComment = (id) => {
+      const commentWindow = document.querySelector('#comments-' + id)
+      commentWindow.classList.toggle('hidden')
+    }
+
+    // Adding Eventlistener to all elements and calling toggle function
+    showComment.forEach(el => el.addEventListener('click', event => {
+      const id = event.target.dataset.newsId
+      toggleComment(id)
+    })) 
+  </script>
+  {{-- End of Toggle Comment section --}}
   @endsection
 </x-home-master>
