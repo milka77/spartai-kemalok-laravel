@@ -47,7 +47,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
     // News Comment Routes
-    Route::post('{News}/newscomment', [NewsCommentController::class, 'store'])->name('comment.store');
+    Route::post('/{news}/newscomment', [NewsCommentController::class, 'store'])->name('comment.store');
+    Route::patch('/{newsComment}/update', [NewsCommentController::class, 'update'])->name('comment.update');
+    Route::delete('/{newsComment}/destroy', [NewsCommentController::class, 'destroy'])->name('comment.destroy');
 });
 
 // 404 Custom view

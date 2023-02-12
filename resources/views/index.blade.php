@@ -62,31 +62,82 @@
             <span class="text-sm">{{ $news->category->name }}</span>
           </div>
 
+          {{-- Comment Section  --}}
+          {{-- Displaying Comments if there is any available --}}
           @if($news->comments)
-            @foreach($news->comments as $comment)
-            <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg">
-              <p class="flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
-              <p class="text-sm p-1">{{ $comment->body }}</p>
-            </div>
-            @endforeach
-          @endif
+          @foreach($news->comments as $comment)
+          <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg">
+            <p class="pl-1 flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
+            <p class="text-sm p-1 pl-2">{{ $comment->body }}</p>
+            @auth
+              @if($comment->user->id === auth()->user()->id)
+              <div class="flex justify-end gap-2">
+                <span class="flex justify-end text-sm hover:text-slate-300 cursor-pointer edit-comment-btn" data-comment-id="{{ $comment->id }}">Szerkeszt</span>
+                <span class="flex justify-end items-center text-sm text-red-500 hover:text-slate-300 cursor-pointer edit-delete-btn" data-comment-id="{{ $comment->id }}">
+                  {{-- Destroy Comment Form  --}}
+                  <div id="destroy-form-{{ $comment->id }}">
+                    <form action="{{ route('comment.destroy', $comment->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+                  </div>
+                  {{-- End of Destroy Comment Form  --}}
+                </span>
+              </div>
+              @endif
+            @endauth
+          </div>
 
+          {{-- Edit Comment form modal --}}
+          <div id="update-form-{{ $comment->id }}" class="hidden bg-black bg-opacity-80 fixed inset-0 z-20">              
+            <div class="h-full w-full flex ">
+              <form action="{{ route('comment.update', $comment->id) }}" method="POST" class="w-full md:w-[40%] mx-auto mt-2 flex flex-col justify-center">
+                @csrf
+                @method('PATCH')
+
+                <div class="mb-2">
+                  <label for="body" class="px-2">Komment:</label>
+                  <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2">{{ $comment->body }}</textarea>
+                  
+                  @error('body')
+                  <div class="text-red-500 mt-2 text-sm">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+                
+                {{-- Submit Button --}}
+                <div class="mb-4 flex justify-end gap-2 pr-2">
+                  <span class="btn px-4 py-2 cursor-pointer edit-comment-close-btn" data-comment-id="{{ $comment->id }}">Vissza</span>
+                  <button type="submit" class="btn px-4 py-2">Komment frissitése</button>
+                </div>
+                {{-- End of Submit Button --}}
+              </form>
+            </div>
+          </div>
+          {{-- End of Edit Comment form modal --}}
+          @endforeach
+          @endif
+          
           @auth
           <div id='comments'>
             <div class="w-full flex justify-center pt-1">
               <button id="add-comment-{{ $news->id }}"
                 data-comment-id="{{ $news->id }}" 
                 class="btn px-4 py-2 add-comment-btn">
-                Add Comment
+                Kommentelek
               </button>
             </div>
-
+            
+            {{-- New Comment Form  --}}
             <div id="comment-form-{{ $news->id }}" class="hidden mt-2">
               <form action="{{ route('comment.store', $news->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="news_id" value="{{ $news->id }}">
+
                 <div class="mb-2">
-                  <label for="body" class="sr-only">Comment:</label>
+                  <label for="body" class="px-2">Komment:</label>
                   <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2"></textarea>
                   
                   @error('body')
@@ -95,19 +146,20 @@
                   </div>
                   @enderror
                 </div>
-
+                
                 {{-- Submit Button --}}
                 <div class="mb-4 flex justify-end pr-2">
-                  <button type="submit" class="btn px-4 py-2">Add Comment</button>
-
+                  <button type="submit" class="btn px-4 py-2">Komment elküldése</button>
                 </div>
                 {{-- End of Submit Button --}}
               </form>
             </div>
+            {{-- End of New Comment Form  --}}
 
           </div>
           @endauth
-
+          {{-- End of Comment Section  --}}
+          
           {{-- Image Modal --}}
          
           <div id="overlay-{{ $news->id }}" class="bg-black bg-opacity-90 fixed inset-0 z-20 hidden flex-col justify-center items-center p-30">
@@ -226,6 +278,7 @@
       {{-- End Of Right side --}}
     </div>
   </div>
+  {!! Toastr::message() !!}
   @endsection
 
   @section('extra-js')
@@ -233,7 +286,7 @@
       const newsImages = document.querySelectorAll('.modal-btn');
       const modalCloseBtn = document.querySelectorAll('.modal-close-btn')
 
-      const toggleClasses = (overlayId) => {
+      const toggleImageClasses = (overlayId) => {
         const overlay = document.querySelector('#overlay-' + overlayId);
 
         overlay.classList.toggle('hidden')
@@ -242,12 +295,12 @@
 
       newsImages.forEach(el => el.addEventListener('click', event => {
         const overlayId = event.target.dataset.modalId
-        toggleClasses(overlayId)
+        toggleImageClasses(overlayId)
       }))
 
       modalCloseBtn.forEach(el => el.addEventListener('click', event => {
         const overlayId = event.target.dataset.modalId
-        toggleClasses(overlayId)
+        toggleImageClasses(overlayId)
         
       }))
 
@@ -267,6 +320,28 @@
       toggleComment(id)
       event.target.classList.add('hidden')
     }))
+  </script>
+
+  <script>
+    const editCommentBtn = document.querySelectorAll('.edit-comment-btn')
+    const editCommentColseBtn = document.querySelectorAll('.edit-comment-close-btn')
+
+    const toggleEditComment = (commentId) => {
+      const commentEditForm = document.querySelector('#update-form-' + commentId)
+      commentEditForm.classList.toggle('hidden')
+    }
+
+    editCommentBtn.forEach(el => el.addEventListener('click', event => {
+      const commentId = event.target.dataset.commentId
+      toggleEditComment(commentId)
+    }))
+
+    editCommentColseBtn.forEach(el => el.addEventListener('click', event => {
+      const commentId = event.target.dataset.commentId
+      toggleEditComment(commentId)
+    }))
+
+
   </script>
   @endsection
 </x-home-master>
