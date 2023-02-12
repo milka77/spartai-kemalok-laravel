@@ -55,7 +55,7 @@ class Raiderio
   {
     $httpClient = new \GuzzleHttp\Client();
 
-    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name=Sp%C3%A1rtai%20Kem%C3%A1lok&fields=raid_progression';
+    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_progression';
     $request =  $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents(), true);
 
@@ -66,7 +66,7 @@ class Raiderio
   {
     $httpClient = new \GuzzleHttp\Client();
 
-    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name=Sp%C3%A1rtai%20Kem%C3%A1lok&fields=raid_rankings';
+    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_rankings';
     $request =  $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents());
 
