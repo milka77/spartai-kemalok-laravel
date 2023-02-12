@@ -56,9 +56,9 @@
             </div>
           </div>
           
-          <div class="flex justify-between border-b border-zinc-500 mb-2">
+          <div class="flex justify-between border-b border-zinc-500 mb-2 px-1">
             <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> 
-            <span class="text-sm">Kommentek: {{ count($news->comments) }}</span>
+            <span class="text-sm show-comment">Kommentek: {{ count($news->comments) }}</span>
             <span class="text-sm">{{ $news->category->name }}</span>
           </div>
 
@@ -66,7 +66,7 @@
           {{-- Displaying Comments if there is any available --}}
           @if($news->comments)
           @foreach($news->comments as $comment)
-          <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg">
+          <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg shadow-md ">
             <p class="pl-1 flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
             <p class="text-sm p-1 pl-2">{{ $comment->body }}</p>
             @auth
