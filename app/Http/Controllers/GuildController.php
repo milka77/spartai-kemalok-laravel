@@ -159,7 +159,7 @@ class GuildController extends Controller
     public function index(Raiderio $raiderio)
     {
 
-        $all_news = News::all()->sortByDesc('id');
+        $all_news = News::orderBy('id', 'desc')->paginate(7);
         $raid_progress = $raiderio->getGuildRaidProgress();
         $recruits = Recruitment::all();
         $recruits_is_active = $this->checkRecruitment();

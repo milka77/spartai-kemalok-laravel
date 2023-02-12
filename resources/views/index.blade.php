@@ -56,11 +56,57 @@
             </div>
           </div>
           
-          <div class="flex justify-between border-b border-zinc-500">
+          <div class="flex justify-between border-b border-zinc-500 mb-2">
             <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> 
-            {{-- <span class="text-sm">Comments: 0</span> --}}
+            <span class="text-sm">Kommentek: {{ count($news->comments) }}</span>
             <span class="text-sm">{{ $news->category->name }}</span>
           </div>
+
+          @if($news->comments)
+            @foreach($news->comments as $comment)
+            <div class="py-1 px-2 mb-2 bg-zinc-800 rounded-lg">
+              <p class="flex justify-between border-b border-zinc-500">{{ $comment->user->nickname }} <span class="text-sm">{{ $comment->created_at }}</span></p>
+              <p class="text-sm p-1">{{ $comment->body }}</p>
+            </div>
+            @endforeach
+          @endif
+
+          @auth
+          <div id='comments'>
+            <div class="w-full flex justify-center pt-1">
+              <button id="add-comment-{{ $news->id }}"
+                data-comment-id="{{ $news->id }}" 
+                class="btn px-4 py-2 add-comment-btn">
+                Add Comment
+              </button>
+            </div>
+
+            <div id="comment-form-{{ $news->id }}" class="hidden mt-2">
+              <form action="{{ route('comment.store', $news->id) }}" method="POST">
+                @csrf
+                <input type="hidden" name="news_id" value="{{ $news->id }}">
+                <div class="mb-2">
+                  <label for="body" class="sr-only">Comment:</label>
+                  <textarea class="bg-zinc-800 border border-zinc-400 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" name="body"  rows="2"></textarea>
+                  
+                  @error('body')
+                  <div class="text-red-500 mt-2 text-sm">
+                    {{ $message }}
+                  </div>
+                  @enderror
+                </div>
+
+                {{-- Submit Button --}}
+                <div class="mb-4 flex justify-end pr-2">
+                  <button type="submit" class="btn px-4 py-2">Add Comment</button>
+
+                </div>
+                {{-- End of Submit Button --}}
+              </form>
+            </div>
+
+          </div>
+          @endauth
 
           {{-- Image Modal --}}
          
@@ -78,7 +124,9 @@
         </article>
         @endforeach
         
-        
+        <div class="p-2">{{ $news_index->links()->total }}{{ $news_index->links('pagination::tailwind') }}</div>       
+
+      
         
       </div>
       
@@ -203,6 +251,22 @@
         
       }))
 
+  </script>
+
+  <script>
+    const newsCommentBtn = document.querySelectorAll('.add-comment-btn')
+
+    const toggleComment = (id) => {
+      const commentForm = document.querySelector('#comment-form-' + id)
+
+      commentForm.classList.remove('hidden')
+    }
+
+    newsCommentBtn.forEach(el => el.addEventListener('click', event => {
+      const id = event.target.dataset.commentId
+      toggleComment(id)
+      event.target.classList.add('hidden')
+    }))
   </script>
   @endsection
 </x-home-master>
