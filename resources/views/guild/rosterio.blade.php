@@ -30,7 +30,7 @@
                   <tbody>
                     @foreach ($members_sorted as $member)
                       <tr class="border-b border-zinc-500 {{ strtolower($member->character->class) }}">
-                        <td  class="py-1">
+                        <td class="py-1">
                           <a class="{{ strtolower($member->character->class) }} hover:text-slate-400" href="{{ route('guild.raiderio',  $member->character->name ) }}">
                             {{ $member->character->name }}
                           </a>
@@ -95,6 +95,59 @@
                       </tr>
                     
                     @endforeach
+
+                    {{-- Adding Alliance member --}}
+                    <tr class="border-b border-zinc-500 monk">
+                      <td class="py-1">
+                        <a class="hover:text-slate-400" href="{{ route('guild.raiderio',  'Karmaisabich' ) }}">
+                          Karmaisabich
+                        </a>
+                      </td>
+                      <td>DPS</td>
+                      <td>Dzsanázó</td>
+                      <td>Human</td>
+                      <td>Demon Hunter</td>
+                      <td>Windwalker</td>
+                      <td><a class="text-white hidden md:table-cell hover:text-violet-400" href="https://raider.io/characters/eu/ragnaros/Karmaisabich" target="_blank" rel="noopener noreferrer">Raider IO profil</a></td>
+                      <td class="text-center">
+                        @foreach ($whd as $personal_previous_highest_key)
+                          @if('Karmaisabich' === $personal_previous_highest_key->name)
+
+                            @foreach ($personal_previous_highest_key->mythic_plus_previous_weekly_highest_level_runs as $run)
+                              @if($run->mythic_level >= $prev_limit)
+                                <span class="text-green-500">{{ $run->mythic_level }}</span>
+                                @break
+                              @else
+                                <span class="text-red-500">{{ $run->mythic_level }}</span>
+                                @break
+                              @endif
+                            @endforeach
+                          @endif
+                        @endforeach
+                      </td>
+
+                      <td class="text-white">/</td>
+
+                      <td class="text-center">
+                        @foreach ($whd as $personal_highest_key)
+                          @if('Karmaisabich' === $personal_highest_key->name)
+
+                            @foreach ($personal_highest_key->mythic_plus_weekly_highest_level_runs as $run)
+                              @if($run->mythic_level >= $current_limit)
+                                <span class="text-green-500">{{ $run->mythic_level }}</span>
+                                @break
+                              @else
+                                <span class="text-red-500">{{ $run->mythic_level }}</span>
+                                @break
+                              @endif
+                            @endforeach
+                          @endif
+                          
+                        @endforeach
+                      </td>
+                    </tr>
+                    {{-- End of Adding Alliance member --}}
+
                   </tbody>
                 </table>
               </div>
@@ -111,7 +164,7 @@
         <p class="p-2 text-lg">Hiba: <span class="text-red-600">{{ $code }}</span></p>
         @if (Auth()->user())
           @if (auth()->user()->userHasRole('admin'))
-            {{ $message }} blaaalalal
+            {{ $message }}
             
           @endif
         @endif
