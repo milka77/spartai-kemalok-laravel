@@ -45,6 +45,9 @@ Route::get('/{profession}/craft', [CraftController::class, 'showCategory'])->nam
 
 Route::middleware('auth')->group(function() {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+    // News Comment Routes
+    Route::post('{News}/newscomment', [NewsCommentController::class, 'store'])->name('comment.store');
 });
 
 // 404 Custom view
