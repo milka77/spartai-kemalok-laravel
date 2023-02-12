@@ -18,11 +18,13 @@ class News extends Model
         'file_path'
     ];
 
+    // Relationship with User Model
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    // Relationship with Category Model
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -38,5 +40,11 @@ class News extends Model
     
             return Storage::disk('s3')->url($value);
         }
+    }
+
+    // Relationship with NewsComment Model
+    public function comments()
+    {
+        return $this->hasMany(NewsComment::class);
     }
 }

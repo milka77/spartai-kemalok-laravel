@@ -78,4 +78,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Craft::class);
     }
+
+    // Relationsship with NewsComment Model
+    public function comments()
+    {
+        return $this->hasMany(NewsComment::class);
+    }
 }
