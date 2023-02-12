@@ -82,7 +82,7 @@ class GuildController extends Controller
             
             // Get all raiding members names for Weeklyhighest dungeon checks
             // Adding alliance member to $members_name_list
-            $members_name_list = ['Karmaisabich'];
+            $members_name_list = ['Karmaisabich', 'Hësing'];
             foreach($members['members'] as $member)
             {
                 $members_name_list[] = $member->character->name;
