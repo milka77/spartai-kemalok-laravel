@@ -108,7 +108,7 @@
               </tr>
               <tr>
                 <td>News</td>
-                <td class="text-right">v0.3</td>
+                <td class="text-right">v0.5</td>
               </tr>
               <tr>
                 <td>Raid Tactics</td>
@@ -144,6 +144,10 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>Added comment funcionality to news page. Users are able to comment on the news and edit or delete thier own comments.</td>
+                <td class="text-right">12.02.2023</td>
+              </tr>
               <tr>
                 <td>Added Weekly m+ limits. Admins are able to set the previous and current weekly M+ limit from the admin site</td>
                 <td class="text-right">29.12.2022</td>
