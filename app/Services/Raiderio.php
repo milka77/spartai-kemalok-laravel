@@ -56,7 +56,7 @@ class Raiderio
     $httpClient = new \GuzzleHttp\Client();
 
     $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_progression';
-    $request =  $httpClient->get($raiderioUri);
+    $request = $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents(), true);
 
     return $response;
@@ -67,9 +67,21 @@ class Raiderio
     $httpClient = new \GuzzleHttp\Client();
 
     $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_rankings';
-    $request =  $httpClient->get($raiderioUri);
+    $request = $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents());
 
     return $response;
   }
+
+  public function getAffixes()
+  {
+    $httpClient = new \GuzzleHttp\Client();
+
+    $raiderioUri = 'https://raider.io/api/v1/mythic-plus/affixes?region=eu&locale=en';
+    $request = $httpClient->get($raiderioUri);
+    $response = json_decode($request->getBody()->getContents());
+    
+    return $response;
+  }
+
 }

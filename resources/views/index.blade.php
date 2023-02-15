@@ -126,7 +126,7 @@
               <div class="w-full flex justify-center pt-1">
                 <button id="comment-btn-{{ $news->id }}"
                   data-comment-id="{{ $news->id }}" 
-                  class="btn px-4 py-2 add-comment-btn">
+                  class="btn px-4 py-2 add-comment-btn hover:text-slate-400">
                   Kommentelek
                 </button>
               </div>
@@ -238,7 +238,7 @@
             <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
           </div>
           
-          <div class=" border-t border-zinc-500 flex  p-2 px-4">
+          <div class="flex  p-2 px-4">
             <table class="w-full">
               <thead>
                 <th></th>
@@ -262,12 +262,34 @@
                   <td class="pr-3 text-right">{{ $voti_prog['mythic_bosses_killed'] }} / {{ $voti_prog['total_bosses'] }}</td>
                 </tr>
               </tbody>
-            </table>
-            
-            
+            </table>            
           </div>
         </div>
         {{-- End Of Progress --}}
+
+        <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5 mb-4">
+          {{-- Declare shorthand version for raid progression arrays --}}
+          <?php $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates']?>
+
+          <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
+            <h2 class="text-center font-semibold text-xl p-2">Heti Affixek</h2>
+          </div>
+
+          <div class="flex  p-2 px-4">
+            <ul>
+              @foreach ($affixes->affix_details as $affix)
+              <li class="flex justify-center items-center gap-2">
+                <a class="hover:text-slate-400" href="{{ $affix->wowhead_url }}" target="_blank" rel="noopener noreferrer">{{ $affix->name }}</a>
+                <img src="https://wow.zamimg.com/images/wow/icons/small/{{ $affix->icon }}.jpg" alt="{{ $affix->name }}">
+              </li>
+              <li class="text-sm p-2">{{ $affix->description }}</li>
+              @endforeach
+            </ul>
+              
+          </div>
+          
+          
+        </div>
         
         {{-- Discord Widget--}}
         <div class="w-auto mt-2">

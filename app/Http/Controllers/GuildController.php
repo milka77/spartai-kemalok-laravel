@@ -163,12 +163,14 @@ class GuildController extends Controller
         $raid_progress = $raiderio->getGuildRaidProgress();
         $recruits = Recruitment::all();
         $recruits_is_active = $this->checkRecruitment();
+        $affixes = $raiderio->getAffixes();
 
         $context = [
             'news_index' => $all_news,
             'raid_progress' => $raid_progress,
             'recruits' => $recruits,
             'recruits_is_active' => $recruits_is_active,
+            'affixes' => $affixes,
         ];
 
         return view('index', $context);
