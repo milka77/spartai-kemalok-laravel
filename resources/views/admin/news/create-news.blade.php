@@ -30,7 +30,7 @@
               <select class="form-control {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category">
                 <option disabled selected>Choose a category</option>
                 @foreach ($categories as $category)
-                  <option value="<?= $category->id; ?>"><?= $category->name; ?></option>
+                  <option value="<?= $category->id; ?>" {{ $category->id == old('category') ? 'selected' : '' }}><?= $category->name; ?></option>
                 @endforeach
               </select>
 
@@ -50,7 +50,7 @@
                 <i class="fa-light fa-asterisk text-danger"></i>
               </label>
               
-              <textarea id="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="10" name='body'></textarea>
+              <textarea id="body" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}" rows="10" name='body'>{{ old('body')}}</textarea>
               
               {{-- Displaying the error of exists --}}
               <div>
@@ -60,8 +60,22 @@
               </div>
               {{-- End Of Displaying the error of exists --}}
             </div>
-            {{-- End Of News Body --}}
+            {{-- End Of News Body --}}  
 
+            {{-- Video Url input --}}
+            <div class="mb-2">
+              <label class="form-label" for="title">Video url: <small>(https://www.youtube.com/watch?v=WIufa2mLkso)</small></label>
+              <input class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" type="url" name="video_url" value="{{ old('video_url')}}">
+              
+              {{-- Displaying the error of exists --}}
+              <div>
+                @error('video_url')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+              </div>
+              {{-- End Of Displaying the error of exists --}}
+            </div>
+            {{-- End of Video Url input --}}
 
             {{-- File path for image --}}
             <div class="mb-2">
@@ -97,8 +111,17 @@
           <hr>
           <div>
             <h4>Video Linkelese:</h4>
+            <h5>YouTube:</h5>
             <ul>
-              <li>Youtube-on a linkelni kivant video alatt katt share</li>
+              <li>Egyszeruen a YouTube video linkjet bemasolni a Video Url-hez es kesz.</li>
+            </ul>
+            <h6>Szerkesztes:</h6>
+            <ul>
+              <li>Ha lecserelned a videot, a szerkesztoben kijelolod, torlod es az uj YouTube video linkjet bemasolnod a Video Url-hez es kesz.</li>
+            </ul>
+            <h5>Mas Videok pl: (vimeo)</h5>
+            <ul>
+              <li>Linkelni kivant video alatt katt share</li>
               <li>Embed opcio kivalasztasa es Copy ami kimasolja a beillesztendo iframe codot</li>
               <li>Beirod a szoveget a hirhez es mielott a videot belinkelned atvaltod <>Source nezetbe az editort</li>
               <li>Most belehet illeszteni a video kimasolt iframe code-jat ahova szeretnenk</li>

@@ -36,11 +36,20 @@ class NewsController extends Controller
             'category' => 'required',
             'file_path' => 'image',
         ]);
-
+        
+        // Get the video url and adding extra div and class for responsive video
+        $video_url = '';
+        if(!empty(request('video_url')))
+        {
+            $input_url = request('video_url');
+            $url_embed = str_replace('watch?v=', 'embed/', $input_url);
+            $video_url = '<p></p><div class="iframe-container"><iframe src="'.$url_embed.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
+        }
+        
         $data = [
-            'title' => $request['title'],
-            'category_id' => $request['category'],
-            'body' => $request['body'],
+            'title' => request('title'),
+            'category_id' => request('category'),
+            'body' => request('body').$video_url,
             'user_id' => Auth()->user()->id,
         ];
 
@@ -81,6 +90,15 @@ class NewsController extends Controller
             'file_path' => 'image',
         ]);
 
+        // Get the video url and adding extra div and class for responsive video
+        $video_url = '';
+        if(!empty(request('video_url')))
+        {
+            $input_url = request('video_url');
+            $url_embed = str_replace('watch?v=', 'embed/', $input_url);
+            $video_url = '<p></p><div class="iframe-container"><iframe src="'.$url_embed.'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>';
+        }
+
         // Checking if news image exist and update with new data
         if(request('file_path')){
            
@@ -92,7 +110,7 @@ class NewsController extends Controller
         // Assign data
         $news->title = request('title');
         $news->category_id = request('category');
-        $news->body = request('body');
+        $news->body = request('body').$video_url;
 
         $news->save();
 
