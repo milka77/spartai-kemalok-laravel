@@ -56,10 +56,10 @@
             </div>
           </div>
           
-          <div class="flex justify-between border-b border-zinc-500 mb-2 px-1">
-            <span class="text-sm">{{ $news->created_at }} - Szerző: {{ $news->user->nickname }}</span> 
+          <div class="flex flex-col md:flex-row md:justify-between border-b border-zinc-500 mb-2 px-1">
+            <span class="text-sm">{{ $news->created_at }} Szerző: {{ $news->user->nickname }}</span> 
+            <span class="text-sm md:order-3">{{ $news->category->name }}</span>
             <span class="text-sm show-comment cursor-pointer" data-news-id="{{ $news->id }}">Kommentek: {{ count($news->comments) }}</span>
-            <span class="text-sm">{{ $news->category->name }}</span>
           </div>
 
           {{-- Comment Section  --}}
