@@ -28,6 +28,18 @@
                     alt="Horda Logo">
               </div>
             </div>
+              {{-- Checking for video url and displaying if exists  --}}
+              @if(!empty($news->video_url))
+              <div class="w-full md:w-[75%]">
+                <div class="iframe-container">
+                  <iframe width="560" height="315" src="{{ $news->getEmbedLink($news->video_url) }}" title="YouTube video player" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              @endif
+
+              {{-- Checking for image url and displaying if exists  --}}
               @if(!empty($news->file_path))
               <div class="w-2/3 flex mx-auto">
                 <button id="news-img-{{ $news->id }}"  class="modal-btn">
@@ -42,15 +54,24 @@
             @endif
             {{-- End Of News Body --}}
 
-            <div class=" border-b border-zinc-500 flex justify-center p-2 py-4">
+            <div class=" flex justify-center p-2 py-4">
               @if ( $news->category->id === 2)
+                {{-- Checking for video url and displaying if exists  --}}
+                @if(!empty($news->video_url))
+                <div class="w-full md:w-[75%]">
+                  <div class="iframe-container">
+                    <iframe width="560" height="315" src="{{ $news->getEmbedLink($news->video_url) }}" title="YouTube video player" 
+                      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                    </iframe>
+                  </div>
+                </div>
+                @endif
+
                 @if(!empty($news->file_path))
                 <button id="news-img-{{ $news->id }}" class="modal-btn">
                   <img class="md:shrink-0 rounded-2xl px-2 md:px-32" src="{{ $news->file_path }}" alt="{{ $news->title }}"  data-modal-id="{{ $news->id }}">
                 </button>
                 @endif
-              @else
-                
               @endif
               
             </div>

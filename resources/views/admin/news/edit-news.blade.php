@@ -67,7 +67,7 @@
             {{-- Video Url input --}}
             <div class="mb-2">
               <label class="form-label" for="title">Video url: <small>(https://www.youtube.com/watch?v=WIufa2mLkso)</small></label>
-              <input class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" type="url" name="video_url" value="{{ old('video_url')}}">
+              <input class="form-control {{ $errors->has('video_url') ? 'is-invalid' : '' }}" type="url" name="video_url" value="{{ $news->video_url }}">
               
               {{-- Displaying the error of exists --}}
               <div>
@@ -136,7 +136,7 @@
             </ul>
             <h6>Szerkesztes:</h6>
             <ul>
-              <li>Ha lecserelned a videot, a szerkesztoben kijelolod, torlod es az uj YouTube video linkjet bemasolnod a Video Url-hez es kesz.</li>
+              <li>Ha lecserelned a videot, kitorlod a regi linket es az uj YouTube video linkjet bemasolnod a Video Url-hez es kesz.</li>
             </ul>
             <h5>Mas Videok pl: (vimeo)</h5>
             <ul>

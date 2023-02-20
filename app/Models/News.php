@@ -15,7 +15,8 @@ class News extends Model
         'body',
         'user_id',
         'category_id',
-        'file_path'
+        'file_path',
+        'video_url',
     ];
 
     // Relationship with User Model
@@ -46,5 +47,11 @@ class News extends Model
     public function comments()
     {
         return $this->hasMany(NewsComment::class);
+    }
+
+    // Create the embeded link from normal YouTube video link
+    public function getEmbedLink($video_url)
+    {
+        return $url_embed = str_replace('watch?v=', 'embed/', $video_url);
     }
 }

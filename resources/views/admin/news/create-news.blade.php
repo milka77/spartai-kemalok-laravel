@@ -115,10 +115,7 @@
             <ul>
               <li>Egyszeruen a YouTube video linkjet bemasolni a Video Url-hez es kesz.</li>
             </ul>
-            <h6>Szerkesztes:</h6>
-            <ul>
-              <li>Ha lecserelned a videot, a szerkesztoben kijelolod, torlod es az uj YouTube video linkjet bemasolnod a Video Url-hez es kesz.</li>
-            </ul>
+            
             <h5>Mas Videok pl: (vimeo)</h5>
             <ul>
               <li>Linkelni kivant video alatt katt share</li>
