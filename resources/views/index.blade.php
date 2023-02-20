@@ -54,11 +54,11 @@
             @endif
             {{-- End Of News Body --}}
 
-            <div class=" flex justify-center p-2 py-4">
+            <div class=" flex flex-col gap-2 justify-center p-2 py-4">
               @if ( $news->category->id === 2)
                 {{-- Checking for video url and displaying if exists  --}}
                 @if(!empty($news->video_url))
-                <div class="w-full md:w-[75%]">
+                <div class="w-full md:w-[75%] mx-auto">
                   <div class="iframe-container">
                     <iframe width="560" height="315" src="{{ $news->getEmbedLink($news->video_url) }}" title="YouTube video player" 
                       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
