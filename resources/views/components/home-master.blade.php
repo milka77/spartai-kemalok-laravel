@@ -36,6 +36,18 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script src="https://kit.fontawesome.com/b6c120cd7f.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+        {{-- Google tag (gtag.js) --}}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Y6TQHLWPP"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-1Y6TQHLWPP');
+            </script>
+        {{-- End of Google tag (gtag.js) --}}
+
     </head>
     <body class="bg-zinc-900 font-roboto-con flex flex-col min-h-screen" >
         {{-- Navigation --}}

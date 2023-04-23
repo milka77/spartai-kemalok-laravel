@@ -252,13 +252,14 @@
 
         {{-- Progress --}}
         <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5 mb-4">
-          {{-- Declare shorthand version for raid progression arrays --}}
-          <?php $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates']?>
-
+          
           <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
             <h2 class="text-center font-semibold text-xl p-2">Guild Progress</h2>
           </div>
           
+          {{-- Declare shorthand version for raid progression arrays --}}
+          <?php $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates']?>
+
           <div class="flex  p-2 px-4">
             <table class="w-full">
               <thead>
@@ -289,8 +290,6 @@
         {{-- End Of Progress --}}
 
         <div class="w-auto min-w-fit bg-zinc-700 rounded-lg text-white pt-5 mb-4">
-          {{-- Declare shorthand version for raid progression arrays --}}
-          <?php $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates']?>
 
           <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
             <h2 class="text-center font-semibold text-xl p-2">Heti Affixek</h2>
