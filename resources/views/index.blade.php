@@ -258,8 +258,11 @@
           </div>
           
           {{-- Declare shorthand version for raid progression arrays --}}
-          <?php $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates']?>
-
+          <?php 
+            $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates'];
+            $atsc_prog = $raid_progress['raid_progression']['aberrus-the-shadowed-crucible'];
+          ?>
+          {{-- Raid progress table --}}
           <div class="flex  p-2 px-4">
             <table class="w-full">
               <thead>
@@ -268,24 +271,94 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="capitalize">Vault of the Incarnates:</td>
-                  <td class="text-right">{{ $voti_prog['summary'] }}</td>
+                  <td class="capitalize">Aberrus The shadowed crucible:</td>
+                  <td class="text-right">{{ $atsc_prog['summary'] }}</td>
                 </tr>
                 <tr>
                   <td class="pl-3 capitalize">Normal:</td>
-                  <td class="pr-3 text-right">{{ $voti_prog['normal_bosses_killed'] }} / {{ $voti_prog['total_bosses'] }}</td>
+                  <td class="pr-3 text-right">{{ $atsc_prog['normal_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
                 </tr>
                 <tr>
                   <td class="pl-3 capitalize">Heroic:</td>
-                  <td class="pr-3 text-right">{{ $voti_prog['heroic_bosses_killed'] }} / {{ $voti_prog['total_bosses'] }}</td>
+                  <td class="pr-3 text-right">{{ $atsc_prog['heroic_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
+                </tr>
+                <tr class="border-b border-zinc-500">
+                  <td class="pl-3 capitalize pb-3">mythic:</td>
+                  <td class="pr-3 text-right pb-3">{{ $atsc_prog['mythic_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
                 </tr>
                 <tr>
-                  <td class="pl-3 capitalize">mythic:</td>
-                  <td class="pr-3 text-right">{{ $voti_prog['mythic_bosses_killed'] }} / {{ $voti_prog['total_bosses'] }}</td>
+                  <td class="capitalize pt-3">Vault of the Incarnates:</td>
+                  <td class="text-right pt-3">{{ $voti_prog['summary'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Normal:</td>
+                  <td class="pr-3 text-right">{{ $voti_prog['normal_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Heroic:</td>
+                  <td class="pr-3 text-right">{{ $voti_prog['heroic_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize pb-3">mythic:</td>
+                  <td class="pr-3 text-right pb-3">{{ $voti_prog['mythic_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
                 </tr>
               </tbody>
             </table>            
           </div>
+          {{-- End of Raid progress table --}}
+
+          <div class="text-center border-t border-b border-zinc-500 bg-gradient-to-r from-zinc-700 via-red-900 to-zinc-700">
+            <h2 class="text-center font-semibold text-xl p-2">Guild Realm Rank</h2>
+          </div>
+
+          {{-- Declare shorthand version for raid progression arrays --}}
+          <?php 
+            $voti_rank = $raid_progress['raid_rankings']['vault-of-the-incarnates'];
+            $atsc_rank = $raid_progress['raid_rankings']['aberrus-the-shadowed-crucible'];
+          ?>
+          {{-- Raid rankings table --}}
+          <div class="flex  p-2 px-4">
+            <table class="w-full">
+              <thead>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="capitalize text-center pb-2" colspan="2">Aberrus The shadowed crucible:</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Normal:</td>
+                  <td class="pr-3 text-right">{{ $atsc_rank['normal']['realm'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Heroic:</td>
+                  <td class="pr-3 text-right">{{ $atsc_rank['heroic']['realm'] }}</td>
+                </tr>
+                <tr class="border-b border-zinc-500">
+                  <td class="pl-3 capitalize pb-3">mythic:</td>
+                  <td class="pr-3 text-right pb-3">{{ $atsc_rank['mythic']['realm'] }}</td>
+                </tr>
+                <tr>
+                  <td class="capitalize text-center p-2" colspan="2">Vault of the Incarnates:</td>
+                 
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Normal:</td>
+                  <td class="pr-3 text-right">{{ $voti_rank['normal']['realm'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize">Heroic:</td>
+                  <td class="pr-3 text-right">{{ $voti_rank['heroic']['realm'] }}</td>
+                </tr>
+                <tr>
+                  <td class="pl-3 capitalize pb-3">mythic:</td>
+                  <td class="pr-3 text-right pb-3">{{ $voti_rank['mythic']['realm'] }}</td>
+                </tr>
+              </tbody>
+            </table>            
+          </div>
+          {{-- End of Raid rankings table --}}
         </div>
         {{-- End Of Progress --}}
 
@@ -295,7 +368,7 @@
             <h2 class="text-center font-semibold text-xl p-2">Heti Affixek</h2>
           </div>
 
-          <div class="flex  p-2 px-4">
+          <div class="flex  p-4">
             <ul>
               @foreach ($affixes->affix_details as $affix)
               <li class="flex justify-center items-center gap-2">
@@ -305,7 +378,6 @@
               <li class="text-sm p-2">{{ $affix->description }}</li>
               @endforeach
             </ul>
-              
           </div>
           
           

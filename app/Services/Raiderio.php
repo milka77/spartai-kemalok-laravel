@@ -11,7 +11,7 @@ class Raiderio
   {
     $httpClient = new \GuzzleHttp\Client();
     
-    $raiderioUri = 'https://raider.io/api/v1/characters/profile?region=eu&realm=ragnaros&name='.$name.'&fields=gear%2Ctalents%2Cmythic_plus_scores%2Cmythic_plus_weekly_highest_level_runs%2Cmythic_plus_previous_weekly_highest_level_runs';
+    $raiderioUri = 'https://raider.io/api/v1/characters/profile?region=eu&realm=ragnaros&name='.$name.'&fields=gear%2Ctalents%2Cmythic_plus_scores_by_season:current%2Cmythic_plus_weekly_highest_level_runs%2Cmythic_plus_previous_weekly_highest_level_runs';
     $request =  $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents());
 
@@ -51,24 +51,14 @@ class Raiderio
     return $members_filtered;
   }
 
+  // Get API data about raid progression and raid rankings
   public function getGuildRaidProgress()
   {
     $httpClient = new \GuzzleHttp\Client();
 
-    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_progression';
+    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_progression%2Craid_rankings';
     $request = $httpClient->get($raiderioUri);
     $response = json_decode($request->getBody()->getContents(), true);
-
-    return $response;
-  }
-
-  public function getGuildRaidRankings()
-  {
-    $httpClient = new \GuzzleHttp\Client();
-
-    $raiderioUri = 'https://raider.io/api/v1/guilds/profile?region=eu&realm=ragnaros&name='.config('app.name').'&fields=raid_rankings';
-    $request = $httpClient->get($raiderioUri);
-    $response = json_decode($request->getBody()->getContents());
 
     return $response;
   }

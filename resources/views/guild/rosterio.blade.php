@@ -59,7 +59,6 @@
                         <td class="text-center">
                           @foreach ($whd as $personal_previous_highest_key)
                             @if($member->character->name === $personal_previous_highest_key->name)
-
                               @foreach ($personal_previous_highest_key->mythic_plus_previous_weekly_highest_level_runs as $run)
                                 @if($run->mythic_level >= $prev_limit)
                                   <span class="text-green-500">{{ $run->mythic_level }}</span>
@@ -97,56 +96,6 @@
                     @endforeach
 
                     {{-- Adding Alliance member --}}
-                    <tr class="border-b border-zinc-500 hunter">
-                      <td class="py-1">
-                        <a class="hover:text-slate-400" href="{{ route('guild.raiderio',  'Karlos' ) }}">
-                          Karlos
-                        </a>
-                      </td>
-                      <td>DPS</td>
-                      <td>300 Testvér</td>
-                      <td class="hidden md:table-cell">Dwarf</td>
-                      <td class="hidden md:table-cell">Hunter</td>
-                      <td class="hidden md:table-cell">Beast Master</td>
-                      <td><a class="text-white hidden md:table-cell hover:text-violet-400" href="https://raider.io/characters/eu/ragnaros/Karlos" target="_blank" rel="noopener noreferrer">Raider IO profil</a></td>
-                      <td class="text-center">
-                        @foreach ($whd as $personal_previous_highest_key)
-                          @if('Karlos' === $personal_previous_highest_key->name)
-
-                            @foreach ($personal_previous_highest_key->mythic_plus_previous_weekly_highest_level_runs as $run)
-                              @if($run->mythic_level >= $prev_limit)
-                                <span class="text-green-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @else
-                                <span class="text-red-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @endif
-                            @endforeach
-                          @endif
-                        @endforeach
-                      </td>
-
-                      <td class="text-white">/</td>
-
-                      <td class="text-center">
-                        @foreach ($whd as $personal_highest_key)
-                          @if('Karlos' === $personal_highest_key->name)
-
-                            @foreach ($personal_highest_key->mythic_plus_weekly_highest_level_runs as $run)
-                              @if($run->mythic_level >= $current_limit)
-                                <span class="text-green-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @else
-                                <span class="text-red-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @endif
-                            @endforeach
-                          @endif
-                          
-                        @endforeach
-                      </td>
-                    </tr>
-
                     <tr class="border-b border-zinc-500 paladin">
                       <td class="py-1">
                         <a class="hover:text-slate-400" href="{{ route('guild.raiderio',  'Hësing' ) }}">
@@ -181,56 +130,6 @@
                       <td class="text-center">
                         @foreach ($whd as $personal_highest_key)
                           @if('Hësing' === $personal_highest_key->name)
-
-                            @foreach ($personal_highest_key->mythic_plus_weekly_highest_level_runs as $run)
-                              @if($run->mythic_level >= $current_limit)
-                                <span class="text-green-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @else
-                                <span class="text-red-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @endif
-                            @endforeach
-                          @endif
-                          
-                        @endforeach
-                      </td>
-                    </tr>
-
-                    <tr class="border-b border-zinc-500 rogue">
-                      <td class="py-1">
-                        <a class="hover:text-slate-400" href="{{ route('guild.raiderio',  'Subgecixd' ) }}">
-                          Subgecixd
-                        </a>
-                      </td>
-                      <td>DPS</td>
-                      <td>Dzsanázó</td>
-                      <td class="hidden md:table-cell">Dwarf</td>
-                      <td class="hidden md:table-cell">Rogue</td>
-                      <td class="hidden md:table-cell">Subtlety</td>
-                      <td><a class="text-white hidden md:table-cell hover:text-violet-400" href="https://raider.io/characters/eu/ragnaros/Subgecixd" target="_blank" rel="noopener noreferrer">Raider IO profil</a></td>
-                      <td class="text-center">
-                        @foreach ($whd as $personal_previous_highest_key)
-                          @if('Subgecixd' === $personal_previous_highest_key->name)
-
-                            @foreach ($personal_previous_highest_key->mythic_plus_previous_weekly_highest_level_runs as $run)
-                              @if($run->mythic_level >= $prev_limit)
-                                <span class="text-green-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @else
-                                <span class="text-red-500">{{ $run->mythic_level }}</span>
-                                @break
-                              @endif
-                            @endforeach
-                          @endif
-                        @endforeach
-                      </td>
-
-                      <td class="text-white">/</td>
-
-                      <td class="text-center">
-                        @foreach ($whd as $personal_highest_key)
-                          @if('Subgecixd' === $personal_highest_key->name)
 
                             @foreach ($personal_highest_key->mythic_plus_weekly_highest_level_runs as $run)
                               @if($run->mythic_level >= $current_limit)

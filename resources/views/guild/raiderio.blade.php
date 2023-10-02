@@ -34,7 +34,13 @@
               </span>
             </li>
             <li class="flex justify-between px-2 md:px-0">Active Spec: <span class="{{ strtolower($data->class) }}"> {{ $data->active_spec_name }}  </span></li>
-            <li class="flex justify-between bg-slate-700 md:bg-zinc-800 px-2 md:px-0">Season M+ Score: <span class="{{ strtolower($data->class) }}"> {{ round($data->mythic_plus_scores->all) }} </span></li>
+            <li class="flex justify-between bg-slate-700 md:bg-zinc-800 px-2 md:px-0">Season M+ Score: 
+              <span class="{{ strtolower($data->class) }}">
+              @foreach ($data->mythic_plus_scores_by_season as $score)
+                {{ $score->scores->all }}                
+              @endforeach
+              </span>
+            </li>
           </ul>
         </div>
         {{-- End Of Gear / Tanlent info --}}
