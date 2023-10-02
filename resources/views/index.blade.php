@@ -24,7 +24,7 @@
 
               <div class="hidden md:inline-flex">
                 <img class="md:shrink-0 object-scale-down max-h-32 max-w-xs" 
-                    src="https://assets.worldofwarcraft.com/static/components/Logo/Logo-horde.2a80e0466e51d85c8cf60336e16fe8b8.png" 
+                    src="{{ URL::to('/') }}/images/horda-logo.png" 
                     alt="Horda Logo">
               </div>
             </div>
