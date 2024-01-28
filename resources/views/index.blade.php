@@ -259,9 +259,13 @@
           
           {{-- Declare shorthand version for raid progression arrays --}}
           <?php 
-            $voti_prog = $raid_progress['raid_progression']['vault-of-the-incarnates'];
-            $atsc_prog = $raid_progress['raid_progression']['aberrus-the-shadowed-crucible'];
+            $atdh_prog = $raid_progress['raid_progression']['amirdrassil-the-dreams-hope'];
           ?>
+          {{-- Declare shorthand version for raid progression arrays --}}
+          <?php 
+          $atdh_rank = $raid_progress['raid_rankings']['amirdrassil-the-dreams-hope'];
+          ?>
+
           {{-- Raid progress table --}}
           <div class="flex  p-2 px-4">
             <table class="w-full">
@@ -271,36 +275,20 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="capitalize">Aberrus The shadowed crucible:</td>
-                  <td class="text-right">{{ $atsc_prog['summary'] }}</td>
+                  <td class="capitalize">Amirdrassil The Dreams Hope:</td>
+                  <td class="text-right pr-2">{{ $atdh_prog['summary'] }}</td>
                 </tr>
                 <tr>
-                  <td class="pl-3 capitalize">Normal:</td>
-                  <td class="pr-3 text-right">{{ $atsc_prog['normal_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
-                </tr>
-                <tr>
-                  <td class="pl-3 capitalize">Heroic:</td>
-                  <td class="pr-3 text-right">{{ $atsc_prog['heroic_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
-                </tr>
-                <tr class="border-b border-zinc-500">
-                  <td class="pl-3 capitalize pb-3">mythic:</td>
-                  <td class="pr-3 text-right pb-3">{{ $atsc_prog['mythic_bosses_killed'] }}/{{ $atsc_prog['total_bosses'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize pt-3">Vault of the Incarnates:</td>
-                  <td class="text-right pt-3">{{ $voti_prog['summary'] }}</td>
-                </tr>
-                <tr>
-                  <td class="pl-3 capitalize">Normal:</td>
-                  <td class="pr-3 text-right">{{ $voti_prog['normal_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
+                  <td class="pl-3 capitalize">mythic:</td>
+                  <td class="pr-4 text-right">{{ $atdh_prog['mythic_bosses_killed'] }}/{{ $atdh_prog['total_bosses'] }}</td>
                 </tr>
                 <tr>
                   <td class="pl-3 capitalize">Heroic:</td>
-                  <td class="pr-3 text-right">{{ $voti_prog['heroic_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
+                  <td class="pr-4 text-right">{{ $atdh_prog['heroic_bosses_killed'] }}/{{ $atdh_prog['total_bosses'] }}</td>
                 </tr>
                 <tr>
-                  <td class="pl-3 capitalize pb-3">mythic:</td>
-                  <td class="pr-3 text-right pb-3">{{ $voti_prog['mythic_bosses_killed'] }}/{{ $voti_prog['total_bosses'] }}</td>
+                  <td class="pl-3 capitalize pb-3">Normal:</td>
+                  <td class="pr-4 text-right pb-3">{{ $atdh_prog['normal_bosses_killed'] }}/{{ $atdh_prog['total_bosses'] }}</td>
                 </tr>
               </tbody>
             </table>            
@@ -313,8 +301,7 @@
 
           {{-- Declare shorthand version for raid progression arrays --}}
           <?php 
-            $voti_rank = $raid_progress['raid_rankings']['vault-of-the-incarnates'];
-            $atsc_rank = $raid_progress['raid_rankings']['aberrus-the-shadowed-crucible'];
+            $atdh_rank = $raid_progress['raid_rankings']['amirdrassil-the-dreams-hope'];
           ?>
           {{-- Raid rankings table --}}
           <div class="flex  p-2 px-4">
@@ -325,35 +312,19 @@
               </thead>
               <tbody>
                 <tr>
-                  <td class="capitalize text-center pb-2" colspan="2">Aberrus The shadowed crucible:</td>
+                  <td class="capitalize text-center pb-2" colspan="2">Amirdrassil The Dreams Hope:</td>
                 </tr>
                 <tr>
-                  <td class="pl-3 capitalize">Normal:</td>
-                  <td class="pr-3 text-right">{{ $atsc_rank['normal']['realm'] }}</td>
-                </tr>
-                <tr>
-                  <td class="pl-3 capitalize">Heroic:</td>
-                  <td class="pr-3 text-right">{{ $atsc_rank['heroic']['realm'] }}</td>
-                </tr>
-                <tr class="border-b border-zinc-500">
-                  <td class="pl-3 capitalize pb-3">mythic:</td>
-                  <td class="pr-3 text-right pb-3">{{ $atsc_rank['mythic']['realm'] }}</td>
-                </tr>
-                <tr>
-                  <td class="capitalize text-center p-2" colspan="2">Vault of the Incarnates:</td>
-                 
-                </tr>
-                <tr>
-                  <td class="pl-3 capitalize">Normal:</td>
-                  <td class="pr-3 text-right">{{ $voti_rank['normal']['realm'] }}</td>
+                  <td class="pl-3 capitalize">mythic:</td>
+                  <td class="pr-3 text-right">{{ $atdh_rank['mythic']['realm'] }}</td>
                 </tr>
                 <tr>
                   <td class="pl-3 capitalize">Heroic:</td>
-                  <td class="pr-3 text-right">{{ $voti_rank['heroic']['realm'] }}</td>
+                  <td class="pr-3 text-right">{{ $atdh_rank['heroic']['realm'] }}</td>
                 </tr>
                 <tr>
-                  <td class="pl-3 capitalize pb-3">mythic:</td>
-                  <td class="pr-3 text-right pb-3">{{ $voti_rank['mythic']['realm'] }}</td>
+                  <td class="pl-3 capitalize">Normal:</td>
+                  <td class="pr-3 text-right">{{ $atdh_rank['normal']['realm'] }}</td>
                 </tr>
               </tbody>
             </table>            
